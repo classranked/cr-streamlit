@@ -30,11 +30,14 @@ if uploaded_file:
                 min_weeks = st.number_input(f"Rule {i+1} - Min Course Duration (weeks)", min_value=1, value=1)
                 max_weeks = st.number_input(f"Rule {i+1} - Max Course Duration (weeks)", min_value=min_weeks, value=min_weeks+4)
 
-                survey_start_type = st.selectbox(f"Survey Start Type for Rule {i+1}", ["Percentage through the course", "Number of days after course start"], key=f"start_type_{i}")
-                survey_start_val = st.number_input(f"Survey Start Value ({survey_start_type})", key=f"start_val_{i}", step=1)
+                rule_mode = st.selectbox(f"Rule {i+1} - Date Mode", ["Percentage-based", "Day-based (relative to End Date)"], key=f"mode_{i}")
 
-                survey_end_type = st.selectbox(f"Survey End Type for Rule {i+1}", ["Number of days after survey starts", "Percentage through the course"], key=f"end_type_{i}")
-                survey_end_val = st.number_input(f"Survey End Value ({survey_end_type})", key=f"end_val_{i}", step=1)
+                if rule_mode == "Percentage-based":
+                    survey_start_val = st.number_input(f"Start at X% through the course", key=f"start_val_{i}", step=1)
+                    survey_end_val = st.number_input(f"End at Y% through the course", key=f"end_val_{i}", step=1)
+                else:
+                    survey_start_val = st.number_input(f"Survey Start: Days before course end", key=f"start_val_{i}", step=1)
+                    survey_end_val = st.number_input(f"Survey End: Days before course end", key=f"end_val_{i}", step=1)
 
                 admin_release_offset = st.number_input(f"When should the admin see the results? (days after survey ends)", value=3, key=f"admin_{i}", step=1)
                 instructor_release_offset = st.number_input(f"When should instructors see the results? (days after survey ends)", value=7, key=f"instr_{i}", step=1)
@@ -42,8 +45,9 @@ if uploaded_file:
                 rules.append({
                     "min_days": min_weeks * 7,
                     "max_days": max_weeks * 7,
-                    "survey_start": {"type": survey_start_type, "value": survey_start_val},
-                    "survey_end": {"type": survey_end_type, "value": survey_end_val},
+                    "mode": rule_mode,
+                    "survey_start_val": survey_start_val,
+                    "survey_end_val": survey_end_val,
                     "admin_release": admin_release_offset,
                     "instructor_release": instructor_release_offset
                 })
@@ -56,18 +60,17 @@ if uploaded_file:
                     start = row["Start Date"]
                     end = row["End Date"]
 
-                    if rule["survey_start"]["type"] == "Percentage through the course":
-                        survey_start = start + timedelta(days=round(duration * rule["survey_start"]["value"] / 100))
+                    if rule["mode"] == "Percentage-based":
+                        survey_start = start + timedelta(days=round(duration * rule["survey_start_val"] / 100))
+                        survey_end = start + timedelta(days=round(duration * rule["survey_end_val"] / 100))
+                        survey_end = survey_end.replace(hour=23, minute=59, second=59)
                     else:
-                        survey_start = start + timedelta(days=rule["survey_start"]["value"])
+                        survey_end = end - timedelta(days=rule["survey_end_val"])
+                        survey_end = survey_end.replace(hour=23, minute=59, second=59)
+                        survey_start = end - timedelta(days=rule["survey_start_val"])
 
-                    if rule["survey_end"]["type"] == "Percentage through the course":
-                        survey_end = start + timedelta(days=round(duration * rule["survey_end"]["value"] / 100))
-                    else:
-                        survey_end = survey_start + timedelta(days=rule["survey_end"]["value"])
-
-                    admin_release = survey_end + timedelta(days=rule["admin_release"])
-                    instructor_release = survey_end + timedelta(days=rule["instructor_release"])
+                    admin_release = survey_end.replace(hour=0, minute=0, second=0) + timedelta(days=rule["admin_release"])
+                    instructor_release = survey_end.replace(hour=0, minute=0, second=0) + timedelta(days=rule["instructor_release"])
 
                     return pd.Series([survey_start, survey_end, admin_release, instructor_release])
 
