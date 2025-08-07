@@ -1,166 +1,173 @@
 import streamlit as st
 import pandas as pd
-import io
 
 st.title("Repeat Per Instructor Survey Processing")
 
 st.markdown("""
 Upload the three CSV files: Course Sections, Instructor Assignments, and Student Enrollments.
-Select a processing option and download the updated files.
+Sections taught by multiple instructors will be duplicated into instructor-specific shells.
 """)
 
+# File upload
 sections_file = st.file_uploader("Upload Course Sections CSV", type="csv")
 instructors_file = st.file_uploader("Upload Instructor Assignments CSV", type="csv")
 enrollments_file = st.file_uploader("Upload Student Enrollments CSV", type="csv")
 
-processing_option = st.selectbox(
-    "Select Processing Option",
-    [
-        "1. One survey per instructor for each student",
-        "2. One survey per instructor but assigned only to matched students",
-        "3. All instructors share one survey (no change)"
-    ]
+variant = st.selectbox(
+    "Select Enrollment Variant",
+    ["Variant 1: Repeat all enrollments", "Variant 2: Enroll per 'Instructor' column"]
 )
 
-def get_email_prefix(email):
+def get_email_prefix(email: str) -> str:
     return email.split("@")[0]
 
-def process_option_1_2(sections_df, instructors_df, enrollments_df, option):
-    # Detect sections with multiple instructors
-    # Group instructors by Academic Unit
-    section_instructors = instructors_df.groupby('Academic Unit')['Email'].apply(list).reset_index()
-    multi_instructor_sections = section_instructors[section_instructors['Email'].apply(len) > 1]
+def process_sections(
+    sections_df: pd.DataFrame,
+    instructors_df: pd.DataFrame,
+    enrollments_df: pd.DataFrame,
+    variant: str
+):
+    # --- Sanitize inputs ---
+    sections_df = sections_df.drop_duplicates()
+    instructors_df = instructors_df.drop_duplicates()
+    enrollments_df = enrollments_df.drop_duplicates()
 
-    # Create a mapping of old_section_id to new section ids per instructor
-    section_instructor_map = {}
+    # --- Build section → instructors mapping ---
+    mapping = (
+        instructors_df
+        .groupby("Academic Unit")["Email"]
+        .apply(list)
+        .reset_index()
+        .rename(columns={"Email": "EmailList"})
+    )
+    mapping["NumInstructors"] = mapping["EmailList"].apply(len)
 
-    # New sections list
-    new_sections = sections_df.copy()
+    # --- Merge mapping into sections ---
+    sections = sections_df.merge(
+        mapping, left_on="Section ID", right_on="Academic Unit", how="left"
+    )
+    sections["NumInstructors"] = sections["NumInstructors"].fillna(0).astype(int)
+    sections["EmailList"] = sections["EmailList"].apply(lambda x: x if isinstance(x, list) else [])
 
-    # New instructors list
-    new_instructors_rows = []
+    # --- Split unchanged vs multi-instructor ---
+    unchanged = sections[sections["NumInstructors"] <= 1]
+    multi = sections[sections["NumInstructors"] > 1]
 
-    # For enrollments
-    new_enrollments_rows = []
+    # Prepare outputs
+    out_sections = []
+    out_instructors = []
+    out_enrollments = []
+    removed_sections = multi[sections_df.columns].copy()
 
-    # Set of sections with multiple instructors
-    multi_section_ids = set(multi_instructor_sections['Academic Unit'])
+    # --- Process unchanged sections ---
+    for _, row in unchanged.iterrows():
+        secid = row["Section ID"]
+        out_sections.append(row[sections_df.columns].to_dict())
+        for email in row["EmailList"]:
+            out_instructors.append({"Academic Unit": secid, "Email": email})
 
-    # Process each section
-    for idx, row in sections_df.iterrows():
-        section_id = row['Section ID']
-        if section_id in multi_section_ids:
-            # Multiple instructors
-            instructors_list = section_instructors[section_instructors['Academic Unit'] == section_id]['Email'].values[0]
-            for instructor_email in instructors_list:
-                email_prefix = get_email_prefix(instructor_email)
-                new_section_id = f"{section_id} ({email_prefix})"
-                section_instructor_map[(section_id, instructor_email)] = new_section_id
+    # --- Process multi-instructor sections ---
+    section_map = {}
+    for _, row in multi.iterrows():
+        original_id = row["Section ID"]
+        for email in row["EmailList"]:
+            prefix = get_email_prefix(email)
+            new_id = f"{original_id} ({prefix})"
+            section_map[(original_id, email)] = new_id
 
-                # Add new section row
-                new_row = row.copy()
-                new_row['Section ID'] = new_section_id
-                new_sections = pd.concat([new_sections, pd.DataFrame([new_row])], ignore_index=True)
+            new_row = row[sections_df.columns].to_dict()
+            new_row["Section ID"] = new_id
+            out_sections.append(new_row)
 
-                # Add instructor assignment row
-                new_instructors_rows.append({
-                    'Academic Unit': new_section_id,
-                    'Email': instructor_email
-                })
+            out_instructors.append({"Academic Unit": new_id, "Email": email})
 
-            # Remove original section row
-            new_sections = new_sections[new_sections['Section ID'] != section_id]
+    # --- Process enrollments ---
+    for _, row in enrollments_df.iterrows():
+        secid = row["Academic Unit"]
+        instr_col = row.get("Instructor", None)
+        # Determine emails for this section
+        mask = (mapping["Academic Unit"] == secid)
+        emails = mapping.loc[mask, "EmailList"].iloc[0] if mask.any() else []
 
-        else:
-            # Single instructor section, keep as is
-            instructors_for_section = instructors_df[instructors_df['Academic Unit'] == section_id]
-            for _, instr_row in instructors_for_section.iterrows():
-                new_instructors_rows.append({
-                    'Academic Unit': section_id,
-                    'Email': instr_row['Email']
-                })
-
-    new_instructors_df = pd.DataFrame(new_instructors_rows)
-
-    if option == "1. One survey per instructor for each student":
-        # For each enrollment in a multi-instructor section, duplicate for each instructor-specific section
-        for idx, enr_row in enrollments_df.iterrows():
-            section_id = enr_row['Academic Unit']
-            if section_id in multi_section_ids:
-                instructors_list = section_instructors[section_instructors['Academic Unit'] == section_id]['Email'].values[0]
-                for instructor_email in instructors_list:
-                    new_section_id = section_instructor_map[(section_id, instructor_email)]
-                    new_enr_row = enr_row.copy()
-                    new_enr_row['Academic Unit'] = new_section_id
-                    new_enrollments_rows.append(new_enr_row)
+        if secid in multi["Section ID"].values:
+            if variant.startswith("Variant 1") or pd.isna(instr_col):
+                # Duplicate for all instructor shells
+                for email in emails:
+                    new_row = row.copy()
+                    new_row["Academic Unit"] = section_map.get((secid, email), secid)
+                    out_enrollments.append(new_row.to_dict())
             else:
-                new_enrollments_rows.append(enr_row)
-
-    elif option == "2. One survey per instructor but assigned only to matched students":
-        # We expect a column 'Email' in enrollments to specify matched instructors
-        if 'Email' not in enrollments_df.columns:
-            st.error("Enrollments file must include an 'Email' column for Option 2.")
-            return None, None, None
-
-        for idx, enr_row in enrollments_df.iterrows():
-            section_id = enr_row['Academic Unit']
-            student_instructor_email = enr_row['Email']
-            if section_id in multi_section_ids:
-                # Assign to the instructor-specific section only if instructor matches
-                if (section_id, student_instructor_email) in section_instructor_map:
-                    new_section_id = section_instructor_map[(section_id, student_instructor_email)]
-                    new_enr_row = enr_row.copy()
-                    new_enr_row['Academic Unit'] = new_section_id
-                    new_enrollments_rows.append(new_enr_row)
+                # Variant 2: use specified Instructor column
+                if (secid, instr_col) in section_map:
+                    new_row = row.copy()
+                    new_row["Academic Unit"] = section_map[(secid, instr_col)]
+                    out_enrollments.append(new_row.to_dict())
                 else:
-                    # Student assigned to instructor not in section, skip
-                    pass
-            else:
-                new_enrollments_rows.append(enr_row)
+                    # Fallback: keep as-is
+                    out_enrollments.append(row.to_dict())
+        else:
+            out_enrollments.append(row.to_dict())
 
-    new_enrollments_df = pd.DataFrame(new_enrollments_rows)
+    # --- Build DataFrames and drop duplicates ---
+    new_sections_df = pd.DataFrame(out_sections).drop_duplicates(subset=["Section ID"])
+    new_instructors_df = pd.DataFrame(out_instructors).drop_duplicates()
+    new_enrollments_df = pd.DataFrame(out_enrollments).drop_duplicates()
 
-    # Remove duplicates if any
-    new_sections = new_sections.drop_duplicates(subset=['Section ID'])
-    new_instructors_df = new_instructors_df.drop_duplicates()
-    new_enrollments_df = new_enrollments_df.drop_duplicates()
+    return new_sections_df, new_instructors_df, new_enrollments_df, removed_sections
 
-    return new_sections, new_instructors_df, new_enrollments_df
-
+# --- Main flow ---
 if sections_file and instructors_file and enrollments_file:
-    sections_df = pd.read_csv(sections_file)
+    # Read and de-duplicate Course Sections, then report counts
+    raw_sections_df = pd.read_csv(sections_file)
+    deduped_sections_df = raw_sections_df.drop_duplicates()
+    st.write(f"Sections after de-duplication: {len(deduped_sections_df)} (removed {len(raw_sections_df) - len(deduped_sections_df)} duplicate rows)")
+    sections_df = deduped_sections_df
     instructors_df = pd.read_csv(instructors_file)
     enrollments_df = pd.read_csv(enrollments_file)
 
-    if processing_option == "3. All instructors share one survey (no change)":
-        st.write("No changes made for Option 3.")
-        new_sections_df = sections_df
-        new_instructors_df = instructors_df
-        new_enrollments_df = enrollments_df
-    else:
-        result = process_option_1_2(sections_df, instructors_df, enrollments_df, processing_option)
-        if all(x is None for x in result):
-            st.stop()
-        new_sections_df, new_instructors_df, new_enrollments_df = result
+    all_sections = []
+    all_instructors = []
+    all_enrollments = []
 
-    def convert_df_to_csv(df):
-        return df.to_csv(index=False).encode('utf-8')
+    def to_csv(df: pd.DataFrame) -> bytes:
+        return df.to_csv(index=False).encode("utf-8")
+
+    terms = sections_df["Term"].unique()
+    for term in terms:
+        term_secs = sections_df[sections_df["Term"] == term]
+        term_instr = instructors_df[instructors_df["Term"] == term]
+        term_enr = enrollments_df[enrollments_df["Term"] == term]
+        new_s, new_i, new_e, removed = process_sections(term_secs, term_instr, term_enr, variant)
+        st.subheader(f"Term: {term}")
+        st.download_button(f"Download Course Sections {term}", to_csv(new_s), file_name=f"updated_course_sections_{term}.csv", mime="text/csv")
+        st.download_button(f"Download Instructor Assignments {term}", to_csv(new_i), file_name=f"updated_instructor_assignments_{term}.csv", mime="text/csv")
+        st.download_button(f"Download Student Enrollments {term}", to_csv(new_e), file_name=f"updated_student_enrollments_{term}.csv", mime="text/csv")
+
+        all_sections.append(new_s)
+        all_instructors.append(new_i)
+        all_enrollments.append(new_e)
+
+    # Merged outputs across all terms
+    st.subheader("Merged Outputs")
+    merged_sections_df = pd.concat(all_sections, ignore_index=True)
+    merged_instructors_df = pd.concat(all_instructors, ignore_index=True)
+    merged_enrollments_df = pd.concat(all_enrollments, ignore_index=True)
 
     st.download_button(
-        label="Download Updated Course Sections CSV",
-        data=convert_df_to_csv(new_sections_df),
-        file_name='updated_course_sections.csv',
-        mime='text/csv'
+        "Download All Course Sections",
+        to_csv(merged_sections_df),
+        file_name="all_updated_course_sections.csv",
+        mime="text/csv"
     )
     st.download_button(
-        label="Download Updated Instructor Assignments CSV",
-        data=convert_df_to_csv(new_instructors_df),
-        file_name='updated_instructor_assignments.csv',
-        mime='text/csv'
+        "Download All Instructor Assignments",
+        to_csv(merged_instructors_df),
+        file_name="all_updated_instructor_assignments.csv",
+        mime="text/csv"
     )
     st.download_button(
-        label="Download Updated Student Enrollments CSV",
-        data=convert_df_to_csv(new_enrollments_df),
-        file_name='updated_student_enrollments.csv',
-        mime='text/csv'
+        "Download All Student Enrollments",
+        to_csv(merged_enrollments_df),
+        file_name="all_updated_student_enrollments.csv",
+        mime="text/csv"
     )
