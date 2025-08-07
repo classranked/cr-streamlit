@@ -63,8 +63,16 @@ def process_sections(
     for _, row in unchanged.iterrows():
         secid = row["Section ID"]
         out_sections.append(row[sections_df.columns].to_dict())
+        # Preserve full instructor assignment records
         for email in row["EmailList"]:
-            out_instructors.append({"Academic Unit": secid, "Email": email})
+            instr_rows = instructors_df[
+                (instructors_df["Academic Unit"] == secid) &
+                (instructors_df["Email"] == email)
+            ]
+            for _, instr_row in instr_rows.iterrows():
+                rec = instr_row.to_dict()
+                rec["Academic Unit"] = secid
+                out_instructors.append(rec)
 
     # --- Process multi-instructor sections ---
     section_map = {}
@@ -79,7 +87,15 @@ def process_sections(
             new_row["Section ID"] = new_id
             out_sections.append(new_row)
 
-            out_instructors.append({"Academic Unit": new_id, "Email": email})
+            # Preserve full instructor assignment records for each shell
+            instr_rows = instructors_df[
+                (instructors_df["Academic Unit"] == original_id) &
+                (instructors_df["Email"] == email)
+            ]
+            for _, instr_row in instr_rows.iterrows():
+                rec = instr_row.to_dict()
+                rec["Academic Unit"] = new_id
+                out_instructors.append(rec)
 
     # --- Process enrollments ---
     for _, row in enrollments_df.iterrows():
@@ -138,6 +154,23 @@ if sections_file and instructors_file and enrollments_file:
         term_instr = instructors_df[instructors_df["Term"] == term]
         term_enr = enrollments_df[enrollments_df["Term"] == term]
         new_s, new_i, new_e, removed = process_sections(term_secs, term_instr, term_enr, variant)
+        # Truncate Section ID to 32 chars, ensuring it ends with ')'
+        if 'Section ID' in new_s.columns:
+            new_s['Section ID'] = new_s['Section ID'].astype(str).apply(
+                lambda x: x if len(x) <= 32 else x[:31] + ')'
+            )
+
+        # Truncate Academic Unit in instructor assignments
+        if 'Academic Unit' in new_i.columns:
+            new_i['Academic Unit'] = new_i['Academic Unit'].astype(str).apply(
+                lambda x: x if len(x) <= 32 else x[:31] + ')'
+            )
+
+        # Truncate Academic Unit in student enrollments
+        if 'Academic Unit' in new_e.columns:
+            new_e['Academic Unit'] = new_e['Academic Unit'].astype(str).apply(
+                lambda x: x if len(x) <= 32 else x[:31] + ')'
+            )
         st.subheader(f"Term: {term}")
         st.download_button(f"Download Course Sections {term}", to_csv(new_s), file_name=f"updated_course_sections_{term}.csv", mime="text/csv")
         st.download_button(f"Download Instructor Assignments {term}", to_csv(new_i), file_name=f"updated_instructor_assignments_{term}.csv", mime="text/csv")
