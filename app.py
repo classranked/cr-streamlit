@@ -18,6 +18,7 @@ scripts = {
 }
 
 # Streamlit app
+st.set_page_config(page_title="File Processing App", page_icon="🗂️", layout="wide")
 st.title("File Processing App")
 
 # Script selection

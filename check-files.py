@@ -144,6 +144,7 @@ def parse_uploads(files: List[st.runtime.uploaded_file_manager.UploadedFile]):
 
 def main():
     st.set_page_config(page_title="ClassRanked SIS Receipt Checker",
+                       page_icon="🧾",
                        layout="wide")
     st.title("SIS Receipt Checker")
     st.caption(

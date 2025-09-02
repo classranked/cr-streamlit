@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 
+st.set_page_config(page_title="Repeat Per Instructor Survey Processing", page_icon="👥", layout="wide")
 st.title("Repeat Per Instructor Survey Processing")
 
 st.markdown("""

@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from datetime import datetime, timedelta
 
-st.set_page_config(page_title="Survey Date Generator", layout="wide")
+st.set_page_config(page_title="Survey Date Generator", page_icon="📅", layout="wide")
 st.title("📅 Custom Survey Date Generator")
 
 st.markdown("Upload your course section CSV with `Section ID`, `Start Date`, and `End Date`. Define custom rules based on course duration.")
