@@ -260,8 +260,8 @@ st.sidebar.header("2) Define Rules")
 if "rules_df" not in st.session_state:
     # sensible default rules for the common cases the user asked for
     st.session_state.rules_df = pd.DataFrame([
-        {"attribute": "Subterm", "field": "duration_weeks", "operator": "==", "value": 1, "value_to": None, "output": 1, "order": 1, "stop_if_matched": True},
-        {"attribute": "Subterm", "field": "duration_weeks", "operator": "==", "value": 2, "value_to": None, "output": 2, "order": 2, "stop_if_matched": True},
+        {"attribute": "Subterm", "field": "duration_weeks", "operator": ">", "value": 8, "value_to": None, "output": 16, "order": 1, "stop_if_matched": True},
+        {"attribute": "Subterm", "field": "duration_weeks", "operator": "<=", "value": 8, "value_to": None, "output": 8, "order": 2, "stop_if_matched": True},
         {"attribute": "PSA_PHA", "field": "Section ID", "operator": "startswith", "value": "PSA", "value_to": None, "output": "PSA", "order": 1, "stop_if_matched": True},
         {"attribute": "PSA_PHA", "field": "Section ID", "operator": "startswith", "value": "PHA", "value_to": None, "output": "PHA", "order": 2, "stop_if_matched": True},
     ])
