@@ -1,0 +1,16 @@
+{
+  "catalog_rows": 2352,
+  "first_name_rows": 500,
+  "last_name_rows": 500,
+  "first_name_source": [
+    "SSA official pages: 2024 top 10, 2010s decade rankings, and century rankings.",
+    "A small fallback list may be used only if the official page-derived pool is below 500 unique names."
+  ],
+  "last_name_source": [
+    "U.S. Census Bureau 2010 Census surnames archive: Names_2010Census.csv"
+  ],
+  "notes": [
+    "Synthetic large-university course catalog for SIS test data generation.",
+    "Name corpora are local vendored seed datasets stored in the repo for deterministic generation and deployment."
+  ]
+}

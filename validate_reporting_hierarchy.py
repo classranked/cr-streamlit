@@ -1,4 +1,5 @@
 import io
+from collections import Counter
 from typing import Dict, List, Optional, Set, Tuple
 
 import pandas as pd
@@ -70,72 +71,7 @@ def _read_csv(file) -> pd.DataFrame:
     - keep_default_na=False prevents treating empty strings as NaN.
     """
     return pd.read_csv(file, dtype=str, keep_default_na=False, na_values=[""])
-
-
-def _compute_type_chain(child_to_parent_type: Dict[str, str]) -> Tuple[List[str], List[str]]:
-    """Compute a linear type chain from mapping child_type -> parent_type.
-
-    Returns a tuple: (ordered_types, chain_errors)
-    - ordered_types: top type first down to leaf type if chain can be built;
-      otherwise best-effort ordering of discovered types.
-    - chain_errors: list of error messages if the mapping is not a simple chain
-      (e.g., multiple roots, repeated parents at a level, or cycles).
-    """
-    errors: List[str] = []
-
-    # All types seen in the mapping (as child or parent)
-    child_types = set(child_to_parent_type.keys())
-    parent_types = set(child_to_parent_type.values())
-    all_types = child_types | parent_types
-
-    # A proper chain should have exactly one root (a type that is never a child)
-    roots = sorted(parent_types - child_types)
-    if len(roots) != 1:
-        if len(roots) == 0:
-            errors.append("Type chain error: no unique top type (cycle or all types are children).")
-        else:
-            errors.append(
-                f"Type chain error: multiple candidate top types: {', '.join(roots)}."
-            )
-
-    # In a linear chain, each parent_type should appear as a parent of at most one child_type
-    parent_counts: Dict[str, int] = {}
-    for pt in child_to_parent_type.values():
-        parent_counts[pt] = parent_counts.get(pt, 0) + 1
-    same_level = [pt for pt, c in parent_counts.items() if c > 1]
-    if same_level:
-        errors.append(
-            "Type chain error: multiple child types share the same parent type (more than one type at a level): "
-            + ", ".join(f"{pt} -> {parent_counts[pt]} children" for pt in same_level)
-        )
-
-    # Try to build an ordered chain (best-effort even if errors exist)
-    ordered: List[str] = []
-    if roots:
-        # Start at (first) root and walk down following the unique child (if any)
-        # Build reverse index: parent_type -> child_type (should be unique for a valid chain)
-        parent_to_child: Dict[str, str] = {}
-        for child, parent in child_to_parent_type.items():
-            # the same parent may appear more than once; we only keep the first for ordering purposes
-            parent_to_child.setdefault(parent, child)
-
-        cur = roots[0]
-        seen: Set[str] = set()
-        while cur and cur not in seen:
-            ordered.append(cur)
-            seen.add(cur)
-            cur = parent_to_child.get(cur, None)
-
-        # If we didn't cover all types, append any leftover types (best-effort)
-        leftovers = [t for t in all_types if t not in ordered]
-        ordered.extend(leftovers)
-    else:
-        ordered = list(all_types)
-
-    return ordered, errors
-
-
-def validate_hierarchy(df_in: pd.DataFrame) -> Tuple[pd.DataFrame, Dict[str, object]]:
+def validate_hierarchy(df_in: pd.DataFrame, type_order: List[str]) -> Tuple[pd.DataFrame, Dict[str, object]]:
     """Validate the hierarchy and return (annotated_df, summary).
 
     annotated_df has additional diagnostic columns and an Errors column.
@@ -177,6 +113,7 @@ def validate_hierarchy(df_in: pd.DataFrame) -> Tuple[pd.DataFrame, Dict[str, obj
         "err_top_type_has_parent",
         "err_parent_type_mismatch",
         "err_ambiguous_parent_type_for_child_type",
+        "err_type_not_in_provided_order",
     ]
     err_flags: Dict[str, List[bool]] = {c: [False] * len(df) for c in ERR_COLS}
 
@@ -241,56 +178,24 @@ def validate_hierarchy(df_in: pd.DataFrame) -> Tuple[pd.DataFrame, Dict[str, obj
     df["_Parent Exists"] = parent_exists
     df["_Parent Type (actual)"] = parent_type_for_row
 
-    # Per child type, collect counts of actual parent types seen (where parent exists)
-    type_to_parent_counts: Dict[str, Dict[str, int]] = {}
-    for child_type, p_exists, p_type in zip(
-        df["Academic Unit Type"], df["_Parent Exists"], df["_Parent Type (actual)"]
-    ):
-        if p_exists and p_type:
-            d = type_to_parent_counts.setdefault(child_type, {})
-            d[p_type] = d.get(p_type, 0) + 1
+    valid_types = {t for t in type_order}
+    invalid_type_mask = (df["Academic Unit Type"] != "") & (~df["Academic Unit Type"].isin(valid_types))
+    for idx in df.index[invalid_type_mask]:
+        _add_err(
+            idx,
+            "err_type_not_in_provided_order",
+            f"Academic Unit Type '{df.loc[idx, 'Academic Unit Type']}' not in provided order",
+        )
 
-    # Decide the expected parent type per child type:
-    # - If a single parent type is observed, that's the expected type.
-    # - If multiple are observed, use the unique mode (strict majority) if present.
-    # - If there is a tie for the mode, mark the child type as ambiguous.
-    child_to_parent_type_unique: Dict[str, str] = {}
-    ambiguous_child_types: Set[str] = set()
-    for child_type, counts in type_to_parent_counts.items():
-        if not counts:
-            continue
-        # Determine mode(s)
-        max_count = max(counts.values())
-        modes = [pt for pt, c in counts.items() if c == max_count]
-        if len(modes) == 1:
-            child_to_parent_type_unique[child_type] = modes[0]
-            # We will flag only the deviating rows later via parent_type_mismatch
-        else:
-            # Tie → can't infer a single expected type
-            ambiguous_child_types.add(child_type)
+    # Determine mapping of child type -> expected parent type based on provided order
+    child_to_parent_type_unique: Dict[str, str] = {
+        type_order[i]: type_order[i - 1] for i in range(1, len(type_order))
+    }
+    ordered_types = list(type_order)
+    chain_errors: List[str] = []
 
-    # Detect type-chain errors (multiple root types, same-level conflicts, cycles)
-    ordered_types, chain_errors = _compute_type_chain(child_to_parent_type_unique)
-
-    # Apply same-level error annotation to involved rows when relevant
-    # If multiple child types share the same parent type, flag all rows of those child types
-    parent_to_children: Dict[str, List[str]] = {}
-    for c, p in child_to_parent_type_unique.items():
-        parent_to_children.setdefault(p, []).append(c)
-    for p, children in parent_to_children.items():
-        if len(children) > 1:
-            for ct in children:
-                for idx in df.index[df["Academic Unit Type"] == ct]:
-                    _add_err(
-                        idx,
-                        "err_multiple_child_types_share_parent_type",
-                        f"Multiple child types share parent type '{p}' (violates single type per level)",
-                    )
-
-    # Determine the top type and enforce top-level parent rules
-    # Top type is any parent type that is not a child in the unique mapping.
-    candidates_top_types = sorted(set(child_to_parent_type_unique.values()) - set(child_to_parent_type_unique.keys()))
-    top_type: Optional[str] = candidates_top_types[0] if len(candidates_top_types) == 1 else None
+    # Determine the top type from the provided order
+    top_type: Optional[str] = type_order[0] if type_order else None
 
     # Exactly one row should be top-level (no parent)
     top_level_mask = df["Parent Academic Unit"] == ""
@@ -328,40 +233,27 @@ def validate_hierarchy(df_in: pd.DataFrame) -> Tuple[pd.DataFrame, Dict[str, obj
                 f"Units of top type '{top_type}' must not have a parent",
             )
 
-    # For each row with a parent, check that parent type equals the unique allowed parent type for the row's child type
+    # For each row with a parent, check that parent type matches the provided order
     expected_parent_types_for_child_type = {
         ct: pt for ct, pt in child_to_parent_type_unique.items()
     }
     expected_parent_type_col: List[Optional[str]] = []
-    for idx, (ct, p_exists, p_type) in enumerate(
-        zip(df["Academic Unit Type"], df["_Parent Exists"], df["_Parent Type (actual)"])
+    for idx, (ct, parent_abbr, p_exists, p_type) in enumerate(
+        zip(
+            df["Academic Unit Type"],
+            df["Parent Academic Unit"],
+            df["_Parent Exists"],
+            df["_Parent Type (actual)"],
+        )
     ):
         exp_pt = expected_parent_types_for_child_type.get(ct)
         expected_parent_type_col.append(exp_pt)
-        if df.loc[idx, "Parent Academic Unit"] != "":
-            # Has a parent; enforce expected type when we know it
-            if exp_pt is not None and p_exists and p_type != exp_pt:
+        if parent_abbr != "" and exp_pt is not None:
+            if p_exists and p_type != exp_pt:
                 _add_err(
                     idx,
                     "err_parent_type_mismatch",
                     f"Parent type mismatch: expected '{exp_pt}', found '{p_type}'",
-                )
-            # Only flag ambiguity when the child type truly has a tie among parent types
-            if exp_pt is None and p_exists and ct in ambiguous_child_types:
-                modes = []
-                if ct in type_to_parent_counts:
-                    # collect tied modes for the message
-                    counts = type_to_parent_counts[ct]
-                    max_count = max(counts.values())
-                    modes = sorted([pt for pt, c in counts.items() if c == max_count])
-                _add_err(
-                    idx,
-                    "err_ambiguous_parent_type_for_child_type",
-                    (
-                        "Ambiguous parent type for this child type (tie among: "
-                        + ", ".join(modes)
-                        + ")"
-                    ),
                 )
 
     df["_Expected Parent Type"] = expected_parent_type_col
@@ -388,6 +280,7 @@ def validate_hierarchy(df_in: pd.DataFrame) -> Tuple[pd.DataFrame, Dict[str, obj
         "top_type": top_type,
         "top_level_count": top_level_count,
         "rows_with_errors": int((df["Row Valid"] == False).sum()),
+        "provided_type_order": ordered_types,
     }
 
     return df, summary
@@ -396,8 +289,62 @@ def validate_hierarchy(df_in: pd.DataFrame) -> Tuple[pd.DataFrame, Dict[str, obj
 # --------------------------- Streamlit UI -------------------------------------
 
 st.set_page_config(page_title="Validate Reporting Hierarchy", page_icon="🌲", layout="wide")
-st.title("Validate Reporting Hierarchy (Academic Units)")
+st.title("Validate Reporting Hierarchy")
 
+st.subheader("Step 1: Define academic unit type order (top → bottom)")
+
+TYPE_LEVELS_STATE_KEY = "hierarchy_type_levels"
+if TYPE_LEVELS_STATE_KEY not in st.session_state:
+    st.session_state[TYPE_LEVELS_STATE_KEY] = [""]
+
+controls = st.columns([1, 1, 4])
+if controls[0].button("Add level", key="type_level_add"):
+    st.session_state[TYPE_LEVELS_STATE_KEY].append("")
+if controls[1].button("Remove last level", key="type_level_remove"):
+    if len(st.session_state[TYPE_LEVELS_STATE_KEY]) > 1:
+        removed_index = len(st.session_state[TYPE_LEVELS_STATE_KEY]) - 1
+        st.session_state[TYPE_LEVELS_STATE_KEY].pop()
+        st.session_state.pop(f"type_level_{removed_index}", None)
+
+for idx in range(len(st.session_state[TYPE_LEVELS_STATE_KEY])):
+    key = f"type_level_{idx}"
+    default_value = st.session_state[TYPE_LEVELS_STATE_KEY][idx]
+    placeholder = "Top level (e.g., University)" if idx == 0 else "Next level (e.g., College)"
+    new_value = st.text_input(
+        f"Level {idx + 1}",
+        key=key,
+        value=default_value,
+        placeholder=placeholder,
+    )
+    normalized_value = new_value.strip()
+    st.session_state[TYPE_LEVELS_STATE_KEY][idx] = normalized_value
+
+type_levels = list(st.session_state[TYPE_LEVELS_STATE_KEY])
+empty_levels = [idx + 1 for idx, val in enumerate(type_levels) if not val]
+type_order = [val for val in type_levels if val]
+duplicate_types = [t for t, count in Counter(type_order).items() if count > 1]
+
+type_order_valid = True
+if not type_order:
+    st.info("Add at least one academic unit type to begin.")
+    type_order_valid = False
+
+if empty_levels:
+    st.error(
+        "Fill in a name for each hierarchy level or remove unused entries: "
+        + ", ".join(f"Level {lvl}" for lvl in empty_levels)
+    )
+    type_order_valid = False
+if duplicate_types:
+    st.error("Duplicate type names provided: " + ", ".join(duplicate_types))
+    type_order_valid = False
+
+if type_order_valid:
+    st.caption("Current type order: " + " → ".join(type_order))
+else:
+    st.caption("Current type order: (incomplete)")
+
+st.subheader("Step 2: Upload reporting hierarchy CSV")
 st.markdown(
     "Upload a CSV describing your school's reporting hierarchy. Required headers:"
 )
@@ -405,7 +352,16 @@ st.code(
     ", ".join(REQUIRED_COLUMNS),
 )
 
-uploaded = st.file_uploader("Upload reporting hierarchy CSV", type=["csv"], key="hier_csv")
+uploaded = st.file_uploader(
+    "Upload reporting hierarchy CSV",
+    type=["csv"],
+    key="hier_csv",
+    disabled=not type_order_valid,
+)
+
+if not type_order_valid:
+    st.info("Resolve the type order issues above to enable file upload.")
+    st.stop()
 
 if not uploaded:
     st.info("Upload a CSV to begin validation.")
@@ -413,7 +369,7 @@ if not uploaded:
 
 with st.spinner("Reading and validating CSV..."):
     df_raw = _read_csv(uploaded)
-    annotated_df, summary = validate_hierarchy(df_raw)
+    annotated_df, summary = validate_hierarchy(df_raw, type_order)
 
 if summary.get("fatal_error"):
     st.error(summary["fatal_error"])
@@ -432,13 +388,15 @@ if summary["chain_errors"]:
     for msg in summary["chain_errors"]:
         st.write("- ", msg)
 
-st.markdown("Suggested type order (top → bottom):")
+st.markdown("Provided type order (top → bottom):")
 st.write(" → ".join(summary.get("ordered_types") or []))
 
 if summary.get("top_type"):
-    st.caption(f"Detected top type: {summary['top_type']}  | Top-level rows: {summary['top_level_count']}")
+    st.caption(
+        f"Top type: {summary['top_type']}  | Top-level rows: {summary['top_level_count']}"
+    )
 else:
-    st.caption("Top type not uniquely determined from data.")
+    st.caption("Top type not provided.")
 
 with st.expander("Type mapping (child type → expected parent type)"):
     mapping = summary.get("child_to_parent_type_unique", {})
@@ -518,6 +476,6 @@ if filters_applied:
     )
 
 st.caption(
-    "Rules enforced: unique abbreviations; consistent parent type per child type;"
-    " exactly one top-level row; parent existence; and a single linear type chain."
+    "Rules enforced: unique abbreviations; parent existence; exactly one top-level row;"
+    " type names present in the provided order; and parent types aligned with that order."
 )

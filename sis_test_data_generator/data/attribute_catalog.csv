@@ -1,0 +1,161 @@
+attribute_name,column_name,value,weight,allow_overflow,is_hierarchy_level
+Campus,Campus,Austin,392,true,false
+Campus,Campus,Boston,392,true,false
+Campus,Campus,Chicago,392,true,false
+Campus,Campus,Online,392,true,false
+Campus,Campus,San Jose,392,true,false
+Campus,Campus,Washington DC,392,true,false
+College,College,College of Arts and Sciences,960,true,true
+College,College,College of Design,96,true,true
+College,College,College of Education,96,true,true
+College,College,College of Engineering,336,true,true
+College,College,College of Fine Arts,144,true,true
+College,College,College of Health Sciences,144,true,true
+College,College,School of Business,288,true,true
+College,College,School of Communication,96,true,true
+College,College,School of Dentistry,48,true,true
+College,College,School of Law,96,true,true
+College,College,School of Medicine,48,true,true
+Course Level,Course Level,100 Level,294,true,false
+Course Level,Course Level,200 Level,294,true,false
+Course Level,Course Level,300 Level,294,true,false
+Course Level,Course Level,400 Level,294,true,false
+Course Level,Course Level,500 Level,294,true,false
+Course Level,Course Level,600 Level,294,true,false
+Course Level,Course Level,700 Level,588,true,false
+Course Type,Course Type,Dissertation,294,true,false
+Course Type,Course Type,Independent Study,343,true,false
+Course Type,Course Type,Lab,343,true,false
+Course Type,Course Type,Lecture,343,true,false
+Course Type,Course Type,Practicum,343,true,false
+Course Type,Course Type,Seminar,343,true,false
+Course Type,Course Type,Special Topics,343,true,false
+Delivery Method,Delivery Method,HyFlex,588,true,false
+Delivery Method,Delivery Method,Hybrid,588,true,false
+Delivery Method,Delivery Method,On-Campus,588,true,false
+Delivery Method,Delivery Method,Online,588,true,false
+Department,Department,Accounting,48,true,true
+Department,Department,Anthropology,48,true,true
+Department,Department,Arabic,48,true,true
+Department,Department,Architecture,48,true,true
+Department,Department,Art,48,true,true
+Department,Department,Biology,48,true,true
+Department,Department,Business Administration,48,true,true
+Department,Department,Chemical Engineering,48,true,true
+Department,Department,Chemistry,48,true,true
+Department,Department,Chinese,48,true,true
+Department,Department,Civil Engineering,48,true,true
+Department,Department,Communication,48,true,true
+Department,Department,Computer Science,48,true,true
+Department,Department,Counseling,48,true,true
+Department,Department,Criminal Justice,48,true,true
+Department,Department,Data Science,48,true,true
+Department,Department,Dentistry,48,true,true
+Department,Department,Economics,48,true,true
+Department,Department,Education,48,true,true
+Department,Department,Electrical Engineering,48,true,true
+Department,Department,English,48,true,true
+Department,Department,Environmental Studies,48,true,true
+Department,Department,Finance,48,true,true
+Department,Department,French,48,true,true
+Department,Department,Geography,48,true,true
+Department,Department,History,48,true,true
+Department,Department,Industrial Engineering,48,true,true
+Department,Department,Information Systems,48,true,true
+Department,Department,Journalism,48,true,true
+Department,Department,Law,48,true,true
+Department,Department,Linguistics,48,true,true
+Department,Department,Management,48,true,true
+Department,Department,Marketing,48,true,true
+Department,Department,Mathematics,48,true,true
+Department,Department,Mechanical Engineering,48,true,true
+Department,Department,Medicine,48,true,true
+Department,Department,Music,48,true,true
+Department,Department,Nursing,48,true,true
+Department,Department,Pharmacy,48,true,true
+Department,Department,Philosophy,48,true,true
+Department,Department,Physics,48,true,true
+Department,Department,Political Science,48,true,true
+Department,Department,Psychology,48,true,true
+Department,Department,Public Health,48,true,true
+Department,Department,Sociology,48,true,true
+Department,Department,Spanish,48,true,true
+Department,Department,Statistics,48,true,true
+Department,Department,Theatre,48,true,true
+Department,Department,Urban Design,48,true,true
+Division,Division,Behavioral Sciences,48,true,true
+Division,Division,Built Environment,96,true,true
+Division,Division,Business Core,288,true,true
+Division,Division,Clinical Sciences,192,true,true
+Division,Division,Earth Systems,96,true,true
+Division,Division,Engineering Disciplines,240,true,true
+Division,Division,Humanities,144,true,true
+Division,Division,Languages and Cultures,240,true,true
+Division,Division,Life Sciences,48,true,true
+Division,Division,Mathematical Sciences,96,true,true
+Division,Division,Media and Communication,96,true,true
+Division,Division,Performing Arts,96,true,true
+Division,Division,Physical Sciences,96,true,true
+Division,Division,Population Health,48,true,true
+Division,Division,Professional Studies,96,true,true
+Division,Division,School of Computing,96,true,true
+Division,Division,Social Sciences,192,true,true
+Division,Division,Teacher Preparation,96,true,true
+Division,Division,Visual Arts,48,true,true
+Program,Program,Accounting,48,true,false
+Program,Program,Anthropology,48,true,false
+Program,Program,Arabic,48,true,false
+Program,Program,Architecture,48,true,false
+Program,Program,Art,48,true,false
+Program,Program,Biology,48,true,false
+Program,Program,Business Administration,48,true,false
+Program,Program,Chemical Engineering,48,true,false
+Program,Program,Chemistry,48,true,false
+Program,Program,Chinese,48,true,false
+Program,Program,Civil Engineering,48,true,false
+Program,Program,Communication,48,true,false
+Program,Program,Computer Science,48,true,false
+Program,Program,Counseling,48,true,false
+Program,Program,Criminal Justice,48,true,false
+Program,Program,Data Science,48,true,false
+Program,Program,Dentistry,48,true,false
+Program,Program,Economics,48,true,false
+Program,Program,Education,48,true,false
+Program,Program,Electrical Engineering,48,true,false
+Program,Program,English,48,true,false
+Program,Program,Environmental Studies,48,true,false
+Program,Program,Finance,48,true,false
+Program,Program,French,48,true,false
+Program,Program,Geography,48,true,false
+Program,Program,History,48,true,false
+Program,Program,Industrial Engineering,48,true,false
+Program,Program,Information Systems,48,true,false
+Program,Program,Journalism,48,true,false
+Program,Program,Law,48,true,false
+Program,Program,Linguistics,48,true,false
+Program,Program,Management,48,true,false
+Program,Program,Marketing,48,true,false
+Program,Program,Mathematics,48,true,false
+Program,Program,Mechanical Engineering,48,true,false
+Program,Program,Medicine,48,true,false
+Program,Program,Music,48,true,false
+Program,Program,Nursing,48,true,false
+Program,Program,Pharmacy,48,true,false
+Program,Program,Philosophy,48,true,false
+Program,Program,Physics,48,true,false
+Program,Program,Political Science,48,true,false
+Program,Program,Psychology,48,true,false
+Program,Program,Public Health,48,true,false
+Program,Program,Sociology,48,true,false
+Program,Program,Spanish,48,true,false
+Program,Program,Statistics,48,true,false
+Program,Program,Theatre,48,true,false
+Program,Program,Urban Design,48,true,false
+Session,Session,Fall 1,343,true,false
+Session,Session,Fall 2,343,true,false
+Session,Session,Full Term,294,true,false
+Session,Session,Spring 1,343,true,false
+Session,Session,Spring 2,343,true,false
+Session,Session,Summer 1,343,true,false
+Session,Session,Summer 2,343,true,false
+University,University,ClassRanked University,2352,true,true

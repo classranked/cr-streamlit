@@ -1,0 +1,80 @@
+Title,Abbreviation,Parent Academic Unit,Academic Unit Type
+ClassRanked University,CRU,,University
+College of Arts and Sciences,COAAS,CRU,College
+College of Design,COD,CRU,College
+College of Education,COE,CRU,College
+College of Engineering,COE2,CRU,College
+College of Fine Arts,COFA,CRU,College
+College of Health Sciences,COHS,CRU,College
+School of Business,SOB,CRU,College
+School of Communication,SOC,CRU,College
+School of Dentistry,SOD,CRU,College
+School of Law,SOL,CRU,College
+School of Medicine,SOM,CRU,College
+Behavioral Sciences,BS,COAAS,Division
+Built Environment,BE,COD,Division
+Business Core,BC,SOB,Division
+Clinical Sciences,CS,COHS,Division
+Earth Systems,ES,COAAS,Division
+Engineering Disciplines,ED,COE2,Division
+Humanities,H,COAAS,Division
+Languages and Cultures,LAC,COAAS,Division
+Life Sciences,LS,COAAS,Division
+Mathematical Sciences,MS,COAAS,Division
+Media and Communication,MAC,SOC,Division
+Performing Arts,PA,COFA,Division
+Physical Sciences,PS,COAAS,Division
+Population Health,PH,COHS,Division
+Professional Studies,PS2,SOL,Division
+School of Computing,SOC2,COE2,Division
+Social Sciences,SS,COAAS,Division
+Teacher Preparation,TP,COE,Division
+Visual Arts,VA,COFA,Division
+Accounting,ACCT,BC,Department
+Anthropology,ANTH,SS,Department
+Arabic,ARAB,LAC,Department
+Architecture,ARCH,BE,Department
+Art,ART,VA,Department
+Biology,BIO,LS,Department
+Business Administration,BUS,BC,Department
+Chemical Engineering,CHEG,ED,Department
+Chemistry,CHEM,PS,Department
+Chinese,CHIN,LAC,Department
+Civil Engineering,CIVIL,ED,Department
+Communication,COMM,MAC,Department
+Computer Science,COMPSCI,SOC2,Department
+Counseling,COUN,TP,Department
+Criminal Justice,CJUS,PS2,Department
+Data Science,DATA,SOC2,Department
+Dentistry,DENT,CS,Department
+Economics,ECON,SS,Department
+Education,EDU,TP,Department
+Electrical Engineering,ELEC,ED,Department
+English,ENG,H,Department
+Environmental Studies,ENV,ES,Department
+Finance,FIN,BC,Department
+French,FREN,LAC,Department
+Geography,GEOG,ES,Department
+History,HIST,H,Department
+Industrial Engineering,INDU,ED,Department
+Information Systems,IS,BC,Department
+Journalism,JOUR,MAC,Department
+Law,LAW,PS2,Department
+Linguistics,LING,LAC,Department
+Management,MGMT,BC,Department
+Marketing,MKTG,BC,Department
+Mathematics,MATH,MS,Department
+Mechanical Engineering,MECH,ED,Department
+Medicine,MED,CS,Department
+Music,MUS,PA,Department
+Nursing,NURS,CS,Department
+Pharmacy,PHARM,CS,Department
+Philosophy,PHIL,H,Department
+Physics,PHYS,PS,Department
+Political Science,POLS,SS,Department
+Psychology,PSYC,BS,Department
+Public Health,PUBH,PH,Department
+Spanish,SPAN,LAC,Department
+Statistics,STAT,MS,Department
+Theatre,THEA,PA,Department
+Urban Design,URBD,BE,Department

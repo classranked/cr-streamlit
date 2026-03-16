@@ -1,0 +1,2353 @@
+subject_code,course_number,course_id,title,default_department_abbreviation
+ACCT,101,ACCT101,Foundations of Accounting,ACCT
+ACCT,102,ACCT102,Accounting in Practice,ACCT
+ACCT,110,ACCT110,Research Methods in Accounting,ACCT
+ACCT,120,ACCT120,Contemporary Issues in Accounting,ACCT
+ACCT,130,ACCT130,Seminar in Accounting,ACCT
+ACCT,140,ACCT140,Applied Accounting,ACCT
+ACCT,201,ACCT201,Accounting Capstone,ACCT
+ACCT,202,ACCT202,Accounting Internship,ACCT
+ACCT,210,ACCT210,Topics in Accounting,ACCT
+ACCT,220,ACCT220,Advanced Accounting,ACCT
+ACCT,230,ACCT230,Leadership in Accounting,ACCT
+ACCT,240,ACCT240,Global Perspectives in Accounting,ACCT
+ACCT,301,ACCT301,Foundations of Accounting,ACCT
+ACCT,302,ACCT302,Accounting in Practice,ACCT
+ACCT,310,ACCT310,Research Methods in Accounting,ACCT
+ACCT,320,ACCT320,Contemporary Issues in Accounting,ACCT
+ACCT,330,ACCT330,Seminar in Accounting,ACCT
+ACCT,340,ACCT340,Applied Accounting,ACCT
+ACCT,401,ACCT401,Accounting Capstone,ACCT
+ACCT,402,ACCT402,Accounting Internship,ACCT
+ACCT,410,ACCT410,Topics in Accounting,ACCT
+ACCT,420,ACCT420,Advanced Accounting,ACCT
+ACCT,430,ACCT430,Leadership in Accounting,ACCT
+ACCT,440,ACCT440,Global Perspectives in Accounting,ACCT
+ACCT,501,ACCT501,Foundations of Accounting,ACCT
+ACCT,502,ACCT502,Accounting in Practice,ACCT
+ACCT,510,ACCT510,Research Methods in Accounting,ACCT
+ACCT,520,ACCT520,Contemporary Issues in Accounting,ACCT
+ACCT,530,ACCT530,Seminar in Accounting,ACCT
+ACCT,540,ACCT540,Applied Accounting,ACCT
+ACCT,601,ACCT601,Accounting Capstone,ACCT
+ACCT,602,ACCT602,Accounting Internship,ACCT
+ACCT,610,ACCT610,Topics in Accounting,ACCT
+ACCT,620,ACCT620,Advanced Accounting,ACCT
+ACCT,630,ACCT630,Leadership in Accounting,ACCT
+ACCT,640,ACCT640,Global Perspectives in Accounting,ACCT
+ACCT,701,ACCT701,Foundations of Accounting,ACCT
+ACCT,702,ACCT702,Accounting in Practice,ACCT
+ACCT,710,ACCT710,Research Methods in Accounting,ACCT
+ACCT,720,ACCT720,Contemporary Issues in Accounting,ACCT
+ACCT,730,ACCT730,Seminar in Accounting,ACCT
+ACCT,740,ACCT740,Applied Accounting,ACCT
+ACCT,780,ACCT780,Accounting Capstone,ACCT
+ACCT,781,ACCT781,Accounting Internship,ACCT
+ACCT,790,ACCT790,Topics in Accounting,ACCT
+ACCT,791,ACCT791,Advanced Accounting,ACCT
+ACCT,795,ACCT795,Leadership in Accounting,ACCT
+ACCT,799,ACCT799,Global Perspectives in Accounting,ACCT
+ANTH,101,ANTH101,Foundations of Anthropology,ANTH
+ANTH,102,ANTH102,Anthropology in Practice,ANTH
+ANTH,110,ANTH110,Research Methods in Anthropology,ANTH
+ANTH,120,ANTH120,Contemporary Issues in Anthropology,ANTH
+ANTH,130,ANTH130,Seminar in Anthropology,ANTH
+ANTH,140,ANTH140,Applied Anthropology,ANTH
+ANTH,201,ANTH201,Anthropology Capstone,ANTH
+ANTH,202,ANTH202,Anthropology Internship,ANTH
+ANTH,210,ANTH210,Topics in Anthropology,ANTH
+ANTH,220,ANTH220,Advanced Anthropology,ANTH
+ANTH,230,ANTH230,Leadership in Anthropology,ANTH
+ANTH,240,ANTH240,Global Perspectives in Anthropology,ANTH
+ANTH,301,ANTH301,Foundations of Anthropology,ANTH
+ANTH,302,ANTH302,Anthropology in Practice,ANTH
+ANTH,310,ANTH310,Research Methods in Anthropology,ANTH
+ANTH,320,ANTH320,Contemporary Issues in Anthropology,ANTH
+ANTH,330,ANTH330,Seminar in Anthropology,ANTH
+ANTH,340,ANTH340,Applied Anthropology,ANTH
+ANTH,401,ANTH401,Anthropology Capstone,ANTH
+ANTH,402,ANTH402,Anthropology Internship,ANTH
+ANTH,410,ANTH410,Topics in Anthropology,ANTH
+ANTH,420,ANTH420,Advanced Anthropology,ANTH
+ANTH,430,ANTH430,Leadership in Anthropology,ANTH
+ANTH,440,ANTH440,Global Perspectives in Anthropology,ANTH
+ANTH,501,ANTH501,Foundations of Anthropology,ANTH
+ANTH,502,ANTH502,Anthropology in Practice,ANTH
+ANTH,510,ANTH510,Research Methods in Anthropology,ANTH
+ANTH,520,ANTH520,Contemporary Issues in Anthropology,ANTH
+ANTH,530,ANTH530,Seminar in Anthropology,ANTH
+ANTH,540,ANTH540,Applied Anthropology,ANTH
+ANTH,601,ANTH601,Anthropology Capstone,ANTH
+ANTH,602,ANTH602,Anthropology Internship,ANTH
+ANTH,610,ANTH610,Topics in Anthropology,ANTH
+ANTH,620,ANTH620,Advanced Anthropology,ANTH
+ANTH,630,ANTH630,Leadership in Anthropology,ANTH
+ANTH,640,ANTH640,Global Perspectives in Anthropology,ANTH
+ANTH,701,ANTH701,Foundations of Anthropology,ANTH
+ANTH,702,ANTH702,Anthropology in Practice,ANTH
+ANTH,710,ANTH710,Research Methods in Anthropology,ANTH
+ANTH,720,ANTH720,Contemporary Issues in Anthropology,ANTH
+ANTH,730,ANTH730,Seminar in Anthropology,ANTH
+ANTH,740,ANTH740,Applied Anthropology,ANTH
+ANTH,780,ANTH780,Anthropology Capstone,ANTH
+ANTH,781,ANTH781,Anthropology Internship,ANTH
+ANTH,790,ANTH790,Topics in Anthropology,ANTH
+ANTH,791,ANTH791,Advanced Anthropology,ANTH
+ANTH,795,ANTH795,Leadership in Anthropology,ANTH
+ANTH,799,ANTH799,Global Perspectives in Anthropology,ANTH
+ARAB,101,ARAB101,Arabic Language and Culture I,ARAB
+ARAB,102,ARAB102,Modern Arabic Media,ARAB
+ARAB,110,ARAB110,Arabic for Global Affairs,ARAB
+ARAB,120,ARAB120,Intermediate Arabic Conversation,ARAB
+ARAB,130,ARAB130,Arabic Literature in Translation,ARAB
+ARAB,140,ARAB140,Arabic Language and Culture I,ARAB
+ARAB,201,ARAB201,Modern Arabic Media,ARAB
+ARAB,202,ARAB202,Arabic for Global Affairs,ARAB
+ARAB,210,ARAB210,Intermediate Arabic Conversation,ARAB
+ARAB,220,ARAB220,Arabic Literature in Translation,ARAB
+ARAB,230,ARAB230,Arabic Language and Culture I,ARAB
+ARAB,240,ARAB240,Modern Arabic Media,ARAB
+ARAB,301,ARAB301,Arabic for Global Affairs,ARAB
+ARAB,302,ARAB302,Intermediate Arabic Conversation,ARAB
+ARAB,310,ARAB310,Arabic Literature in Translation,ARAB
+ARAB,320,ARAB320,Arabic Language and Culture I,ARAB
+ARAB,330,ARAB330,Modern Arabic Media,ARAB
+ARAB,340,ARAB340,Arabic for Global Affairs,ARAB
+ARAB,401,ARAB401,Intermediate Arabic Conversation,ARAB
+ARAB,402,ARAB402,Arabic Literature in Translation,ARAB
+ARAB,410,ARAB410,Arabic Language and Culture I,ARAB
+ARAB,420,ARAB420,Modern Arabic Media,ARAB
+ARAB,430,ARAB430,Arabic for Global Affairs,ARAB
+ARAB,440,ARAB440,Intermediate Arabic Conversation,ARAB
+ARAB,501,ARAB501,Arabic Literature in Translation,ARAB
+ARAB,502,ARAB502,Arabic Language and Culture I,ARAB
+ARAB,510,ARAB510,Modern Arabic Media,ARAB
+ARAB,520,ARAB520,Arabic for Global Affairs,ARAB
+ARAB,530,ARAB530,Intermediate Arabic Conversation,ARAB
+ARAB,540,ARAB540,Arabic Literature in Translation,ARAB
+ARAB,601,ARAB601,Arabic Language and Culture I,ARAB
+ARAB,602,ARAB602,Modern Arabic Media,ARAB
+ARAB,610,ARAB610,Arabic for Global Affairs,ARAB
+ARAB,620,ARAB620,Intermediate Arabic Conversation,ARAB
+ARAB,630,ARAB630,Arabic Literature in Translation,ARAB
+ARAB,640,ARAB640,Arabic Language and Culture I,ARAB
+ARAB,701,ARAB701,Modern Arabic Media,ARAB
+ARAB,702,ARAB702,Arabic for Global Affairs,ARAB
+ARAB,710,ARAB710,Intermediate Arabic Conversation,ARAB
+ARAB,720,ARAB720,Arabic Literature in Translation,ARAB
+ARAB,730,ARAB730,Arabic Language and Culture I,ARAB
+ARAB,740,ARAB740,Modern Arabic Media,ARAB
+ARAB,780,ARAB780,Arabic for Global Affairs,ARAB
+ARAB,781,ARAB781,Intermediate Arabic Conversation,ARAB
+ARAB,790,ARAB790,Arabic Literature in Translation,ARAB
+ARAB,791,ARAB791,Arabic Language and Culture I,ARAB
+ARAB,795,ARAB795,Modern Arabic Media,ARAB
+ARAB,799,ARAB799,Arabic for Global Affairs,ARAB
+ARCH,101,ARCH101,Foundations of Architecture,ARCH
+ARCH,102,ARCH102,Architecture in Practice,ARCH
+ARCH,110,ARCH110,Research Methods in Architecture,ARCH
+ARCH,120,ARCH120,Contemporary Issues in Architecture,ARCH
+ARCH,130,ARCH130,Seminar in Architecture,ARCH
+ARCH,140,ARCH140,Applied Architecture,ARCH
+ARCH,201,ARCH201,Architecture Capstone,ARCH
+ARCH,202,ARCH202,Architecture Internship,ARCH
+ARCH,210,ARCH210,Topics in Architecture,ARCH
+ARCH,220,ARCH220,Advanced Architecture,ARCH
+ARCH,230,ARCH230,Leadership in Architecture,ARCH
+ARCH,240,ARCH240,Global Perspectives in Architecture,ARCH
+ARCH,301,ARCH301,Foundations of Architecture,ARCH
+ARCH,302,ARCH302,Architecture in Practice,ARCH
+ARCH,310,ARCH310,Research Methods in Architecture,ARCH
+ARCH,320,ARCH320,Contemporary Issues in Architecture,ARCH
+ARCH,330,ARCH330,Seminar in Architecture,ARCH
+ARCH,340,ARCH340,Applied Architecture,ARCH
+ARCH,401,ARCH401,Architecture Capstone,ARCH
+ARCH,402,ARCH402,Architecture Internship,ARCH
+ARCH,410,ARCH410,Topics in Architecture,ARCH
+ARCH,420,ARCH420,Advanced Architecture,ARCH
+ARCH,430,ARCH430,Leadership in Architecture,ARCH
+ARCH,440,ARCH440,Global Perspectives in Architecture,ARCH
+ARCH,501,ARCH501,Foundations of Architecture,ARCH
+ARCH,502,ARCH502,Architecture in Practice,ARCH
+ARCH,510,ARCH510,Research Methods in Architecture,ARCH
+ARCH,520,ARCH520,Contemporary Issues in Architecture,ARCH
+ARCH,530,ARCH530,Seminar in Architecture,ARCH
+ARCH,540,ARCH540,Applied Architecture,ARCH
+ARCH,601,ARCH601,Architecture Capstone,ARCH
+ARCH,602,ARCH602,Architecture Internship,ARCH
+ARCH,610,ARCH610,Topics in Architecture,ARCH
+ARCH,620,ARCH620,Advanced Architecture,ARCH
+ARCH,630,ARCH630,Leadership in Architecture,ARCH
+ARCH,640,ARCH640,Global Perspectives in Architecture,ARCH
+ARCH,701,ARCH701,Foundations of Architecture,ARCH
+ARCH,702,ARCH702,Architecture in Practice,ARCH
+ARCH,710,ARCH710,Research Methods in Architecture,ARCH
+ARCH,720,ARCH720,Contemporary Issues in Architecture,ARCH
+ARCH,730,ARCH730,Seminar in Architecture,ARCH
+ARCH,740,ARCH740,Applied Architecture,ARCH
+ARCH,780,ARCH780,Architecture Capstone,ARCH
+ARCH,781,ARCH781,Architecture Internship,ARCH
+ARCH,790,ARCH790,Topics in Architecture,ARCH
+ARCH,791,ARCH791,Advanced Architecture,ARCH
+ARCH,795,ARCH795,Leadership in Architecture,ARCH
+ARCH,799,ARCH799,Global Perspectives in Architecture,ARCH
+ART,101,ART101,Foundations of Art,ART
+ART,102,ART102,Art in Practice,ART
+ART,110,ART110,Research Methods in Art,ART
+ART,120,ART120,Contemporary Issues in Art,ART
+ART,130,ART130,Seminar in Art,ART
+ART,140,ART140,Applied Art,ART
+ART,201,ART201,Art Capstone,ART
+ART,202,ART202,Art Internship,ART
+ART,210,ART210,Topics in Art,ART
+ART,220,ART220,Advanced Art,ART
+ART,230,ART230,Leadership in Art,ART
+ART,240,ART240,Global Perspectives in Art,ART
+ART,301,ART301,Foundations of Art,ART
+ART,302,ART302,Art in Practice,ART
+ART,310,ART310,Research Methods in Art,ART
+ART,320,ART320,Contemporary Issues in Art,ART
+ART,330,ART330,Seminar in Art,ART
+ART,340,ART340,Applied Art,ART
+ART,401,ART401,Art Capstone,ART
+ART,402,ART402,Art Internship,ART
+ART,410,ART410,Topics in Art,ART
+ART,420,ART420,Advanced Art,ART
+ART,430,ART430,Leadership in Art,ART
+ART,440,ART440,Global Perspectives in Art,ART
+ART,501,ART501,Foundations of Art,ART
+ART,502,ART502,Art in Practice,ART
+ART,510,ART510,Research Methods in Art,ART
+ART,520,ART520,Contemporary Issues in Art,ART
+ART,530,ART530,Seminar in Art,ART
+ART,540,ART540,Applied Art,ART
+ART,601,ART601,Art Capstone,ART
+ART,602,ART602,Art Internship,ART
+ART,610,ART610,Topics in Art,ART
+ART,620,ART620,Advanced Art,ART
+ART,630,ART630,Leadership in Art,ART
+ART,640,ART640,Global Perspectives in Art,ART
+ART,701,ART701,Foundations of Art,ART
+ART,702,ART702,Art in Practice,ART
+ART,710,ART710,Research Methods in Art,ART
+ART,720,ART720,Contemporary Issues in Art,ART
+ART,730,ART730,Seminar in Art,ART
+ART,740,ART740,Applied Art,ART
+ART,780,ART780,Art Capstone,ART
+ART,781,ART781,Art Internship,ART
+ART,790,ART790,Topics in Art,ART
+ART,791,ART791,Advanced Art,ART
+ART,795,ART795,Leadership in Art,ART
+ART,799,ART799,Global Perspectives in Art,ART
+BIO,101,BIO101,Foundations of Biology,BIO
+BIO,102,BIO102,Biology in Practice,BIO
+BIO,110,BIO110,Research Methods in Biology,BIO
+BIO,120,BIO120,Contemporary Issues in Biology,BIO
+BIO,130,BIO130,Seminar in Biology,BIO
+BIO,140,BIO140,Applied Biology,BIO
+BIO,201,BIO201,Biology Capstone,BIO
+BIO,202,BIO202,Biology Internship,BIO
+BIO,210,BIO210,Topics in Biology,BIO
+BIO,220,BIO220,Advanced Biology,BIO
+BIO,230,BIO230,Leadership in Biology,BIO
+BIO,240,BIO240,Global Perspectives in Biology,BIO
+BIO,301,BIO301,Foundations of Biology,BIO
+BIO,302,BIO302,Biology in Practice,BIO
+BIO,310,BIO310,Research Methods in Biology,BIO
+BIO,320,BIO320,Contemporary Issues in Biology,BIO
+BIO,330,BIO330,Seminar in Biology,BIO
+BIO,340,BIO340,Applied Biology,BIO
+BIO,401,BIO401,Biology Capstone,BIO
+BIO,402,BIO402,Biology Internship,BIO
+BIO,410,BIO410,Topics in Biology,BIO
+BIO,420,BIO420,Advanced Biology,BIO
+BIO,430,BIO430,Leadership in Biology,BIO
+BIO,440,BIO440,Global Perspectives in Biology,BIO
+BIO,501,BIO501,Foundations of Biology,BIO
+BIO,502,BIO502,Biology in Practice,BIO
+BIO,510,BIO510,Research Methods in Biology,BIO
+BIO,520,BIO520,Contemporary Issues in Biology,BIO
+BIO,530,BIO530,Seminar in Biology,BIO
+BIO,540,BIO540,Applied Biology,BIO
+BIO,601,BIO601,Biology Capstone,BIO
+BIO,602,BIO602,Biology Internship,BIO
+BIO,610,BIO610,Topics in Biology,BIO
+BIO,620,BIO620,Advanced Biology,BIO
+BIO,630,BIO630,Leadership in Biology,BIO
+BIO,640,BIO640,Global Perspectives in Biology,BIO
+BIO,701,BIO701,Foundations of Biology,BIO
+BIO,702,BIO702,Biology in Practice,BIO
+BIO,710,BIO710,Research Methods in Biology,BIO
+BIO,720,BIO720,Contemporary Issues in Biology,BIO
+BIO,730,BIO730,Seminar in Biology,BIO
+BIO,740,BIO740,Applied Biology,BIO
+BIO,780,BIO780,Biology Capstone,BIO
+BIO,781,BIO781,Biology Internship,BIO
+BIO,790,BIO790,Topics in Biology,BIO
+BIO,791,BIO791,Advanced Biology,BIO
+BIO,795,BIO795,Leadership in Biology,BIO
+BIO,799,BIO799,Global Perspectives in Biology,BIO
+BUS,101,BUS101,Foundations of Business Administration,BUS
+BUS,102,BUS102,Business Administration in Practice,BUS
+BUS,110,BUS110,Research Methods in Business Administration,BUS
+BUS,120,BUS120,Contemporary Issues in Business Administration,BUS
+BUS,130,BUS130,Seminar in Business Administration,BUS
+BUS,140,BUS140,Applied Business Administration,BUS
+BUS,201,BUS201,Business Administration Capstone,BUS
+BUS,202,BUS202,Business Administration Internship,BUS
+BUS,210,BUS210,Topics in Business Administration,BUS
+BUS,220,BUS220,Advanced Business Administration,BUS
+BUS,230,BUS230,Leadership in Business Administration,BUS
+BUS,240,BUS240,Global Perspectives in Business Administration,BUS
+BUS,301,BUS301,Foundations of Business Administration,BUS
+BUS,302,BUS302,Business Administration in Practice,BUS
+BUS,310,BUS310,Research Methods in Business Administration,BUS
+BUS,320,BUS320,Contemporary Issues in Business Administration,BUS
+BUS,330,BUS330,Seminar in Business Administration,BUS
+BUS,340,BUS340,Applied Business Administration,BUS
+BUS,401,BUS401,Business Administration Capstone,BUS
+BUS,402,BUS402,Business Administration Internship,BUS
+BUS,410,BUS410,Topics in Business Administration,BUS
+BUS,420,BUS420,Advanced Business Administration,BUS
+BUS,430,BUS430,Leadership in Business Administration,BUS
+BUS,440,BUS440,Global Perspectives in Business Administration,BUS
+BUS,501,BUS501,Foundations of Business Administration,BUS
+BUS,502,BUS502,Business Administration in Practice,BUS
+BUS,510,BUS510,Research Methods in Business Administration,BUS
+BUS,520,BUS520,Contemporary Issues in Business Administration,BUS
+BUS,530,BUS530,Seminar in Business Administration,BUS
+BUS,540,BUS540,Applied Business Administration,BUS
+BUS,601,BUS601,Business Administration Capstone,BUS
+BUS,602,BUS602,Business Administration Internship,BUS
+BUS,610,BUS610,Topics in Business Administration,BUS
+BUS,620,BUS620,Advanced Business Administration,BUS
+BUS,630,BUS630,Leadership in Business Administration,BUS
+BUS,640,BUS640,Global Perspectives in Business Administration,BUS
+BUS,701,BUS701,Foundations of Business Administration,BUS
+BUS,702,BUS702,Business Administration in Practice,BUS
+BUS,710,BUS710,Research Methods in Business Administration,BUS
+BUS,720,BUS720,Contemporary Issues in Business Administration,BUS
+BUS,730,BUS730,Seminar in Business Administration,BUS
+BUS,740,BUS740,Applied Business Administration,BUS
+BUS,780,BUS780,Business Administration Capstone,BUS
+BUS,781,BUS781,Business Administration Internship,BUS
+BUS,790,BUS790,Topics in Business Administration,BUS
+BUS,791,BUS791,Advanced Business Administration,BUS
+BUS,795,BUS795,Leadership in Business Administration,BUS
+BUS,799,BUS799,Global Perspectives in Business Administration,BUS
+CHEG,101,CHEG101,Foundations of Chemical Engineering,CHEG
+CHEG,102,CHEG102,Chemical Engineering in Practice,CHEG
+CHEG,110,CHEG110,Research Methods in Chemical Engineering,CHEG
+CHEG,120,CHEG120,Contemporary Issues in Chemical Engineering,CHEG
+CHEG,130,CHEG130,Seminar in Chemical Engineering,CHEG
+CHEG,140,CHEG140,Applied Chemical Engineering,CHEG
+CHEG,201,CHEG201,Chemical Engineering Capstone,CHEG
+CHEG,202,CHEG202,Chemical Engineering Internship,CHEG
+CHEG,210,CHEG210,Topics in Chemical Engineering,CHEG
+CHEG,220,CHEG220,Advanced Chemical Engineering,CHEG
+CHEG,230,CHEG230,Leadership in Chemical Engineering,CHEG
+CHEG,240,CHEG240,Global Perspectives in Chemical Engineering,CHEG
+CHEG,301,CHEG301,Foundations of Chemical Engineering,CHEG
+CHEG,302,CHEG302,Chemical Engineering in Practice,CHEG
+CHEG,310,CHEG310,Research Methods in Chemical Engineering,CHEG
+CHEG,320,CHEG320,Contemporary Issues in Chemical Engineering,CHEG
+CHEG,330,CHEG330,Seminar in Chemical Engineering,CHEG
+CHEG,340,CHEG340,Applied Chemical Engineering,CHEG
+CHEG,401,CHEG401,Chemical Engineering Capstone,CHEG
+CHEG,402,CHEG402,Chemical Engineering Internship,CHEG
+CHEG,410,CHEG410,Topics in Chemical Engineering,CHEG
+CHEG,420,CHEG420,Advanced Chemical Engineering,CHEG
+CHEG,430,CHEG430,Leadership in Chemical Engineering,CHEG
+CHEG,440,CHEG440,Global Perspectives in Chemical Engineering,CHEG
+CHEG,501,CHEG501,Foundations of Chemical Engineering,CHEG
+CHEG,502,CHEG502,Chemical Engineering in Practice,CHEG
+CHEG,510,CHEG510,Research Methods in Chemical Engineering,CHEG
+CHEG,520,CHEG520,Contemporary Issues in Chemical Engineering,CHEG
+CHEG,530,CHEG530,Seminar in Chemical Engineering,CHEG
+CHEG,540,CHEG540,Applied Chemical Engineering,CHEG
+CHEG,601,CHEG601,Chemical Engineering Capstone,CHEG
+CHEG,602,CHEG602,Chemical Engineering Internship,CHEG
+CHEG,610,CHEG610,Topics in Chemical Engineering,CHEG
+CHEG,620,CHEG620,Advanced Chemical Engineering,CHEG
+CHEG,630,CHEG630,Leadership in Chemical Engineering,CHEG
+CHEG,640,CHEG640,Global Perspectives in Chemical Engineering,CHEG
+CHEG,701,CHEG701,Foundations of Chemical Engineering,CHEG
+CHEG,702,CHEG702,Chemical Engineering in Practice,CHEG
+CHEG,710,CHEG710,Research Methods in Chemical Engineering,CHEG
+CHEG,720,CHEG720,Contemporary Issues in Chemical Engineering,CHEG
+CHEG,730,CHEG730,Seminar in Chemical Engineering,CHEG
+CHEG,740,CHEG740,Applied Chemical Engineering,CHEG
+CHEG,780,CHEG780,Chemical Engineering Capstone,CHEG
+CHEG,781,CHEG781,Chemical Engineering Internship,CHEG
+CHEG,790,CHEG790,Topics in Chemical Engineering,CHEG
+CHEG,791,CHEG791,Advanced Chemical Engineering,CHEG
+CHEG,795,CHEG795,Leadership in Chemical Engineering,CHEG
+CHEG,799,CHEG799,Global Perspectives in Chemical Engineering,CHEG
+CHEM,101,CHEM101,Foundations of Chemistry,CHEM
+CHEM,102,CHEM102,Chemistry in Practice,CHEM
+CHEM,110,CHEM110,Research Methods in Chemistry,CHEM
+CHEM,120,CHEM120,Contemporary Issues in Chemistry,CHEM
+CHEM,130,CHEM130,Seminar in Chemistry,CHEM
+CHEM,140,CHEM140,Applied Chemistry,CHEM
+CHEM,201,CHEM201,Chemistry Capstone,CHEM
+CHEM,202,CHEM202,Chemistry Internship,CHEM
+CHEM,210,CHEM210,Topics in Chemistry,CHEM
+CHEM,220,CHEM220,Advanced Chemistry,CHEM
+CHEM,230,CHEM230,Leadership in Chemistry,CHEM
+CHEM,240,CHEM240,Global Perspectives in Chemistry,CHEM
+CHEM,301,CHEM301,Foundations of Chemistry,CHEM
+CHEM,302,CHEM302,Chemistry in Practice,CHEM
+CHEM,310,CHEM310,Research Methods in Chemistry,CHEM
+CHEM,320,CHEM320,Contemporary Issues in Chemistry,CHEM
+CHEM,330,CHEM330,Seminar in Chemistry,CHEM
+CHEM,340,CHEM340,Applied Chemistry,CHEM
+CHEM,401,CHEM401,Chemistry Capstone,CHEM
+CHEM,402,CHEM402,Chemistry Internship,CHEM
+CHEM,410,CHEM410,Topics in Chemistry,CHEM
+CHEM,420,CHEM420,Advanced Chemistry,CHEM
+CHEM,430,CHEM430,Leadership in Chemistry,CHEM
+CHEM,440,CHEM440,Global Perspectives in Chemistry,CHEM
+CHEM,501,CHEM501,Foundations of Chemistry,CHEM
+CHEM,502,CHEM502,Chemistry in Practice,CHEM
+CHEM,510,CHEM510,Research Methods in Chemistry,CHEM
+CHEM,520,CHEM520,Contemporary Issues in Chemistry,CHEM
+CHEM,530,CHEM530,Seminar in Chemistry,CHEM
+CHEM,540,CHEM540,Applied Chemistry,CHEM
+CHEM,601,CHEM601,Chemistry Capstone,CHEM
+CHEM,602,CHEM602,Chemistry Internship,CHEM
+CHEM,610,CHEM610,Topics in Chemistry,CHEM
+CHEM,620,CHEM620,Advanced Chemistry,CHEM
+CHEM,630,CHEM630,Leadership in Chemistry,CHEM
+CHEM,640,CHEM640,Global Perspectives in Chemistry,CHEM
+CHEM,701,CHEM701,Foundations of Chemistry,CHEM
+CHEM,702,CHEM702,Chemistry in Practice,CHEM
+CHEM,710,CHEM710,Research Methods in Chemistry,CHEM
+CHEM,720,CHEM720,Contemporary Issues in Chemistry,CHEM
+CHEM,730,CHEM730,Seminar in Chemistry,CHEM
+CHEM,740,CHEM740,Applied Chemistry,CHEM
+CHEM,780,CHEM780,Chemistry Capstone,CHEM
+CHEM,781,CHEM781,Chemistry Internship,CHEM
+CHEM,790,CHEM790,Topics in Chemistry,CHEM
+CHEM,791,CHEM791,Advanced Chemistry,CHEM
+CHEM,795,CHEM795,Leadership in Chemistry,CHEM
+CHEM,799,CHEM799,Global Perspectives in Chemistry,CHEM
+CHIN,101,CHIN101,Mandarin Chinese I,CHIN
+CHIN,102,CHIN102,Business Chinese Communication,CHIN
+CHIN,110,CHIN110,Chinese Media and Society,CHIN
+CHIN,120,CHIN120,Intermediate Spoken Chinese,CHIN
+CHIN,130,CHIN130,Chinese Literature and Film,CHIN
+CHIN,140,CHIN140,Mandarin Chinese I,CHIN
+CHIN,201,CHIN201,Business Chinese Communication,CHIN
+CHIN,202,CHIN202,Chinese Media and Society,CHIN
+CHIN,210,CHIN210,Intermediate Spoken Chinese,CHIN
+CHIN,220,CHIN220,Chinese Literature and Film,CHIN
+CHIN,230,CHIN230,Mandarin Chinese I,CHIN
+CHIN,240,CHIN240,Business Chinese Communication,CHIN
+CHIN,301,CHIN301,Chinese Media and Society,CHIN
+CHIN,302,CHIN302,Intermediate Spoken Chinese,CHIN
+CHIN,310,CHIN310,Chinese Literature and Film,CHIN
+CHIN,320,CHIN320,Mandarin Chinese I,CHIN
+CHIN,330,CHIN330,Business Chinese Communication,CHIN
+CHIN,340,CHIN340,Chinese Media and Society,CHIN
+CHIN,401,CHIN401,Intermediate Spoken Chinese,CHIN
+CHIN,402,CHIN402,Chinese Literature and Film,CHIN
+CHIN,410,CHIN410,Mandarin Chinese I,CHIN
+CHIN,420,CHIN420,Business Chinese Communication,CHIN
+CHIN,430,CHIN430,Chinese Media and Society,CHIN
+CHIN,440,CHIN440,Intermediate Spoken Chinese,CHIN
+CHIN,501,CHIN501,Chinese Literature and Film,CHIN
+CHIN,502,CHIN502,Mandarin Chinese I,CHIN
+CHIN,510,CHIN510,Business Chinese Communication,CHIN
+CHIN,520,CHIN520,Chinese Media and Society,CHIN
+CHIN,530,CHIN530,Intermediate Spoken Chinese,CHIN
+CHIN,540,CHIN540,Chinese Literature and Film,CHIN
+CHIN,601,CHIN601,Mandarin Chinese I,CHIN
+CHIN,602,CHIN602,Business Chinese Communication,CHIN
+CHIN,610,CHIN610,Chinese Media and Society,CHIN
+CHIN,620,CHIN620,Intermediate Spoken Chinese,CHIN
+CHIN,630,CHIN630,Chinese Literature and Film,CHIN
+CHIN,640,CHIN640,Mandarin Chinese I,CHIN
+CHIN,701,CHIN701,Business Chinese Communication,CHIN
+CHIN,702,CHIN702,Chinese Media and Society,CHIN
+CHIN,710,CHIN710,Intermediate Spoken Chinese,CHIN
+CHIN,720,CHIN720,Chinese Literature and Film,CHIN
+CHIN,730,CHIN730,Mandarin Chinese I,CHIN
+CHIN,740,CHIN740,Business Chinese Communication,CHIN
+CHIN,780,CHIN780,Chinese Media and Society,CHIN
+CHIN,781,CHIN781,Intermediate Spoken Chinese,CHIN
+CHIN,790,CHIN790,Chinese Literature and Film,CHIN
+CHIN,791,CHIN791,Mandarin Chinese I,CHIN
+CHIN,795,CHIN795,Business Chinese Communication,CHIN
+CHIN,799,CHIN799,Chinese Media and Society,CHIN
+CIVIL,101,CIVIL101,Foundations of Civil Engineering,CIVIL
+CIVIL,102,CIVIL102,Civil Engineering in Practice,CIVIL
+CIVIL,110,CIVIL110,Research Methods in Civil Engineering,CIVIL
+CIVIL,120,CIVIL120,Contemporary Issues in Civil Engineering,CIVIL
+CIVIL,130,CIVIL130,Seminar in Civil Engineering,CIVIL
+CIVIL,140,CIVIL140,Applied Civil Engineering,CIVIL
+CIVIL,201,CIVIL201,Civil Engineering Capstone,CIVIL
+CIVIL,202,CIVIL202,Civil Engineering Internship,CIVIL
+CIVIL,210,CIVIL210,Topics in Civil Engineering,CIVIL
+CIVIL,220,CIVIL220,Advanced Civil Engineering,CIVIL
+CIVIL,230,CIVIL230,Leadership in Civil Engineering,CIVIL
+CIVIL,240,CIVIL240,Global Perspectives in Civil Engineering,CIVIL
+CIVIL,301,CIVIL301,Foundations of Civil Engineering,CIVIL
+CIVIL,302,CIVIL302,Civil Engineering in Practice,CIVIL
+CIVIL,310,CIVIL310,Research Methods in Civil Engineering,CIVIL
+CIVIL,320,CIVIL320,Contemporary Issues in Civil Engineering,CIVIL
+CIVIL,330,CIVIL330,Seminar in Civil Engineering,CIVIL
+CIVIL,340,CIVIL340,Applied Civil Engineering,CIVIL
+CIVIL,401,CIVIL401,Civil Engineering Capstone,CIVIL
+CIVIL,402,CIVIL402,Civil Engineering Internship,CIVIL
+CIVIL,410,CIVIL410,Topics in Civil Engineering,CIVIL
+CIVIL,420,CIVIL420,Advanced Civil Engineering,CIVIL
+CIVIL,430,CIVIL430,Leadership in Civil Engineering,CIVIL
+CIVIL,440,CIVIL440,Global Perspectives in Civil Engineering,CIVIL
+CIVIL,501,CIVIL501,Foundations of Civil Engineering,CIVIL
+CIVIL,502,CIVIL502,Civil Engineering in Practice,CIVIL
+CIVIL,510,CIVIL510,Research Methods in Civil Engineering,CIVIL
+CIVIL,520,CIVIL520,Contemporary Issues in Civil Engineering,CIVIL
+CIVIL,530,CIVIL530,Seminar in Civil Engineering,CIVIL
+CIVIL,540,CIVIL540,Applied Civil Engineering,CIVIL
+CIVIL,601,CIVIL601,Civil Engineering Capstone,CIVIL
+CIVIL,602,CIVIL602,Civil Engineering Internship,CIVIL
+CIVIL,610,CIVIL610,Topics in Civil Engineering,CIVIL
+CIVIL,620,CIVIL620,Advanced Civil Engineering,CIVIL
+CIVIL,630,CIVIL630,Leadership in Civil Engineering,CIVIL
+CIVIL,640,CIVIL640,Global Perspectives in Civil Engineering,CIVIL
+CIVIL,701,CIVIL701,Foundations of Civil Engineering,CIVIL
+CIVIL,702,CIVIL702,Civil Engineering in Practice,CIVIL
+CIVIL,710,CIVIL710,Research Methods in Civil Engineering,CIVIL
+CIVIL,720,CIVIL720,Contemporary Issues in Civil Engineering,CIVIL
+CIVIL,730,CIVIL730,Seminar in Civil Engineering,CIVIL
+CIVIL,740,CIVIL740,Applied Civil Engineering,CIVIL
+CIVIL,780,CIVIL780,Civil Engineering Capstone,CIVIL
+CIVIL,781,CIVIL781,Civil Engineering Internship,CIVIL
+CIVIL,790,CIVIL790,Topics in Civil Engineering,CIVIL
+CIVIL,791,CIVIL791,Advanced Civil Engineering,CIVIL
+CIVIL,795,CIVIL795,Leadership in Civil Engineering,CIVIL
+CIVIL,799,CIVIL799,Global Perspectives in Civil Engineering,CIVIL
+CJUS,101,CJUS101,Foundations of Criminal Justice,CJUS
+CJUS,102,CJUS102,Criminal Justice in Practice,CJUS
+CJUS,110,CJUS110,Research Methods in Criminal Justice,CJUS
+CJUS,120,CJUS120,Contemporary Issues in Criminal Justice,CJUS
+CJUS,130,CJUS130,Seminar in Criminal Justice,CJUS
+CJUS,140,CJUS140,Applied Criminal Justice,CJUS
+CJUS,201,CJUS201,Criminal Justice Capstone,CJUS
+CJUS,202,CJUS202,Criminal Justice Internship,CJUS
+CJUS,210,CJUS210,Topics in Criminal Justice,CJUS
+CJUS,220,CJUS220,Advanced Criminal Justice,CJUS
+CJUS,230,CJUS230,Leadership in Criminal Justice,CJUS
+CJUS,240,CJUS240,Global Perspectives in Criminal Justice,CJUS
+CJUS,301,CJUS301,Foundations of Criminal Justice,CJUS
+CJUS,302,CJUS302,Criminal Justice in Practice,CJUS
+CJUS,310,CJUS310,Research Methods in Criminal Justice,CJUS
+CJUS,320,CJUS320,Contemporary Issues in Criminal Justice,CJUS
+CJUS,330,CJUS330,Seminar in Criminal Justice,CJUS
+CJUS,340,CJUS340,Applied Criminal Justice,CJUS
+CJUS,401,CJUS401,Criminal Justice Capstone,CJUS
+CJUS,402,CJUS402,Criminal Justice Internship,CJUS
+CJUS,410,CJUS410,Topics in Criminal Justice,CJUS
+CJUS,420,CJUS420,Advanced Criminal Justice,CJUS
+CJUS,430,CJUS430,Leadership in Criminal Justice,CJUS
+CJUS,440,CJUS440,Global Perspectives in Criminal Justice,CJUS
+CJUS,501,CJUS501,Foundations of Criminal Justice,CJUS
+CJUS,502,CJUS502,Criminal Justice in Practice,CJUS
+CJUS,510,CJUS510,Research Methods in Criminal Justice,CJUS
+CJUS,520,CJUS520,Contemporary Issues in Criminal Justice,CJUS
+CJUS,530,CJUS530,Seminar in Criminal Justice,CJUS
+CJUS,540,CJUS540,Applied Criminal Justice,CJUS
+CJUS,601,CJUS601,Criminal Justice Capstone,CJUS
+CJUS,602,CJUS602,Criminal Justice Internship,CJUS
+CJUS,610,CJUS610,Topics in Criminal Justice,CJUS
+CJUS,620,CJUS620,Advanced Criminal Justice,CJUS
+CJUS,630,CJUS630,Leadership in Criminal Justice,CJUS
+CJUS,640,CJUS640,Global Perspectives in Criminal Justice,CJUS
+CJUS,701,CJUS701,Foundations of Criminal Justice,CJUS
+CJUS,702,CJUS702,Criminal Justice in Practice,CJUS
+CJUS,710,CJUS710,Research Methods in Criminal Justice,CJUS
+CJUS,720,CJUS720,Contemporary Issues in Criminal Justice,CJUS
+CJUS,730,CJUS730,Seminar in Criminal Justice,CJUS
+CJUS,740,CJUS740,Applied Criminal Justice,CJUS
+CJUS,780,CJUS780,Criminal Justice Capstone,CJUS
+CJUS,781,CJUS781,Criminal Justice Internship,CJUS
+CJUS,790,CJUS790,Topics in Criminal Justice,CJUS
+CJUS,791,CJUS791,Advanced Criminal Justice,CJUS
+CJUS,795,CJUS795,Leadership in Criminal Justice,CJUS
+CJUS,799,CJUS799,Global Perspectives in Criminal Justice,CJUS
+COMM,101,COMM101,Foundations of Communication,COMM
+COMM,102,COMM102,Communication in Practice,COMM
+COMM,110,COMM110,Research Methods in Communication,COMM
+COMM,120,COMM120,Contemporary Issues in Communication,COMM
+COMM,130,COMM130,Seminar in Communication,COMM
+COMM,140,COMM140,Applied Communication,COMM
+COMM,201,COMM201,Communication Capstone,COMM
+COMM,202,COMM202,Communication Internship,COMM
+COMM,210,COMM210,Topics in Communication,COMM
+COMM,220,COMM220,Advanced Communication,COMM
+COMM,230,COMM230,Leadership in Communication,COMM
+COMM,240,COMM240,Global Perspectives in Communication,COMM
+COMM,301,COMM301,Foundations of Communication,COMM
+COMM,302,COMM302,Communication in Practice,COMM
+COMM,310,COMM310,Research Methods in Communication,COMM
+COMM,320,COMM320,Contemporary Issues in Communication,COMM
+COMM,330,COMM330,Seminar in Communication,COMM
+COMM,340,COMM340,Applied Communication,COMM
+COMM,401,COMM401,Communication Capstone,COMM
+COMM,402,COMM402,Communication Internship,COMM
+COMM,410,COMM410,Topics in Communication,COMM
+COMM,420,COMM420,Advanced Communication,COMM
+COMM,430,COMM430,Leadership in Communication,COMM
+COMM,440,COMM440,Global Perspectives in Communication,COMM
+COMM,501,COMM501,Foundations of Communication,COMM
+COMM,502,COMM502,Communication in Practice,COMM
+COMM,510,COMM510,Research Methods in Communication,COMM
+COMM,520,COMM520,Contemporary Issues in Communication,COMM
+COMM,530,COMM530,Seminar in Communication,COMM
+COMM,540,COMM540,Applied Communication,COMM
+COMM,601,COMM601,Communication Capstone,COMM
+COMM,602,COMM602,Communication Internship,COMM
+COMM,610,COMM610,Topics in Communication,COMM
+COMM,620,COMM620,Advanced Communication,COMM
+COMM,630,COMM630,Leadership in Communication,COMM
+COMM,640,COMM640,Global Perspectives in Communication,COMM
+COMM,701,COMM701,Foundations of Communication,COMM
+COMM,702,COMM702,Communication in Practice,COMM
+COMM,710,COMM710,Research Methods in Communication,COMM
+COMM,720,COMM720,Contemporary Issues in Communication,COMM
+COMM,730,COMM730,Seminar in Communication,COMM
+COMM,740,COMM740,Applied Communication,COMM
+COMM,780,COMM780,Communication Capstone,COMM
+COMM,781,COMM781,Communication Internship,COMM
+COMM,790,COMM790,Topics in Communication,COMM
+COMM,791,COMM791,Advanced Communication,COMM
+COMM,795,COMM795,Leadership in Communication,COMM
+COMM,799,COMM799,Global Perspectives in Communication,COMM
+COMPSCI,101,COMPSCI101,Introduction to Programming,COMPSCI
+COMPSCI,102,COMPSCI102,Data Structures,COMPSCI
+COMPSCI,110,COMPSCI110,Algorithms,COMPSCI
+COMPSCI,120,COMPSCI120,Computer Systems,COMPSCI
+COMPSCI,130,COMPSCI130,Database Systems,COMPSCI
+COMPSCI,140,COMPSCI140,Operating Systems,COMPSCI
+COMPSCI,201,COMPSCI201,Software Engineering,COMPSCI
+COMPSCI,202,COMPSCI202,Artificial Intelligence,COMPSCI
+COMPSCI,210,COMPSCI210,Machine Learning,COMPSCI
+COMPSCI,220,COMPSCI220,Human-Computer Interaction,COMPSCI
+COMPSCI,230,COMPSCI230,Cloud Computing,COMPSCI
+COMPSCI,240,COMPSCI240,Distributed Systems,COMPSCI
+COMPSCI,301,COMPSCI301,Computer Networks,COMPSCI
+COMPSCI,302,COMPSCI302,Cybersecurity Fundamentals,COMPSCI
+COMPSCI,310,COMPSCI310,Capstone in Computer Science,COMPSCI
+COMPSCI,320,COMPSCI320,Introduction to Programming,COMPSCI
+COMPSCI,330,COMPSCI330,Data Structures,COMPSCI
+COMPSCI,340,COMPSCI340,Algorithms,COMPSCI
+COMPSCI,401,COMPSCI401,Computer Systems,COMPSCI
+COMPSCI,402,COMPSCI402,Database Systems,COMPSCI
+COMPSCI,410,COMPSCI410,Operating Systems,COMPSCI
+COMPSCI,420,COMPSCI420,Software Engineering,COMPSCI
+COMPSCI,430,COMPSCI430,Artificial Intelligence,COMPSCI
+COMPSCI,440,COMPSCI440,Machine Learning,COMPSCI
+COMPSCI,501,COMPSCI501,Human-Computer Interaction,COMPSCI
+COMPSCI,502,COMPSCI502,Cloud Computing,COMPSCI
+COMPSCI,510,COMPSCI510,Distributed Systems,COMPSCI
+COMPSCI,520,COMPSCI520,Computer Networks,COMPSCI
+COMPSCI,530,COMPSCI530,Cybersecurity Fundamentals,COMPSCI
+COMPSCI,540,COMPSCI540,Capstone in Computer Science,COMPSCI
+COMPSCI,601,COMPSCI601,Introduction to Programming,COMPSCI
+COMPSCI,602,COMPSCI602,Data Structures,COMPSCI
+COMPSCI,610,COMPSCI610,Algorithms,COMPSCI
+COMPSCI,620,COMPSCI620,Computer Systems,COMPSCI
+COMPSCI,630,COMPSCI630,Database Systems,COMPSCI
+COMPSCI,640,COMPSCI640,Operating Systems,COMPSCI
+COMPSCI,701,COMPSCI701,Software Engineering,COMPSCI
+COMPSCI,702,COMPSCI702,Artificial Intelligence,COMPSCI
+COMPSCI,710,COMPSCI710,Machine Learning,COMPSCI
+COMPSCI,720,COMPSCI720,Human-Computer Interaction,COMPSCI
+COMPSCI,730,COMPSCI730,Cloud Computing,COMPSCI
+COMPSCI,740,COMPSCI740,Distributed Systems,COMPSCI
+COMPSCI,780,COMPSCI780,Computer Networks,COMPSCI
+COMPSCI,781,COMPSCI781,Cybersecurity Fundamentals,COMPSCI
+COMPSCI,790,COMPSCI790,Capstone in Computer Science,COMPSCI
+COMPSCI,791,COMPSCI791,Introduction to Programming,COMPSCI
+COMPSCI,795,COMPSCI795,Data Structures,COMPSCI
+COMPSCI,799,COMPSCI799,Algorithms,COMPSCI
+COUN,101,COUN101,Foundations of Counseling,COUN
+COUN,102,COUN102,Counseling in Practice,COUN
+COUN,110,COUN110,Research Methods in Counseling,COUN
+COUN,120,COUN120,Contemporary Issues in Counseling,COUN
+COUN,130,COUN130,Seminar in Counseling,COUN
+COUN,140,COUN140,Applied Counseling,COUN
+COUN,201,COUN201,Counseling Capstone,COUN
+COUN,202,COUN202,Counseling Internship,COUN
+COUN,210,COUN210,Topics in Counseling,COUN
+COUN,220,COUN220,Advanced Counseling,COUN
+COUN,230,COUN230,Leadership in Counseling,COUN
+COUN,240,COUN240,Global Perspectives in Counseling,COUN
+COUN,301,COUN301,Foundations of Counseling,COUN
+COUN,302,COUN302,Counseling in Practice,COUN
+COUN,310,COUN310,Research Methods in Counseling,COUN
+COUN,320,COUN320,Contemporary Issues in Counseling,COUN
+COUN,330,COUN330,Seminar in Counseling,COUN
+COUN,340,COUN340,Applied Counseling,COUN
+COUN,401,COUN401,Counseling Capstone,COUN
+COUN,402,COUN402,Counseling Internship,COUN
+COUN,410,COUN410,Topics in Counseling,COUN
+COUN,420,COUN420,Advanced Counseling,COUN
+COUN,430,COUN430,Leadership in Counseling,COUN
+COUN,440,COUN440,Global Perspectives in Counseling,COUN
+COUN,501,COUN501,Foundations of Counseling,COUN
+COUN,502,COUN502,Counseling in Practice,COUN
+COUN,510,COUN510,Research Methods in Counseling,COUN
+COUN,520,COUN520,Contemporary Issues in Counseling,COUN
+COUN,530,COUN530,Seminar in Counseling,COUN
+COUN,540,COUN540,Applied Counseling,COUN
+COUN,601,COUN601,Counseling Capstone,COUN
+COUN,602,COUN602,Counseling Internship,COUN
+COUN,610,COUN610,Topics in Counseling,COUN
+COUN,620,COUN620,Advanced Counseling,COUN
+COUN,630,COUN630,Leadership in Counseling,COUN
+COUN,640,COUN640,Global Perspectives in Counseling,COUN
+COUN,701,COUN701,Foundations of Counseling,COUN
+COUN,702,COUN702,Counseling in Practice,COUN
+COUN,710,COUN710,Research Methods in Counseling,COUN
+COUN,720,COUN720,Contemporary Issues in Counseling,COUN
+COUN,730,COUN730,Seminar in Counseling,COUN
+COUN,740,COUN740,Applied Counseling,COUN
+COUN,780,COUN780,Counseling Capstone,COUN
+COUN,781,COUN781,Counseling Internship,COUN
+COUN,790,COUN790,Topics in Counseling,COUN
+COUN,791,COUN791,Advanced Counseling,COUN
+COUN,795,COUN795,Leadership in Counseling,COUN
+COUN,799,COUN799,Global Perspectives in Counseling,COUN
+DATA,101,DATA101,Foundations of Data Science,DATA
+DATA,102,DATA102,Data Wrangling,DATA
+DATA,110,DATA110,Statistical Learning,DATA
+DATA,120,DATA120,Data Visualization,DATA
+DATA,130,DATA130,Applied Machine Learning,DATA
+DATA,140,DATA140,Big Data Platforms,DATA
+DATA,201,DATA201,Responsible AI,DATA
+DATA,202,DATA202,Deep Learning Applications,DATA
+DATA,210,DATA210,Data Ethics and Governance,DATA
+DATA,220,DATA220,Natural Language Processing,DATA
+DATA,230,DATA230,Experiment Design,DATA
+DATA,240,DATA240,Predictive Modeling,DATA
+DATA,301,DATA301,Foundations of Data Science,DATA
+DATA,302,DATA302,Data Wrangling,DATA
+DATA,310,DATA310,Statistical Learning,DATA
+DATA,320,DATA320,Data Visualization,DATA
+DATA,330,DATA330,Applied Machine Learning,DATA
+DATA,340,DATA340,Big Data Platforms,DATA
+DATA,401,DATA401,Responsible AI,DATA
+DATA,402,DATA402,Deep Learning Applications,DATA
+DATA,410,DATA410,Data Ethics and Governance,DATA
+DATA,420,DATA420,Natural Language Processing,DATA
+DATA,430,DATA430,Experiment Design,DATA
+DATA,440,DATA440,Predictive Modeling,DATA
+DATA,501,DATA501,Foundations of Data Science,DATA
+DATA,502,DATA502,Data Wrangling,DATA
+DATA,510,DATA510,Statistical Learning,DATA
+DATA,520,DATA520,Data Visualization,DATA
+DATA,530,DATA530,Applied Machine Learning,DATA
+DATA,540,DATA540,Big Data Platforms,DATA
+DATA,601,DATA601,Responsible AI,DATA
+DATA,602,DATA602,Deep Learning Applications,DATA
+DATA,610,DATA610,Data Ethics and Governance,DATA
+DATA,620,DATA620,Natural Language Processing,DATA
+DATA,630,DATA630,Experiment Design,DATA
+DATA,640,DATA640,Predictive Modeling,DATA
+DATA,701,DATA701,Foundations of Data Science,DATA
+DATA,702,DATA702,Data Wrangling,DATA
+DATA,710,DATA710,Statistical Learning,DATA
+DATA,720,DATA720,Data Visualization,DATA
+DATA,730,DATA730,Applied Machine Learning,DATA
+DATA,740,DATA740,Big Data Platforms,DATA
+DATA,780,DATA780,Responsible AI,DATA
+DATA,781,DATA781,Deep Learning Applications,DATA
+DATA,790,DATA790,Data Ethics and Governance,DATA
+DATA,791,DATA791,Natural Language Processing,DATA
+DATA,795,DATA795,Experiment Design,DATA
+DATA,799,DATA799,Predictive Modeling,DATA
+DENT,101,DENT101,Foundations of Dentistry,DENT
+DENT,102,DENT102,Dentistry in Practice,DENT
+DENT,110,DENT110,Research Methods in Dentistry,DENT
+DENT,120,DENT120,Contemporary Issues in Dentistry,DENT
+DENT,130,DENT130,Seminar in Dentistry,DENT
+DENT,140,DENT140,Applied Dentistry,DENT
+DENT,201,DENT201,Dentistry Capstone,DENT
+DENT,202,DENT202,Dentistry Internship,DENT
+DENT,210,DENT210,Topics in Dentistry,DENT
+DENT,220,DENT220,Advanced Dentistry,DENT
+DENT,230,DENT230,Leadership in Dentistry,DENT
+DENT,240,DENT240,Global Perspectives in Dentistry,DENT
+DENT,301,DENT301,Foundations of Dentistry,DENT
+DENT,302,DENT302,Dentistry in Practice,DENT
+DENT,310,DENT310,Research Methods in Dentistry,DENT
+DENT,320,DENT320,Contemporary Issues in Dentistry,DENT
+DENT,330,DENT330,Seminar in Dentistry,DENT
+DENT,340,DENT340,Applied Dentistry,DENT
+DENT,401,DENT401,Dentistry Capstone,DENT
+DENT,402,DENT402,Dentistry Internship,DENT
+DENT,410,DENT410,Topics in Dentistry,DENT
+DENT,420,DENT420,Advanced Dentistry,DENT
+DENT,430,DENT430,Leadership in Dentistry,DENT
+DENT,440,DENT440,Global Perspectives in Dentistry,DENT
+DENT,501,DENT501,Foundations of Dentistry,DENT
+DENT,502,DENT502,Dentistry in Practice,DENT
+DENT,510,DENT510,Research Methods in Dentistry,DENT
+DENT,520,DENT520,Contemporary Issues in Dentistry,DENT
+DENT,530,DENT530,Seminar in Dentistry,DENT
+DENT,540,DENT540,Applied Dentistry,DENT
+DENT,601,DENT601,Dentistry Capstone,DENT
+DENT,602,DENT602,Dentistry Internship,DENT
+DENT,610,DENT610,Topics in Dentistry,DENT
+DENT,620,DENT620,Advanced Dentistry,DENT
+DENT,630,DENT630,Leadership in Dentistry,DENT
+DENT,640,DENT640,Global Perspectives in Dentistry,DENT
+DENT,701,DENT701,Foundations of Dentistry,DENT
+DENT,702,DENT702,Dentistry in Practice,DENT
+DENT,710,DENT710,Research Methods in Dentistry,DENT
+DENT,720,DENT720,Contemporary Issues in Dentistry,DENT
+DENT,730,DENT730,Seminar in Dentistry,DENT
+DENT,740,DENT740,Applied Dentistry,DENT
+DENT,780,DENT780,Dentistry Capstone,DENT
+DENT,781,DENT781,Dentistry Internship,DENT
+DENT,790,DENT790,Topics in Dentistry,DENT
+DENT,791,DENT791,Advanced Dentistry,DENT
+DENT,795,DENT795,Leadership in Dentistry,DENT
+DENT,799,DENT799,Global Perspectives in Dentistry,DENT
+ECON,101,ECON101,Foundations of Economics,ECON
+ECON,102,ECON102,Economics in Practice,ECON
+ECON,110,ECON110,Research Methods in Economics,ECON
+ECON,120,ECON120,Contemporary Issues in Economics,ECON
+ECON,130,ECON130,Seminar in Economics,ECON
+ECON,140,ECON140,Applied Economics,ECON
+ECON,201,ECON201,Economics Capstone,ECON
+ECON,202,ECON202,Economics Internship,ECON
+ECON,210,ECON210,Topics in Economics,ECON
+ECON,220,ECON220,Advanced Economics,ECON
+ECON,230,ECON230,Leadership in Economics,ECON
+ECON,240,ECON240,Global Perspectives in Economics,ECON
+ECON,301,ECON301,Foundations of Economics,ECON
+ECON,302,ECON302,Economics in Practice,ECON
+ECON,310,ECON310,Research Methods in Economics,ECON
+ECON,320,ECON320,Contemporary Issues in Economics,ECON
+ECON,330,ECON330,Seminar in Economics,ECON
+ECON,340,ECON340,Applied Economics,ECON
+ECON,401,ECON401,Economics Capstone,ECON
+ECON,402,ECON402,Economics Internship,ECON
+ECON,410,ECON410,Topics in Economics,ECON
+ECON,420,ECON420,Advanced Economics,ECON
+ECON,430,ECON430,Leadership in Economics,ECON
+ECON,440,ECON440,Global Perspectives in Economics,ECON
+ECON,501,ECON501,Foundations of Economics,ECON
+ECON,502,ECON502,Economics in Practice,ECON
+ECON,510,ECON510,Research Methods in Economics,ECON
+ECON,520,ECON520,Contemporary Issues in Economics,ECON
+ECON,530,ECON530,Seminar in Economics,ECON
+ECON,540,ECON540,Applied Economics,ECON
+ECON,601,ECON601,Economics Capstone,ECON
+ECON,602,ECON602,Economics Internship,ECON
+ECON,610,ECON610,Topics in Economics,ECON
+ECON,620,ECON620,Advanced Economics,ECON
+ECON,630,ECON630,Leadership in Economics,ECON
+ECON,640,ECON640,Global Perspectives in Economics,ECON
+ECON,701,ECON701,Foundations of Economics,ECON
+ECON,702,ECON702,Economics in Practice,ECON
+ECON,710,ECON710,Research Methods in Economics,ECON
+ECON,720,ECON720,Contemporary Issues in Economics,ECON
+ECON,730,ECON730,Seminar in Economics,ECON
+ECON,740,ECON740,Applied Economics,ECON
+ECON,780,ECON780,Economics Capstone,ECON
+ECON,781,ECON781,Economics Internship,ECON
+ECON,790,ECON790,Topics in Economics,ECON
+ECON,791,ECON791,Advanced Economics,ECON
+ECON,795,ECON795,Leadership in Economics,ECON
+ECON,799,ECON799,Global Perspectives in Economics,ECON
+EDU,101,EDU101,Foundations of Education,EDU
+EDU,102,EDU102,Education in Practice,EDU
+EDU,110,EDU110,Research Methods in Education,EDU
+EDU,120,EDU120,Contemporary Issues in Education,EDU
+EDU,130,EDU130,Seminar in Education,EDU
+EDU,140,EDU140,Applied Education,EDU
+EDU,201,EDU201,Education Capstone,EDU
+EDU,202,EDU202,Education Internship,EDU
+EDU,210,EDU210,Topics in Education,EDU
+EDU,220,EDU220,Advanced Education,EDU
+EDU,230,EDU230,Leadership in Education,EDU
+EDU,240,EDU240,Global Perspectives in Education,EDU
+EDU,301,EDU301,Foundations of Education,EDU
+EDU,302,EDU302,Education in Practice,EDU
+EDU,310,EDU310,Research Methods in Education,EDU
+EDU,320,EDU320,Contemporary Issues in Education,EDU
+EDU,330,EDU330,Seminar in Education,EDU
+EDU,340,EDU340,Applied Education,EDU
+EDU,401,EDU401,Education Capstone,EDU
+EDU,402,EDU402,Education Internship,EDU
+EDU,410,EDU410,Topics in Education,EDU
+EDU,420,EDU420,Advanced Education,EDU
+EDU,430,EDU430,Leadership in Education,EDU
+EDU,440,EDU440,Global Perspectives in Education,EDU
+EDU,501,EDU501,Foundations of Education,EDU
+EDU,502,EDU502,Education in Practice,EDU
+EDU,510,EDU510,Research Methods in Education,EDU
+EDU,520,EDU520,Contemporary Issues in Education,EDU
+EDU,530,EDU530,Seminar in Education,EDU
+EDU,540,EDU540,Applied Education,EDU
+EDU,601,EDU601,Education Capstone,EDU
+EDU,602,EDU602,Education Internship,EDU
+EDU,610,EDU610,Topics in Education,EDU
+EDU,620,EDU620,Advanced Education,EDU
+EDU,630,EDU630,Leadership in Education,EDU
+EDU,640,EDU640,Global Perspectives in Education,EDU
+EDU,701,EDU701,Foundations of Education,EDU
+EDU,702,EDU702,Education in Practice,EDU
+EDU,710,EDU710,Research Methods in Education,EDU
+EDU,720,EDU720,Contemporary Issues in Education,EDU
+EDU,730,EDU730,Seminar in Education,EDU
+EDU,740,EDU740,Applied Education,EDU
+EDU,780,EDU780,Education Capstone,EDU
+EDU,781,EDU781,Education Internship,EDU
+EDU,790,EDU790,Topics in Education,EDU
+EDU,791,EDU791,Advanced Education,EDU
+EDU,795,EDU795,Leadership in Education,EDU
+EDU,799,EDU799,Global Perspectives in Education,EDU
+ELEC,101,ELEC101,Foundations of Electrical Engineering,ELEC
+ELEC,102,ELEC102,Electrical Engineering in Practice,ELEC
+ELEC,110,ELEC110,Research Methods in Electrical Engineering,ELEC
+ELEC,120,ELEC120,Contemporary Issues in Electrical Engineering,ELEC
+ELEC,130,ELEC130,Seminar in Electrical Engineering,ELEC
+ELEC,140,ELEC140,Applied Electrical Engineering,ELEC
+ELEC,201,ELEC201,Electrical Engineering Capstone,ELEC
+ELEC,202,ELEC202,Electrical Engineering Internship,ELEC
+ELEC,210,ELEC210,Topics in Electrical Engineering,ELEC
+ELEC,220,ELEC220,Advanced Electrical Engineering,ELEC
+ELEC,230,ELEC230,Leadership in Electrical Engineering,ELEC
+ELEC,240,ELEC240,Global Perspectives in Electrical Engineering,ELEC
+ELEC,301,ELEC301,Foundations of Electrical Engineering,ELEC
+ELEC,302,ELEC302,Electrical Engineering in Practice,ELEC
+ELEC,310,ELEC310,Research Methods in Electrical Engineering,ELEC
+ELEC,320,ELEC320,Contemporary Issues in Electrical Engineering,ELEC
+ELEC,330,ELEC330,Seminar in Electrical Engineering,ELEC
+ELEC,340,ELEC340,Applied Electrical Engineering,ELEC
+ELEC,401,ELEC401,Electrical Engineering Capstone,ELEC
+ELEC,402,ELEC402,Electrical Engineering Internship,ELEC
+ELEC,410,ELEC410,Topics in Electrical Engineering,ELEC
+ELEC,420,ELEC420,Advanced Electrical Engineering,ELEC
+ELEC,430,ELEC430,Leadership in Electrical Engineering,ELEC
+ELEC,440,ELEC440,Global Perspectives in Electrical Engineering,ELEC
+ELEC,501,ELEC501,Foundations of Electrical Engineering,ELEC
+ELEC,502,ELEC502,Electrical Engineering in Practice,ELEC
+ELEC,510,ELEC510,Research Methods in Electrical Engineering,ELEC
+ELEC,520,ELEC520,Contemporary Issues in Electrical Engineering,ELEC
+ELEC,530,ELEC530,Seminar in Electrical Engineering,ELEC
+ELEC,540,ELEC540,Applied Electrical Engineering,ELEC
+ELEC,601,ELEC601,Electrical Engineering Capstone,ELEC
+ELEC,602,ELEC602,Electrical Engineering Internship,ELEC
+ELEC,610,ELEC610,Topics in Electrical Engineering,ELEC
+ELEC,620,ELEC620,Advanced Electrical Engineering,ELEC
+ELEC,630,ELEC630,Leadership in Electrical Engineering,ELEC
+ELEC,640,ELEC640,Global Perspectives in Electrical Engineering,ELEC
+ELEC,701,ELEC701,Foundations of Electrical Engineering,ELEC
+ELEC,702,ELEC702,Electrical Engineering in Practice,ELEC
+ELEC,710,ELEC710,Research Methods in Electrical Engineering,ELEC
+ELEC,720,ELEC720,Contemporary Issues in Electrical Engineering,ELEC
+ELEC,730,ELEC730,Seminar in Electrical Engineering,ELEC
+ELEC,740,ELEC740,Applied Electrical Engineering,ELEC
+ELEC,780,ELEC780,Electrical Engineering Capstone,ELEC
+ELEC,781,ELEC781,Electrical Engineering Internship,ELEC
+ELEC,790,ELEC790,Topics in Electrical Engineering,ELEC
+ELEC,791,ELEC791,Advanced Electrical Engineering,ELEC
+ELEC,795,ELEC795,Leadership in Electrical Engineering,ELEC
+ELEC,799,ELEC799,Global Perspectives in Electrical Engineering,ELEC
+ENG,101,ENG101,Foundations of English,ENG
+ENG,102,ENG102,English in Practice,ENG
+ENG,110,ENG110,Research Methods in English,ENG
+ENG,120,ENG120,Contemporary Issues in English,ENG
+ENG,130,ENG130,Seminar in English,ENG
+ENG,140,ENG140,Applied English,ENG
+ENG,201,ENG201,English Capstone,ENG
+ENG,202,ENG202,English Internship,ENG
+ENG,210,ENG210,Topics in English,ENG
+ENG,220,ENG220,Advanced English,ENG
+ENG,230,ENG230,Leadership in English,ENG
+ENG,240,ENG240,Global Perspectives in English,ENG
+ENG,301,ENG301,Foundations of English,ENG
+ENG,302,ENG302,English in Practice,ENG
+ENG,310,ENG310,Research Methods in English,ENG
+ENG,320,ENG320,Contemporary Issues in English,ENG
+ENG,330,ENG330,Seminar in English,ENG
+ENG,340,ENG340,Applied English,ENG
+ENG,401,ENG401,English Capstone,ENG
+ENG,402,ENG402,English Internship,ENG
+ENG,410,ENG410,Topics in English,ENG
+ENG,420,ENG420,Advanced English,ENG
+ENG,430,ENG430,Leadership in English,ENG
+ENG,440,ENG440,Global Perspectives in English,ENG
+ENG,501,ENG501,Foundations of English,ENG
+ENG,502,ENG502,English in Practice,ENG
+ENG,510,ENG510,Research Methods in English,ENG
+ENG,520,ENG520,Contemporary Issues in English,ENG
+ENG,530,ENG530,Seminar in English,ENG
+ENG,540,ENG540,Applied English,ENG
+ENG,601,ENG601,English Capstone,ENG
+ENG,602,ENG602,English Internship,ENG
+ENG,610,ENG610,Topics in English,ENG
+ENG,620,ENG620,Advanced English,ENG
+ENG,630,ENG630,Leadership in English,ENG
+ENG,640,ENG640,Global Perspectives in English,ENG
+ENG,701,ENG701,Foundations of English,ENG
+ENG,702,ENG702,English in Practice,ENG
+ENG,710,ENG710,Research Methods in English,ENG
+ENG,720,ENG720,Contemporary Issues in English,ENG
+ENG,730,ENG730,Seminar in English,ENG
+ENG,740,ENG740,Applied English,ENG
+ENG,780,ENG780,English Capstone,ENG
+ENG,781,ENG781,English Internship,ENG
+ENG,790,ENG790,Topics in English,ENG
+ENG,791,ENG791,Advanced English,ENG
+ENG,795,ENG795,Leadership in English,ENG
+ENG,799,ENG799,Global Perspectives in English,ENG
+ENV,101,ENV101,Foundations of Environmental Studies,ENV
+ENV,102,ENV102,Environmental Studies in Practice,ENV
+ENV,110,ENV110,Research Methods in Environmental Studies,ENV
+ENV,120,ENV120,Contemporary Issues in Environmental Studies,ENV
+ENV,130,ENV130,Seminar in Environmental Studies,ENV
+ENV,140,ENV140,Applied Environmental Studies,ENV
+ENV,201,ENV201,Environmental Studies Capstone,ENV
+ENV,202,ENV202,Environmental Studies Internship,ENV
+ENV,210,ENV210,Topics in Environmental Studies,ENV
+ENV,220,ENV220,Advanced Environmental Studies,ENV
+ENV,230,ENV230,Leadership in Environmental Studies,ENV
+ENV,240,ENV240,Global Perspectives in Environmental Studies,ENV
+ENV,301,ENV301,Foundations of Environmental Studies,ENV
+ENV,302,ENV302,Environmental Studies in Practice,ENV
+ENV,310,ENV310,Research Methods in Environmental Studies,ENV
+ENV,320,ENV320,Contemporary Issues in Environmental Studies,ENV
+ENV,330,ENV330,Seminar in Environmental Studies,ENV
+ENV,340,ENV340,Applied Environmental Studies,ENV
+ENV,401,ENV401,Environmental Studies Capstone,ENV
+ENV,402,ENV402,Environmental Studies Internship,ENV
+ENV,410,ENV410,Topics in Environmental Studies,ENV
+ENV,420,ENV420,Advanced Environmental Studies,ENV
+ENV,430,ENV430,Leadership in Environmental Studies,ENV
+ENV,440,ENV440,Global Perspectives in Environmental Studies,ENV
+ENV,501,ENV501,Foundations of Environmental Studies,ENV
+ENV,502,ENV502,Environmental Studies in Practice,ENV
+ENV,510,ENV510,Research Methods in Environmental Studies,ENV
+ENV,520,ENV520,Contemporary Issues in Environmental Studies,ENV
+ENV,530,ENV530,Seminar in Environmental Studies,ENV
+ENV,540,ENV540,Applied Environmental Studies,ENV
+ENV,601,ENV601,Environmental Studies Capstone,ENV
+ENV,602,ENV602,Environmental Studies Internship,ENV
+ENV,610,ENV610,Topics in Environmental Studies,ENV
+ENV,620,ENV620,Advanced Environmental Studies,ENV
+ENV,630,ENV630,Leadership in Environmental Studies,ENV
+ENV,640,ENV640,Global Perspectives in Environmental Studies,ENV
+ENV,701,ENV701,Foundations of Environmental Studies,ENV
+ENV,702,ENV702,Environmental Studies in Practice,ENV
+ENV,710,ENV710,Research Methods in Environmental Studies,ENV
+ENV,720,ENV720,Contemporary Issues in Environmental Studies,ENV
+ENV,730,ENV730,Seminar in Environmental Studies,ENV
+ENV,740,ENV740,Applied Environmental Studies,ENV
+ENV,780,ENV780,Environmental Studies Capstone,ENV
+ENV,781,ENV781,Environmental Studies Internship,ENV
+ENV,790,ENV790,Topics in Environmental Studies,ENV
+ENV,791,ENV791,Advanced Environmental Studies,ENV
+ENV,795,ENV795,Leadership in Environmental Studies,ENV
+ENV,799,ENV799,Global Perspectives in Environmental Studies,ENV
+FIN,101,FIN101,Foundations of Finance,FIN
+FIN,102,FIN102,Finance in Practice,FIN
+FIN,110,FIN110,Research Methods in Finance,FIN
+FIN,120,FIN120,Contemporary Issues in Finance,FIN
+FIN,130,FIN130,Seminar in Finance,FIN
+FIN,140,FIN140,Applied Finance,FIN
+FIN,201,FIN201,Finance Capstone,FIN
+FIN,202,FIN202,Finance Internship,FIN
+FIN,210,FIN210,Topics in Finance,FIN
+FIN,220,FIN220,Advanced Finance,FIN
+FIN,230,FIN230,Leadership in Finance,FIN
+FIN,240,FIN240,Global Perspectives in Finance,FIN
+FIN,301,FIN301,Foundations of Finance,FIN
+FIN,302,FIN302,Finance in Practice,FIN
+FIN,310,FIN310,Research Methods in Finance,FIN
+FIN,320,FIN320,Contemporary Issues in Finance,FIN
+FIN,330,FIN330,Seminar in Finance,FIN
+FIN,340,FIN340,Applied Finance,FIN
+FIN,401,FIN401,Finance Capstone,FIN
+FIN,402,FIN402,Finance Internship,FIN
+FIN,410,FIN410,Topics in Finance,FIN
+FIN,420,FIN420,Advanced Finance,FIN
+FIN,430,FIN430,Leadership in Finance,FIN
+FIN,440,FIN440,Global Perspectives in Finance,FIN
+FIN,501,FIN501,Foundations of Finance,FIN
+FIN,502,FIN502,Finance in Practice,FIN
+FIN,510,FIN510,Research Methods in Finance,FIN
+FIN,520,FIN520,Contemporary Issues in Finance,FIN
+FIN,530,FIN530,Seminar in Finance,FIN
+FIN,540,FIN540,Applied Finance,FIN
+FIN,601,FIN601,Finance Capstone,FIN
+FIN,602,FIN602,Finance Internship,FIN
+FIN,610,FIN610,Topics in Finance,FIN
+FIN,620,FIN620,Advanced Finance,FIN
+FIN,630,FIN630,Leadership in Finance,FIN
+FIN,640,FIN640,Global Perspectives in Finance,FIN
+FIN,701,FIN701,Foundations of Finance,FIN
+FIN,702,FIN702,Finance in Practice,FIN
+FIN,710,FIN710,Research Methods in Finance,FIN
+FIN,720,FIN720,Contemporary Issues in Finance,FIN
+FIN,730,FIN730,Seminar in Finance,FIN
+FIN,740,FIN740,Applied Finance,FIN
+FIN,780,FIN780,Finance Capstone,FIN
+FIN,781,FIN781,Finance Internship,FIN
+FIN,790,FIN790,Topics in Finance,FIN
+FIN,791,FIN791,Advanced Finance,FIN
+FIN,795,FIN795,Leadership in Finance,FIN
+FIN,799,FIN799,Global Perspectives in Finance,FIN
+FREN,101,FREN101,Français Élémentaire I,FREN
+FREN,102,FREN102,Français Intermédiaire,FREN
+FREN,110,FREN110,Civilisation Française,FREN
+FREN,120,FREN120,Littérature et Société,FREN
+FREN,130,FREN130,Français pour les Professions,FREN
+FREN,140,FREN140,Atelier d'Écriture,FREN
+FREN,201,FREN201,Français Élémentaire I,FREN
+FREN,202,FREN202,Français Intermédiaire,FREN
+FREN,210,FREN210,Civilisation Française,FREN
+FREN,220,FREN220,Littérature et Société,FREN
+FREN,230,FREN230,Français pour les Professions,FREN
+FREN,240,FREN240,Atelier d'Écriture,FREN
+FREN,301,FREN301,Français Élémentaire I,FREN
+FREN,302,FREN302,Français Intermédiaire,FREN
+FREN,310,FREN310,Civilisation Française,FREN
+FREN,320,FREN320,Littérature et Société,FREN
+FREN,330,FREN330,Français pour les Professions,FREN
+FREN,340,FREN340,Atelier d'Écriture,FREN
+FREN,401,FREN401,Français Élémentaire I,FREN
+FREN,402,FREN402,Français Intermédiaire,FREN
+FREN,410,FREN410,Civilisation Française,FREN
+FREN,420,FREN420,Littérature et Société,FREN
+FREN,430,FREN430,Français pour les Professions,FREN
+FREN,440,FREN440,Atelier d'Écriture,FREN
+FREN,501,FREN501,Français Élémentaire I,FREN
+FREN,502,FREN502,Français Intermédiaire,FREN
+FREN,510,FREN510,Civilisation Française,FREN
+FREN,520,FREN520,Littérature et Société,FREN
+FREN,530,FREN530,Français pour les Professions,FREN
+FREN,540,FREN540,Atelier d'Écriture,FREN
+FREN,601,FREN601,Français Élémentaire I,FREN
+FREN,602,FREN602,Français Intermédiaire,FREN
+FREN,610,FREN610,Civilisation Française,FREN
+FREN,620,FREN620,Littérature et Société,FREN
+FREN,630,FREN630,Français pour les Professions,FREN
+FREN,640,FREN640,Atelier d'Écriture,FREN
+FREN,701,FREN701,Français Élémentaire I,FREN
+FREN,702,FREN702,Français Intermédiaire,FREN
+FREN,710,FREN710,Civilisation Française,FREN
+FREN,720,FREN720,Littérature et Société,FREN
+FREN,730,FREN730,Français pour les Professions,FREN
+FREN,740,FREN740,Atelier d'Écriture,FREN
+FREN,780,FREN780,Français Élémentaire I,FREN
+FREN,781,FREN781,Français Intermédiaire,FREN
+FREN,790,FREN790,Civilisation Française,FREN
+FREN,791,FREN791,Littérature et Société,FREN
+FREN,795,FREN795,Français pour les Professions,FREN
+FREN,799,FREN799,Atelier d'Écriture,FREN
+GEOG,101,GEOG101,Foundations of Geography,GEOG
+GEOG,102,GEOG102,Geography in Practice,GEOG
+GEOG,110,GEOG110,Research Methods in Geography,GEOG
+GEOG,120,GEOG120,Contemporary Issues in Geography,GEOG
+GEOG,130,GEOG130,Seminar in Geography,GEOG
+GEOG,140,GEOG140,Applied Geography,GEOG
+GEOG,201,GEOG201,Geography Capstone,GEOG
+GEOG,202,GEOG202,Geography Internship,GEOG
+GEOG,210,GEOG210,Topics in Geography,GEOG
+GEOG,220,GEOG220,Advanced Geography,GEOG
+GEOG,230,GEOG230,Leadership in Geography,GEOG
+GEOG,240,GEOG240,Global Perspectives in Geography,GEOG
+GEOG,301,GEOG301,Foundations of Geography,GEOG
+GEOG,302,GEOG302,Geography in Practice,GEOG
+GEOG,310,GEOG310,Research Methods in Geography,GEOG
+GEOG,320,GEOG320,Contemporary Issues in Geography,GEOG
+GEOG,330,GEOG330,Seminar in Geography,GEOG
+GEOG,340,GEOG340,Applied Geography,GEOG
+GEOG,401,GEOG401,Geography Capstone,GEOG
+GEOG,402,GEOG402,Geography Internship,GEOG
+GEOG,410,GEOG410,Topics in Geography,GEOG
+GEOG,420,GEOG420,Advanced Geography,GEOG
+GEOG,430,GEOG430,Leadership in Geography,GEOG
+GEOG,440,GEOG440,Global Perspectives in Geography,GEOG
+GEOG,501,GEOG501,Foundations of Geography,GEOG
+GEOG,502,GEOG502,Geography in Practice,GEOG
+GEOG,510,GEOG510,Research Methods in Geography,GEOG
+GEOG,520,GEOG520,Contemporary Issues in Geography,GEOG
+GEOG,530,GEOG530,Seminar in Geography,GEOG
+GEOG,540,GEOG540,Applied Geography,GEOG
+GEOG,601,GEOG601,Geography Capstone,GEOG
+GEOG,602,GEOG602,Geography Internship,GEOG
+GEOG,610,GEOG610,Topics in Geography,GEOG
+GEOG,620,GEOG620,Advanced Geography,GEOG
+GEOG,630,GEOG630,Leadership in Geography,GEOG
+GEOG,640,GEOG640,Global Perspectives in Geography,GEOG
+GEOG,701,GEOG701,Foundations of Geography,GEOG
+GEOG,702,GEOG702,Geography in Practice,GEOG
+GEOG,710,GEOG710,Research Methods in Geography,GEOG
+GEOG,720,GEOG720,Contemporary Issues in Geography,GEOG
+GEOG,730,GEOG730,Seminar in Geography,GEOG
+GEOG,740,GEOG740,Applied Geography,GEOG
+GEOG,780,GEOG780,Geography Capstone,GEOG
+GEOG,781,GEOG781,Geography Internship,GEOG
+GEOG,790,GEOG790,Topics in Geography,GEOG
+GEOG,791,GEOG791,Advanced Geography,GEOG
+GEOG,795,GEOG795,Leadership in Geography,GEOG
+GEOG,799,GEOG799,Global Perspectives in Geography,GEOG
+HIST,101,HIST101,Foundations of History,HIST
+HIST,102,HIST102,History in Practice,HIST
+HIST,110,HIST110,Research Methods in History,HIST
+HIST,120,HIST120,Contemporary Issues in History,HIST
+HIST,130,HIST130,Seminar in History,HIST
+HIST,140,HIST140,Applied History,HIST
+HIST,201,HIST201,History Capstone,HIST
+HIST,202,HIST202,History Internship,HIST
+HIST,210,HIST210,Topics in History,HIST
+HIST,220,HIST220,Advanced History,HIST
+HIST,230,HIST230,Leadership in History,HIST
+HIST,240,HIST240,Global Perspectives in History,HIST
+HIST,301,HIST301,Foundations of History,HIST
+HIST,302,HIST302,History in Practice,HIST
+HIST,310,HIST310,Research Methods in History,HIST
+HIST,320,HIST320,Contemporary Issues in History,HIST
+HIST,330,HIST330,Seminar in History,HIST
+HIST,340,HIST340,Applied History,HIST
+HIST,401,HIST401,History Capstone,HIST
+HIST,402,HIST402,History Internship,HIST
+HIST,410,HIST410,Topics in History,HIST
+HIST,420,HIST420,Advanced History,HIST
+HIST,430,HIST430,Leadership in History,HIST
+HIST,440,HIST440,Global Perspectives in History,HIST
+HIST,501,HIST501,Foundations of History,HIST
+HIST,502,HIST502,History in Practice,HIST
+HIST,510,HIST510,Research Methods in History,HIST
+HIST,520,HIST520,Contemporary Issues in History,HIST
+HIST,530,HIST530,Seminar in History,HIST
+HIST,540,HIST540,Applied History,HIST
+HIST,601,HIST601,History Capstone,HIST
+HIST,602,HIST602,History Internship,HIST
+HIST,610,HIST610,Topics in History,HIST
+HIST,620,HIST620,Advanced History,HIST
+HIST,630,HIST630,Leadership in History,HIST
+HIST,640,HIST640,Global Perspectives in History,HIST
+HIST,701,HIST701,Foundations of History,HIST
+HIST,702,HIST702,History in Practice,HIST
+HIST,710,HIST710,Research Methods in History,HIST
+HIST,720,HIST720,Contemporary Issues in History,HIST
+HIST,730,HIST730,Seminar in History,HIST
+HIST,740,HIST740,Applied History,HIST
+HIST,780,HIST780,History Capstone,HIST
+HIST,781,HIST781,History Internship,HIST
+HIST,790,HIST790,Topics in History,HIST
+HIST,791,HIST791,Advanced History,HIST
+HIST,795,HIST795,Leadership in History,HIST
+HIST,799,HIST799,Global Perspectives in History,HIST
+INDU,101,INDU101,Foundations of Industrial Engineering,INDU
+INDU,102,INDU102,Industrial Engineering in Practice,INDU
+INDU,110,INDU110,Research Methods in Industrial Engineering,INDU
+INDU,120,INDU120,Contemporary Issues in Industrial Engineering,INDU
+INDU,130,INDU130,Seminar in Industrial Engineering,INDU
+INDU,140,INDU140,Applied Industrial Engineering,INDU
+INDU,201,INDU201,Industrial Engineering Capstone,INDU
+INDU,202,INDU202,Industrial Engineering Internship,INDU
+INDU,210,INDU210,Topics in Industrial Engineering,INDU
+INDU,220,INDU220,Advanced Industrial Engineering,INDU
+INDU,230,INDU230,Leadership in Industrial Engineering,INDU
+INDU,240,INDU240,Global Perspectives in Industrial Engineering,INDU
+INDU,301,INDU301,Foundations of Industrial Engineering,INDU
+INDU,302,INDU302,Industrial Engineering in Practice,INDU
+INDU,310,INDU310,Research Methods in Industrial Engineering,INDU
+INDU,320,INDU320,Contemporary Issues in Industrial Engineering,INDU
+INDU,330,INDU330,Seminar in Industrial Engineering,INDU
+INDU,340,INDU340,Applied Industrial Engineering,INDU
+INDU,401,INDU401,Industrial Engineering Capstone,INDU
+INDU,402,INDU402,Industrial Engineering Internship,INDU
+INDU,410,INDU410,Topics in Industrial Engineering,INDU
+INDU,420,INDU420,Advanced Industrial Engineering,INDU
+INDU,430,INDU430,Leadership in Industrial Engineering,INDU
+INDU,440,INDU440,Global Perspectives in Industrial Engineering,INDU
+INDU,501,INDU501,Foundations of Industrial Engineering,INDU
+INDU,502,INDU502,Industrial Engineering in Practice,INDU
+INDU,510,INDU510,Research Methods in Industrial Engineering,INDU
+INDU,520,INDU520,Contemporary Issues in Industrial Engineering,INDU
+INDU,530,INDU530,Seminar in Industrial Engineering,INDU
+INDU,540,INDU540,Applied Industrial Engineering,INDU
+INDU,601,INDU601,Industrial Engineering Capstone,INDU
+INDU,602,INDU602,Industrial Engineering Internship,INDU
+INDU,610,INDU610,Topics in Industrial Engineering,INDU
+INDU,620,INDU620,Advanced Industrial Engineering,INDU
+INDU,630,INDU630,Leadership in Industrial Engineering,INDU
+INDU,640,INDU640,Global Perspectives in Industrial Engineering,INDU
+INDU,701,INDU701,Foundations of Industrial Engineering,INDU
+INDU,702,INDU702,Industrial Engineering in Practice,INDU
+INDU,710,INDU710,Research Methods in Industrial Engineering,INDU
+INDU,720,INDU720,Contemporary Issues in Industrial Engineering,INDU
+INDU,730,INDU730,Seminar in Industrial Engineering,INDU
+INDU,740,INDU740,Applied Industrial Engineering,INDU
+INDU,780,INDU780,Industrial Engineering Capstone,INDU
+INDU,781,INDU781,Industrial Engineering Internship,INDU
+INDU,790,INDU790,Topics in Industrial Engineering,INDU
+INDU,791,INDU791,Advanced Industrial Engineering,INDU
+INDU,795,INDU795,Leadership in Industrial Engineering,INDU
+INDU,799,INDU799,Global Perspectives in Industrial Engineering,INDU
+IS,101,IS101,Foundations of Information Systems,IS
+IS,102,IS102,Information Systems in Practice,IS
+IS,110,IS110,Research Methods in Information Systems,IS
+IS,120,IS120,Contemporary Issues in Information Systems,IS
+IS,130,IS130,Seminar in Information Systems,IS
+IS,140,IS140,Applied Information Systems,IS
+IS,201,IS201,Information Systems Capstone,IS
+IS,202,IS202,Information Systems Internship,IS
+IS,210,IS210,Topics in Information Systems,IS
+IS,220,IS220,Advanced Information Systems,IS
+IS,230,IS230,Leadership in Information Systems,IS
+IS,240,IS240,Global Perspectives in Information Systems,IS
+IS,301,IS301,Foundations of Information Systems,IS
+IS,302,IS302,Information Systems in Practice,IS
+IS,310,IS310,Research Methods in Information Systems,IS
+IS,320,IS320,Contemporary Issues in Information Systems,IS
+IS,330,IS330,Seminar in Information Systems,IS
+IS,340,IS340,Applied Information Systems,IS
+IS,401,IS401,Information Systems Capstone,IS
+IS,402,IS402,Information Systems Internship,IS
+IS,410,IS410,Topics in Information Systems,IS
+IS,420,IS420,Advanced Information Systems,IS
+IS,430,IS430,Leadership in Information Systems,IS
+IS,440,IS440,Global Perspectives in Information Systems,IS
+IS,501,IS501,Foundations of Information Systems,IS
+IS,502,IS502,Information Systems in Practice,IS
+IS,510,IS510,Research Methods in Information Systems,IS
+IS,520,IS520,Contemporary Issues in Information Systems,IS
+IS,530,IS530,Seminar in Information Systems,IS
+IS,540,IS540,Applied Information Systems,IS
+IS,601,IS601,Information Systems Capstone,IS
+IS,602,IS602,Information Systems Internship,IS
+IS,610,IS610,Topics in Information Systems,IS
+IS,620,IS620,Advanced Information Systems,IS
+IS,630,IS630,Leadership in Information Systems,IS
+IS,640,IS640,Global Perspectives in Information Systems,IS
+IS,701,IS701,Foundations of Information Systems,IS
+IS,702,IS702,Information Systems in Practice,IS
+IS,710,IS710,Research Methods in Information Systems,IS
+IS,720,IS720,Contemporary Issues in Information Systems,IS
+IS,730,IS730,Seminar in Information Systems,IS
+IS,740,IS740,Applied Information Systems,IS
+IS,780,IS780,Information Systems Capstone,IS
+IS,781,IS781,Information Systems Internship,IS
+IS,790,IS790,Topics in Information Systems,IS
+IS,791,IS791,Advanced Information Systems,IS
+IS,795,IS795,Leadership in Information Systems,IS
+IS,799,IS799,Global Perspectives in Information Systems,IS
+JOUR,101,JOUR101,Foundations of Journalism,JOUR
+JOUR,102,JOUR102,Journalism in Practice,JOUR
+JOUR,110,JOUR110,Research Methods in Journalism,JOUR
+JOUR,120,JOUR120,Contemporary Issues in Journalism,JOUR
+JOUR,130,JOUR130,Seminar in Journalism,JOUR
+JOUR,140,JOUR140,Applied Journalism,JOUR
+JOUR,201,JOUR201,Journalism Capstone,JOUR
+JOUR,202,JOUR202,Journalism Internship,JOUR
+JOUR,210,JOUR210,Topics in Journalism,JOUR
+JOUR,220,JOUR220,Advanced Journalism,JOUR
+JOUR,230,JOUR230,Leadership in Journalism,JOUR
+JOUR,240,JOUR240,Global Perspectives in Journalism,JOUR
+JOUR,301,JOUR301,Foundations of Journalism,JOUR
+JOUR,302,JOUR302,Journalism in Practice,JOUR
+JOUR,310,JOUR310,Research Methods in Journalism,JOUR
+JOUR,320,JOUR320,Contemporary Issues in Journalism,JOUR
+JOUR,330,JOUR330,Seminar in Journalism,JOUR
+JOUR,340,JOUR340,Applied Journalism,JOUR
+JOUR,401,JOUR401,Journalism Capstone,JOUR
+JOUR,402,JOUR402,Journalism Internship,JOUR
+JOUR,410,JOUR410,Topics in Journalism,JOUR
+JOUR,420,JOUR420,Advanced Journalism,JOUR
+JOUR,430,JOUR430,Leadership in Journalism,JOUR
+JOUR,440,JOUR440,Global Perspectives in Journalism,JOUR
+JOUR,501,JOUR501,Foundations of Journalism,JOUR
+JOUR,502,JOUR502,Journalism in Practice,JOUR
+JOUR,510,JOUR510,Research Methods in Journalism,JOUR
+JOUR,520,JOUR520,Contemporary Issues in Journalism,JOUR
+JOUR,530,JOUR530,Seminar in Journalism,JOUR
+JOUR,540,JOUR540,Applied Journalism,JOUR
+JOUR,601,JOUR601,Journalism Capstone,JOUR
+JOUR,602,JOUR602,Journalism Internship,JOUR
+JOUR,610,JOUR610,Topics in Journalism,JOUR
+JOUR,620,JOUR620,Advanced Journalism,JOUR
+JOUR,630,JOUR630,Leadership in Journalism,JOUR
+JOUR,640,JOUR640,Global Perspectives in Journalism,JOUR
+JOUR,701,JOUR701,Foundations of Journalism,JOUR
+JOUR,702,JOUR702,Journalism in Practice,JOUR
+JOUR,710,JOUR710,Research Methods in Journalism,JOUR
+JOUR,720,JOUR720,Contemporary Issues in Journalism,JOUR
+JOUR,730,JOUR730,Seminar in Journalism,JOUR
+JOUR,740,JOUR740,Applied Journalism,JOUR
+JOUR,780,JOUR780,Journalism Capstone,JOUR
+JOUR,781,JOUR781,Journalism Internship,JOUR
+JOUR,790,JOUR790,Topics in Journalism,JOUR
+JOUR,791,JOUR791,Advanced Journalism,JOUR
+JOUR,795,JOUR795,Leadership in Journalism,JOUR
+JOUR,799,JOUR799,Global Perspectives in Journalism,JOUR
+LAW,101,LAW101,Foundations of Law,LAW
+LAW,102,LAW102,Law in Practice,LAW
+LAW,110,LAW110,Research Methods in Law,LAW
+LAW,120,LAW120,Contemporary Issues in Law,LAW
+LAW,130,LAW130,Seminar in Law,LAW
+LAW,140,LAW140,Applied Law,LAW
+LAW,201,LAW201,Law Capstone,LAW
+LAW,202,LAW202,Law Internship,LAW
+LAW,210,LAW210,Topics in Law,LAW
+LAW,220,LAW220,Advanced Law,LAW
+LAW,230,LAW230,Leadership in Law,LAW
+LAW,240,LAW240,Global Perspectives in Law,LAW
+LAW,301,LAW301,Foundations of Law,LAW
+LAW,302,LAW302,Law in Practice,LAW
+LAW,310,LAW310,Research Methods in Law,LAW
+LAW,320,LAW320,Contemporary Issues in Law,LAW
+LAW,330,LAW330,Seminar in Law,LAW
+LAW,340,LAW340,Applied Law,LAW
+LAW,401,LAW401,Law Capstone,LAW
+LAW,402,LAW402,Law Internship,LAW
+LAW,410,LAW410,Topics in Law,LAW
+LAW,420,LAW420,Advanced Law,LAW
+LAW,430,LAW430,Leadership in Law,LAW
+LAW,440,LAW440,Global Perspectives in Law,LAW
+LAW,501,LAW501,Foundations of Law,LAW
+LAW,502,LAW502,Law in Practice,LAW
+LAW,510,LAW510,Research Methods in Law,LAW
+LAW,520,LAW520,Contemporary Issues in Law,LAW
+LAW,530,LAW530,Seminar in Law,LAW
+LAW,540,LAW540,Applied Law,LAW
+LAW,601,LAW601,Law Capstone,LAW
+LAW,602,LAW602,Law Internship,LAW
+LAW,610,LAW610,Topics in Law,LAW
+LAW,620,LAW620,Advanced Law,LAW
+LAW,630,LAW630,Leadership in Law,LAW
+LAW,640,LAW640,Global Perspectives in Law,LAW
+LAW,701,LAW701,Foundations of Law,LAW
+LAW,702,LAW702,Law in Practice,LAW
+LAW,710,LAW710,Research Methods in Law,LAW
+LAW,720,LAW720,Contemporary Issues in Law,LAW
+LAW,730,LAW730,Seminar in Law,LAW
+LAW,740,LAW740,Applied Law,LAW
+LAW,780,LAW780,Law Capstone,LAW
+LAW,781,LAW781,Law Internship,LAW
+LAW,790,LAW790,Topics in Law,LAW
+LAW,791,LAW791,Advanced Law,LAW
+LAW,795,LAW795,Leadership in Law,LAW
+LAW,799,LAW799,Global Perspectives in Law,LAW
+LING,101,LING101,Foundations of Linguistics,LING
+LING,102,LING102,Linguistics in Practice,LING
+LING,110,LING110,Research Methods in Linguistics,LING
+LING,120,LING120,Contemporary Issues in Linguistics,LING
+LING,130,LING130,Seminar in Linguistics,LING
+LING,140,LING140,Applied Linguistics,LING
+LING,201,LING201,Linguistics Capstone,LING
+LING,202,LING202,Linguistics Internship,LING
+LING,210,LING210,Topics in Linguistics,LING
+LING,220,LING220,Advanced Linguistics,LING
+LING,230,LING230,Leadership in Linguistics,LING
+LING,240,LING240,Global Perspectives in Linguistics,LING
+LING,301,LING301,Foundations of Linguistics,LING
+LING,302,LING302,Linguistics in Practice,LING
+LING,310,LING310,Research Methods in Linguistics,LING
+LING,320,LING320,Contemporary Issues in Linguistics,LING
+LING,330,LING330,Seminar in Linguistics,LING
+LING,340,LING340,Applied Linguistics,LING
+LING,401,LING401,Linguistics Capstone,LING
+LING,402,LING402,Linguistics Internship,LING
+LING,410,LING410,Topics in Linguistics,LING
+LING,420,LING420,Advanced Linguistics,LING
+LING,430,LING430,Leadership in Linguistics,LING
+LING,440,LING440,Global Perspectives in Linguistics,LING
+LING,501,LING501,Foundations of Linguistics,LING
+LING,502,LING502,Linguistics in Practice,LING
+LING,510,LING510,Research Methods in Linguistics,LING
+LING,520,LING520,Contemporary Issues in Linguistics,LING
+LING,530,LING530,Seminar in Linguistics,LING
+LING,540,LING540,Applied Linguistics,LING
+LING,601,LING601,Linguistics Capstone,LING
+LING,602,LING602,Linguistics Internship,LING
+LING,610,LING610,Topics in Linguistics,LING
+LING,620,LING620,Advanced Linguistics,LING
+LING,630,LING630,Leadership in Linguistics,LING
+LING,640,LING640,Global Perspectives in Linguistics,LING
+LING,701,LING701,Foundations of Linguistics,LING
+LING,702,LING702,Linguistics in Practice,LING
+LING,710,LING710,Research Methods in Linguistics,LING
+LING,720,LING720,Contemporary Issues in Linguistics,LING
+LING,730,LING730,Seminar in Linguistics,LING
+LING,740,LING740,Applied Linguistics,LING
+LING,780,LING780,Linguistics Capstone,LING
+LING,781,LING781,Linguistics Internship,LING
+LING,790,LING790,Topics in Linguistics,LING
+LING,791,LING791,Advanced Linguistics,LING
+LING,795,LING795,Leadership in Linguistics,LING
+LING,799,LING799,Global Perspectives in Linguistics,LING
+MATH,101,MATH101,Foundations of Mathematics,MATH
+MATH,102,MATH102,Mathematics in Practice,MATH
+MATH,110,MATH110,Research Methods in Mathematics,MATH
+MATH,120,MATH120,Contemporary Issues in Mathematics,MATH
+MATH,130,MATH130,Seminar in Mathematics,MATH
+MATH,140,MATH140,Applied Mathematics,MATH
+MATH,201,MATH201,Mathematics Capstone,MATH
+MATH,202,MATH202,Mathematics Internship,MATH
+MATH,210,MATH210,Topics in Mathematics,MATH
+MATH,220,MATH220,Advanced Mathematics,MATH
+MATH,230,MATH230,Leadership in Mathematics,MATH
+MATH,240,MATH240,Global Perspectives in Mathematics,MATH
+MATH,301,MATH301,Foundations of Mathematics,MATH
+MATH,302,MATH302,Mathematics in Practice,MATH
+MATH,310,MATH310,Research Methods in Mathematics,MATH
+MATH,320,MATH320,Contemporary Issues in Mathematics,MATH
+MATH,330,MATH330,Seminar in Mathematics,MATH
+MATH,340,MATH340,Applied Mathematics,MATH
+MATH,401,MATH401,Mathematics Capstone,MATH
+MATH,402,MATH402,Mathematics Internship,MATH
+MATH,410,MATH410,Topics in Mathematics,MATH
+MATH,420,MATH420,Advanced Mathematics,MATH
+MATH,430,MATH430,Leadership in Mathematics,MATH
+MATH,440,MATH440,Global Perspectives in Mathematics,MATH
+MATH,501,MATH501,Foundations of Mathematics,MATH
+MATH,502,MATH502,Mathematics in Practice,MATH
+MATH,510,MATH510,Research Methods in Mathematics,MATH
+MATH,520,MATH520,Contemporary Issues in Mathematics,MATH
+MATH,530,MATH530,Seminar in Mathematics,MATH
+MATH,540,MATH540,Applied Mathematics,MATH
+MATH,601,MATH601,Mathematics Capstone,MATH
+MATH,602,MATH602,Mathematics Internship,MATH
+MATH,610,MATH610,Topics in Mathematics,MATH
+MATH,620,MATH620,Advanced Mathematics,MATH
+MATH,630,MATH630,Leadership in Mathematics,MATH
+MATH,640,MATH640,Global Perspectives in Mathematics,MATH
+MATH,701,MATH701,Foundations of Mathematics,MATH
+MATH,702,MATH702,Mathematics in Practice,MATH
+MATH,710,MATH710,Research Methods in Mathematics,MATH
+MATH,720,MATH720,Contemporary Issues in Mathematics,MATH
+MATH,730,MATH730,Seminar in Mathematics,MATH
+MATH,740,MATH740,Applied Mathematics,MATH
+MATH,780,MATH780,Mathematics Capstone,MATH
+MATH,781,MATH781,Mathematics Internship,MATH
+MATH,790,MATH790,Topics in Mathematics,MATH
+MATH,791,MATH791,Advanced Mathematics,MATH
+MATH,795,MATH795,Leadership in Mathematics,MATH
+MATH,799,MATH799,Global Perspectives in Mathematics,MATH
+MECH,101,MECH101,Foundations of Mechanical Engineering,MECH
+MECH,102,MECH102,Mechanical Engineering in Practice,MECH
+MECH,110,MECH110,Research Methods in Mechanical Engineering,MECH
+MECH,120,MECH120,Contemporary Issues in Mechanical Engineering,MECH
+MECH,130,MECH130,Seminar in Mechanical Engineering,MECH
+MECH,140,MECH140,Applied Mechanical Engineering,MECH
+MECH,201,MECH201,Mechanical Engineering Capstone,MECH
+MECH,202,MECH202,Mechanical Engineering Internship,MECH
+MECH,210,MECH210,Topics in Mechanical Engineering,MECH
+MECH,220,MECH220,Advanced Mechanical Engineering,MECH
+MECH,230,MECH230,Leadership in Mechanical Engineering,MECH
+MECH,240,MECH240,Global Perspectives in Mechanical Engineering,MECH
+MECH,301,MECH301,Foundations of Mechanical Engineering,MECH
+MECH,302,MECH302,Mechanical Engineering in Practice,MECH
+MECH,310,MECH310,Research Methods in Mechanical Engineering,MECH
+MECH,320,MECH320,Contemporary Issues in Mechanical Engineering,MECH
+MECH,330,MECH330,Seminar in Mechanical Engineering,MECH
+MECH,340,MECH340,Applied Mechanical Engineering,MECH
+MECH,401,MECH401,Mechanical Engineering Capstone,MECH
+MECH,402,MECH402,Mechanical Engineering Internship,MECH
+MECH,410,MECH410,Topics in Mechanical Engineering,MECH
+MECH,420,MECH420,Advanced Mechanical Engineering,MECH
+MECH,430,MECH430,Leadership in Mechanical Engineering,MECH
+MECH,440,MECH440,Global Perspectives in Mechanical Engineering,MECH
+MECH,501,MECH501,Foundations of Mechanical Engineering,MECH
+MECH,502,MECH502,Mechanical Engineering in Practice,MECH
+MECH,510,MECH510,Research Methods in Mechanical Engineering,MECH
+MECH,520,MECH520,Contemporary Issues in Mechanical Engineering,MECH
+MECH,530,MECH530,Seminar in Mechanical Engineering,MECH
+MECH,540,MECH540,Applied Mechanical Engineering,MECH
+MECH,601,MECH601,Mechanical Engineering Capstone,MECH
+MECH,602,MECH602,Mechanical Engineering Internship,MECH
+MECH,610,MECH610,Topics in Mechanical Engineering,MECH
+MECH,620,MECH620,Advanced Mechanical Engineering,MECH
+MECH,630,MECH630,Leadership in Mechanical Engineering,MECH
+MECH,640,MECH640,Global Perspectives in Mechanical Engineering,MECH
+MECH,701,MECH701,Foundations of Mechanical Engineering,MECH
+MECH,702,MECH702,Mechanical Engineering in Practice,MECH
+MECH,710,MECH710,Research Methods in Mechanical Engineering,MECH
+MECH,720,MECH720,Contemporary Issues in Mechanical Engineering,MECH
+MECH,730,MECH730,Seminar in Mechanical Engineering,MECH
+MECH,740,MECH740,Applied Mechanical Engineering,MECH
+MECH,780,MECH780,Mechanical Engineering Capstone,MECH
+MECH,781,MECH781,Mechanical Engineering Internship,MECH
+MECH,790,MECH790,Topics in Mechanical Engineering,MECH
+MECH,791,MECH791,Advanced Mechanical Engineering,MECH
+MECH,795,MECH795,Leadership in Mechanical Engineering,MECH
+MECH,799,MECH799,Global Perspectives in Mechanical Engineering,MECH
+MED,101,MED101,Foundations of Medicine,MED
+MED,102,MED102,Medicine in Practice,MED
+MED,110,MED110,Research Methods in Medicine,MED
+MED,120,MED120,Contemporary Issues in Medicine,MED
+MED,130,MED130,Seminar in Medicine,MED
+MED,140,MED140,Applied Medicine,MED
+MED,201,MED201,Medicine Capstone,MED
+MED,202,MED202,Medicine Internship,MED
+MED,210,MED210,Topics in Medicine,MED
+MED,220,MED220,Advanced Medicine,MED
+MED,230,MED230,Leadership in Medicine,MED
+MED,240,MED240,Global Perspectives in Medicine,MED
+MED,301,MED301,Foundations of Medicine,MED
+MED,302,MED302,Medicine in Practice,MED
+MED,310,MED310,Research Methods in Medicine,MED
+MED,320,MED320,Contemporary Issues in Medicine,MED
+MED,330,MED330,Seminar in Medicine,MED
+MED,340,MED340,Applied Medicine,MED
+MED,401,MED401,Medicine Capstone,MED
+MED,402,MED402,Medicine Internship,MED
+MED,410,MED410,Topics in Medicine,MED
+MED,420,MED420,Advanced Medicine,MED
+MED,430,MED430,Leadership in Medicine,MED
+MED,440,MED440,Global Perspectives in Medicine,MED
+MED,501,MED501,Foundations of Medicine,MED
+MED,502,MED502,Medicine in Practice,MED
+MED,510,MED510,Research Methods in Medicine,MED
+MED,520,MED520,Contemporary Issues in Medicine,MED
+MED,530,MED530,Seminar in Medicine,MED
+MED,540,MED540,Applied Medicine,MED
+MED,601,MED601,Medicine Capstone,MED
+MED,602,MED602,Medicine Internship,MED
+MED,610,MED610,Topics in Medicine,MED
+MED,620,MED620,Advanced Medicine,MED
+MED,630,MED630,Leadership in Medicine,MED
+MED,640,MED640,Global Perspectives in Medicine,MED
+MED,701,MED701,Foundations of Medicine,MED
+MED,702,MED702,Medicine in Practice,MED
+MED,710,MED710,Research Methods in Medicine,MED
+MED,720,MED720,Contemporary Issues in Medicine,MED
+MED,730,MED730,Seminar in Medicine,MED
+MED,740,MED740,Applied Medicine,MED
+MED,780,MED780,Medicine Capstone,MED
+MED,781,MED781,Medicine Internship,MED
+MED,790,MED790,Topics in Medicine,MED
+MED,791,MED791,Advanced Medicine,MED
+MED,795,MED795,Leadership in Medicine,MED
+MED,799,MED799,Global Perspectives in Medicine,MED
+MGMT,101,MGMT101,Foundations of Management,MGMT
+MGMT,102,MGMT102,Management in Practice,MGMT
+MGMT,110,MGMT110,Research Methods in Management,MGMT
+MGMT,120,MGMT120,Contemporary Issues in Management,MGMT
+MGMT,130,MGMT130,Seminar in Management,MGMT
+MGMT,140,MGMT140,Applied Management,MGMT
+MGMT,201,MGMT201,Management Capstone,MGMT
+MGMT,202,MGMT202,Management Internship,MGMT
+MGMT,210,MGMT210,Topics in Management,MGMT
+MGMT,220,MGMT220,Advanced Management,MGMT
+MGMT,230,MGMT230,Leadership in Management,MGMT
+MGMT,240,MGMT240,Global Perspectives in Management,MGMT
+MGMT,301,MGMT301,Foundations of Management,MGMT
+MGMT,302,MGMT302,Management in Practice,MGMT
+MGMT,310,MGMT310,Research Methods in Management,MGMT
+MGMT,320,MGMT320,Contemporary Issues in Management,MGMT
+MGMT,330,MGMT330,Seminar in Management,MGMT
+MGMT,340,MGMT340,Applied Management,MGMT
+MGMT,401,MGMT401,Management Capstone,MGMT
+MGMT,402,MGMT402,Management Internship,MGMT
+MGMT,410,MGMT410,Topics in Management,MGMT
+MGMT,420,MGMT420,Advanced Management,MGMT
+MGMT,430,MGMT430,Leadership in Management,MGMT
+MGMT,440,MGMT440,Global Perspectives in Management,MGMT
+MGMT,501,MGMT501,Foundations of Management,MGMT
+MGMT,502,MGMT502,Management in Practice,MGMT
+MGMT,510,MGMT510,Research Methods in Management,MGMT
+MGMT,520,MGMT520,Contemporary Issues in Management,MGMT
+MGMT,530,MGMT530,Seminar in Management,MGMT
+MGMT,540,MGMT540,Applied Management,MGMT
+MGMT,601,MGMT601,Management Capstone,MGMT
+MGMT,602,MGMT602,Management Internship,MGMT
+MGMT,610,MGMT610,Topics in Management,MGMT
+MGMT,620,MGMT620,Advanced Management,MGMT
+MGMT,630,MGMT630,Leadership in Management,MGMT
+MGMT,640,MGMT640,Global Perspectives in Management,MGMT
+MGMT,701,MGMT701,Foundations of Management,MGMT
+MGMT,702,MGMT702,Management in Practice,MGMT
+MGMT,710,MGMT710,Research Methods in Management,MGMT
+MGMT,720,MGMT720,Contemporary Issues in Management,MGMT
+MGMT,730,MGMT730,Seminar in Management,MGMT
+MGMT,740,MGMT740,Applied Management,MGMT
+MGMT,780,MGMT780,Management Capstone,MGMT
+MGMT,781,MGMT781,Management Internship,MGMT
+MGMT,790,MGMT790,Topics in Management,MGMT
+MGMT,791,MGMT791,Advanced Management,MGMT
+MGMT,795,MGMT795,Leadership in Management,MGMT
+MGMT,799,MGMT799,Global Perspectives in Management,MGMT
+MKTG,101,MKTG101,Foundations of Marketing,MKTG
+MKTG,102,MKTG102,Marketing in Practice,MKTG
+MKTG,110,MKTG110,Research Methods in Marketing,MKTG
+MKTG,120,MKTG120,Contemporary Issues in Marketing,MKTG
+MKTG,130,MKTG130,Seminar in Marketing,MKTG
+MKTG,140,MKTG140,Applied Marketing,MKTG
+MKTG,201,MKTG201,Marketing Capstone,MKTG
+MKTG,202,MKTG202,Marketing Internship,MKTG
+MKTG,210,MKTG210,Topics in Marketing,MKTG
+MKTG,220,MKTG220,Advanced Marketing,MKTG
+MKTG,230,MKTG230,Leadership in Marketing,MKTG
+MKTG,240,MKTG240,Global Perspectives in Marketing,MKTG
+MKTG,301,MKTG301,Foundations of Marketing,MKTG
+MKTG,302,MKTG302,Marketing in Practice,MKTG
+MKTG,310,MKTG310,Research Methods in Marketing,MKTG
+MKTG,320,MKTG320,Contemporary Issues in Marketing,MKTG
+MKTG,330,MKTG330,Seminar in Marketing,MKTG
+MKTG,340,MKTG340,Applied Marketing,MKTG
+MKTG,401,MKTG401,Marketing Capstone,MKTG
+MKTG,402,MKTG402,Marketing Internship,MKTG
+MKTG,410,MKTG410,Topics in Marketing,MKTG
+MKTG,420,MKTG420,Advanced Marketing,MKTG
+MKTG,430,MKTG430,Leadership in Marketing,MKTG
+MKTG,440,MKTG440,Global Perspectives in Marketing,MKTG
+MKTG,501,MKTG501,Foundations of Marketing,MKTG
+MKTG,502,MKTG502,Marketing in Practice,MKTG
+MKTG,510,MKTG510,Research Methods in Marketing,MKTG
+MKTG,520,MKTG520,Contemporary Issues in Marketing,MKTG
+MKTG,530,MKTG530,Seminar in Marketing,MKTG
+MKTG,540,MKTG540,Applied Marketing,MKTG
+MKTG,601,MKTG601,Marketing Capstone,MKTG
+MKTG,602,MKTG602,Marketing Internship,MKTG
+MKTG,610,MKTG610,Topics in Marketing,MKTG
+MKTG,620,MKTG620,Advanced Marketing,MKTG
+MKTG,630,MKTG630,Leadership in Marketing,MKTG
+MKTG,640,MKTG640,Global Perspectives in Marketing,MKTG
+MKTG,701,MKTG701,Foundations of Marketing,MKTG
+MKTG,702,MKTG702,Marketing in Practice,MKTG
+MKTG,710,MKTG710,Research Methods in Marketing,MKTG
+MKTG,720,MKTG720,Contemporary Issues in Marketing,MKTG
+MKTG,730,MKTG730,Seminar in Marketing,MKTG
+MKTG,740,MKTG740,Applied Marketing,MKTG
+MKTG,780,MKTG780,Marketing Capstone,MKTG
+MKTG,781,MKTG781,Marketing Internship,MKTG
+MKTG,790,MKTG790,Topics in Marketing,MKTG
+MKTG,791,MKTG791,Advanced Marketing,MKTG
+MKTG,795,MKTG795,Leadership in Marketing,MKTG
+MKTG,799,MKTG799,Global Perspectives in Marketing,MKTG
+MUS,101,MUS101,Foundations of Music,MUS
+MUS,102,MUS102,Music in Practice,MUS
+MUS,110,MUS110,Research Methods in Music,MUS
+MUS,120,MUS120,Contemporary Issues in Music,MUS
+MUS,130,MUS130,Seminar in Music,MUS
+MUS,140,MUS140,Applied Music,MUS
+MUS,201,MUS201,Music Capstone,MUS
+MUS,202,MUS202,Music Internship,MUS
+MUS,210,MUS210,Topics in Music,MUS
+MUS,220,MUS220,Advanced Music,MUS
+MUS,230,MUS230,Leadership in Music,MUS
+MUS,240,MUS240,Global Perspectives in Music,MUS
+MUS,301,MUS301,Foundations of Music,MUS
+MUS,302,MUS302,Music in Practice,MUS
+MUS,310,MUS310,Research Methods in Music,MUS
+MUS,320,MUS320,Contemporary Issues in Music,MUS
+MUS,330,MUS330,Seminar in Music,MUS
+MUS,340,MUS340,Applied Music,MUS
+MUS,401,MUS401,Music Capstone,MUS
+MUS,402,MUS402,Music Internship,MUS
+MUS,410,MUS410,Topics in Music,MUS
+MUS,420,MUS420,Advanced Music,MUS
+MUS,430,MUS430,Leadership in Music,MUS
+MUS,440,MUS440,Global Perspectives in Music,MUS
+MUS,501,MUS501,Foundations of Music,MUS
+MUS,502,MUS502,Music in Practice,MUS
+MUS,510,MUS510,Research Methods in Music,MUS
+MUS,520,MUS520,Contemporary Issues in Music,MUS
+MUS,530,MUS530,Seminar in Music,MUS
+MUS,540,MUS540,Applied Music,MUS
+MUS,601,MUS601,Music Capstone,MUS
+MUS,602,MUS602,Music Internship,MUS
+MUS,610,MUS610,Topics in Music,MUS
+MUS,620,MUS620,Advanced Music,MUS
+MUS,630,MUS630,Leadership in Music,MUS
+MUS,640,MUS640,Global Perspectives in Music,MUS
+MUS,701,MUS701,Foundations of Music,MUS
+MUS,702,MUS702,Music in Practice,MUS
+MUS,710,MUS710,Research Methods in Music,MUS
+MUS,720,MUS720,Contemporary Issues in Music,MUS
+MUS,730,MUS730,Seminar in Music,MUS
+MUS,740,MUS740,Applied Music,MUS
+MUS,780,MUS780,Music Capstone,MUS
+MUS,781,MUS781,Music Internship,MUS
+MUS,790,MUS790,Topics in Music,MUS
+MUS,791,MUS791,Advanced Music,MUS
+MUS,795,MUS795,Leadership in Music,MUS
+MUS,799,MUS799,Global Perspectives in Music,MUS
+NURS,101,NURS101,Foundations of Nursing,NURS
+NURS,102,NURS102,Nursing in Practice,NURS
+NURS,110,NURS110,Research Methods in Nursing,NURS
+NURS,120,NURS120,Contemporary Issues in Nursing,NURS
+NURS,130,NURS130,Seminar in Nursing,NURS
+NURS,140,NURS140,Applied Nursing,NURS
+NURS,201,NURS201,Nursing Capstone,NURS
+NURS,202,NURS202,Nursing Internship,NURS
+NURS,210,NURS210,Topics in Nursing,NURS
+NURS,220,NURS220,Advanced Nursing,NURS
+NURS,230,NURS230,Leadership in Nursing,NURS
+NURS,240,NURS240,Global Perspectives in Nursing,NURS
+NURS,301,NURS301,Foundations of Nursing,NURS
+NURS,302,NURS302,Nursing in Practice,NURS
+NURS,310,NURS310,Research Methods in Nursing,NURS
+NURS,320,NURS320,Contemporary Issues in Nursing,NURS
+NURS,330,NURS330,Seminar in Nursing,NURS
+NURS,340,NURS340,Applied Nursing,NURS
+NURS,401,NURS401,Nursing Capstone,NURS
+NURS,402,NURS402,Nursing Internship,NURS
+NURS,410,NURS410,Topics in Nursing,NURS
+NURS,420,NURS420,Advanced Nursing,NURS
+NURS,430,NURS430,Leadership in Nursing,NURS
+NURS,440,NURS440,Global Perspectives in Nursing,NURS
+NURS,501,NURS501,Foundations of Nursing,NURS
+NURS,502,NURS502,Nursing in Practice,NURS
+NURS,510,NURS510,Research Methods in Nursing,NURS
+NURS,520,NURS520,Contemporary Issues in Nursing,NURS
+NURS,530,NURS530,Seminar in Nursing,NURS
+NURS,540,NURS540,Applied Nursing,NURS
+NURS,601,NURS601,Nursing Capstone,NURS
+NURS,602,NURS602,Nursing Internship,NURS
+NURS,610,NURS610,Topics in Nursing,NURS
+NURS,620,NURS620,Advanced Nursing,NURS
+NURS,630,NURS630,Leadership in Nursing,NURS
+NURS,640,NURS640,Global Perspectives in Nursing,NURS
+NURS,701,NURS701,Foundations of Nursing,NURS
+NURS,702,NURS702,Nursing in Practice,NURS
+NURS,710,NURS710,Research Methods in Nursing,NURS
+NURS,720,NURS720,Contemporary Issues in Nursing,NURS
+NURS,730,NURS730,Seminar in Nursing,NURS
+NURS,740,NURS740,Applied Nursing,NURS
+NURS,780,NURS780,Nursing Capstone,NURS
+NURS,781,NURS781,Nursing Internship,NURS
+NURS,790,NURS790,Topics in Nursing,NURS
+NURS,791,NURS791,Advanced Nursing,NURS
+NURS,795,NURS795,Leadership in Nursing,NURS
+NURS,799,NURS799,Global Perspectives in Nursing,NURS
+PHARM,101,PHARM101,Foundations of Pharmacy,PHARM
+PHARM,102,PHARM102,Pharmacy in Practice,PHARM
+PHARM,110,PHARM110,Research Methods in Pharmacy,PHARM
+PHARM,120,PHARM120,Contemporary Issues in Pharmacy,PHARM
+PHARM,130,PHARM130,Seminar in Pharmacy,PHARM
+PHARM,140,PHARM140,Applied Pharmacy,PHARM
+PHARM,201,PHARM201,Pharmacy Capstone,PHARM
+PHARM,202,PHARM202,Pharmacy Internship,PHARM
+PHARM,210,PHARM210,Topics in Pharmacy,PHARM
+PHARM,220,PHARM220,Advanced Pharmacy,PHARM
+PHARM,230,PHARM230,Leadership in Pharmacy,PHARM
+PHARM,240,PHARM240,Global Perspectives in Pharmacy,PHARM
+PHARM,301,PHARM301,Foundations of Pharmacy,PHARM
+PHARM,302,PHARM302,Pharmacy in Practice,PHARM
+PHARM,310,PHARM310,Research Methods in Pharmacy,PHARM
+PHARM,320,PHARM320,Contemporary Issues in Pharmacy,PHARM
+PHARM,330,PHARM330,Seminar in Pharmacy,PHARM
+PHARM,340,PHARM340,Applied Pharmacy,PHARM
+PHARM,401,PHARM401,Pharmacy Capstone,PHARM
+PHARM,402,PHARM402,Pharmacy Internship,PHARM
+PHARM,410,PHARM410,Topics in Pharmacy,PHARM
+PHARM,420,PHARM420,Advanced Pharmacy,PHARM
+PHARM,430,PHARM430,Leadership in Pharmacy,PHARM
+PHARM,440,PHARM440,Global Perspectives in Pharmacy,PHARM
+PHARM,501,PHARM501,Foundations of Pharmacy,PHARM
+PHARM,502,PHARM502,Pharmacy in Practice,PHARM
+PHARM,510,PHARM510,Research Methods in Pharmacy,PHARM
+PHARM,520,PHARM520,Contemporary Issues in Pharmacy,PHARM
+PHARM,530,PHARM530,Seminar in Pharmacy,PHARM
+PHARM,540,PHARM540,Applied Pharmacy,PHARM
+PHARM,601,PHARM601,Pharmacy Capstone,PHARM
+PHARM,602,PHARM602,Pharmacy Internship,PHARM
+PHARM,610,PHARM610,Topics in Pharmacy,PHARM
+PHARM,620,PHARM620,Advanced Pharmacy,PHARM
+PHARM,630,PHARM630,Leadership in Pharmacy,PHARM
+PHARM,640,PHARM640,Global Perspectives in Pharmacy,PHARM
+PHARM,701,PHARM701,Foundations of Pharmacy,PHARM
+PHARM,702,PHARM702,Pharmacy in Practice,PHARM
+PHARM,710,PHARM710,Research Methods in Pharmacy,PHARM
+PHARM,720,PHARM720,Contemporary Issues in Pharmacy,PHARM
+PHARM,730,PHARM730,Seminar in Pharmacy,PHARM
+PHARM,740,PHARM740,Applied Pharmacy,PHARM
+PHARM,780,PHARM780,Pharmacy Capstone,PHARM
+PHARM,781,PHARM781,Pharmacy Internship,PHARM
+PHARM,790,PHARM790,Topics in Pharmacy,PHARM
+PHARM,791,PHARM791,Advanced Pharmacy,PHARM
+PHARM,795,PHARM795,Leadership in Pharmacy,PHARM
+PHARM,799,PHARM799,Global Perspectives in Pharmacy,PHARM
+PHIL,101,PHIL101,Foundations of Philosophy,PHIL
+PHIL,102,PHIL102,Philosophy in Practice,PHIL
+PHIL,110,PHIL110,Research Methods in Philosophy,PHIL
+PHIL,120,PHIL120,Contemporary Issues in Philosophy,PHIL
+PHIL,130,PHIL130,Seminar in Philosophy,PHIL
+PHIL,140,PHIL140,Applied Philosophy,PHIL
+PHIL,201,PHIL201,Philosophy Capstone,PHIL
+PHIL,202,PHIL202,Philosophy Internship,PHIL
+PHIL,210,PHIL210,Topics in Philosophy,PHIL
+PHIL,220,PHIL220,Advanced Philosophy,PHIL
+PHIL,230,PHIL230,Leadership in Philosophy,PHIL
+PHIL,240,PHIL240,Global Perspectives in Philosophy,PHIL
+PHIL,301,PHIL301,Foundations of Philosophy,PHIL
+PHIL,302,PHIL302,Philosophy in Practice,PHIL
+PHIL,310,PHIL310,Research Methods in Philosophy,PHIL
+PHIL,320,PHIL320,Contemporary Issues in Philosophy,PHIL
+PHIL,330,PHIL330,Seminar in Philosophy,PHIL
+PHIL,340,PHIL340,Applied Philosophy,PHIL
+PHIL,401,PHIL401,Philosophy Capstone,PHIL
+PHIL,402,PHIL402,Philosophy Internship,PHIL
+PHIL,410,PHIL410,Topics in Philosophy,PHIL
+PHIL,420,PHIL420,Advanced Philosophy,PHIL
+PHIL,430,PHIL430,Leadership in Philosophy,PHIL
+PHIL,440,PHIL440,Global Perspectives in Philosophy,PHIL
+PHIL,501,PHIL501,Foundations of Philosophy,PHIL
+PHIL,502,PHIL502,Philosophy in Practice,PHIL
+PHIL,510,PHIL510,Research Methods in Philosophy,PHIL
+PHIL,520,PHIL520,Contemporary Issues in Philosophy,PHIL
+PHIL,530,PHIL530,Seminar in Philosophy,PHIL
+PHIL,540,PHIL540,Applied Philosophy,PHIL
+PHIL,601,PHIL601,Philosophy Capstone,PHIL
+PHIL,602,PHIL602,Philosophy Internship,PHIL
+PHIL,610,PHIL610,Topics in Philosophy,PHIL
+PHIL,620,PHIL620,Advanced Philosophy,PHIL
+PHIL,630,PHIL630,Leadership in Philosophy,PHIL
+PHIL,640,PHIL640,Global Perspectives in Philosophy,PHIL
+PHIL,701,PHIL701,Foundations of Philosophy,PHIL
+PHIL,702,PHIL702,Philosophy in Practice,PHIL
+PHIL,710,PHIL710,Research Methods in Philosophy,PHIL
+PHIL,720,PHIL720,Contemporary Issues in Philosophy,PHIL
+PHIL,730,PHIL730,Seminar in Philosophy,PHIL
+PHIL,740,PHIL740,Applied Philosophy,PHIL
+PHIL,780,PHIL780,Philosophy Capstone,PHIL
+PHIL,781,PHIL781,Philosophy Internship,PHIL
+PHIL,790,PHIL790,Topics in Philosophy,PHIL
+PHIL,791,PHIL791,Advanced Philosophy,PHIL
+PHIL,795,PHIL795,Leadership in Philosophy,PHIL
+PHIL,799,PHIL799,Global Perspectives in Philosophy,PHIL
+PHYS,101,PHYS101,Foundations of Physics,PHYS
+PHYS,102,PHYS102,Physics in Practice,PHYS
+PHYS,110,PHYS110,Research Methods in Physics,PHYS
+PHYS,120,PHYS120,Contemporary Issues in Physics,PHYS
+PHYS,130,PHYS130,Seminar in Physics,PHYS
+PHYS,140,PHYS140,Applied Physics,PHYS
+PHYS,201,PHYS201,Physics Capstone,PHYS
+PHYS,202,PHYS202,Physics Internship,PHYS
+PHYS,210,PHYS210,Topics in Physics,PHYS
+PHYS,220,PHYS220,Advanced Physics,PHYS
+PHYS,230,PHYS230,Leadership in Physics,PHYS
+PHYS,240,PHYS240,Global Perspectives in Physics,PHYS
+PHYS,301,PHYS301,Foundations of Physics,PHYS
+PHYS,302,PHYS302,Physics in Practice,PHYS
+PHYS,310,PHYS310,Research Methods in Physics,PHYS
+PHYS,320,PHYS320,Contemporary Issues in Physics,PHYS
+PHYS,330,PHYS330,Seminar in Physics,PHYS
+PHYS,340,PHYS340,Applied Physics,PHYS
+PHYS,401,PHYS401,Physics Capstone,PHYS
+PHYS,402,PHYS402,Physics Internship,PHYS
+PHYS,410,PHYS410,Topics in Physics,PHYS
+PHYS,420,PHYS420,Advanced Physics,PHYS
+PHYS,430,PHYS430,Leadership in Physics,PHYS
+PHYS,440,PHYS440,Global Perspectives in Physics,PHYS
+PHYS,501,PHYS501,Foundations of Physics,PHYS
+PHYS,502,PHYS502,Physics in Practice,PHYS
+PHYS,510,PHYS510,Research Methods in Physics,PHYS
+PHYS,520,PHYS520,Contemporary Issues in Physics,PHYS
+PHYS,530,PHYS530,Seminar in Physics,PHYS
+PHYS,540,PHYS540,Applied Physics,PHYS
+PHYS,601,PHYS601,Physics Capstone,PHYS
+PHYS,602,PHYS602,Physics Internship,PHYS
+PHYS,610,PHYS610,Topics in Physics,PHYS
+PHYS,620,PHYS620,Advanced Physics,PHYS
+PHYS,630,PHYS630,Leadership in Physics,PHYS
+PHYS,640,PHYS640,Global Perspectives in Physics,PHYS
+PHYS,701,PHYS701,Foundations of Physics,PHYS
+PHYS,702,PHYS702,Physics in Practice,PHYS
+PHYS,710,PHYS710,Research Methods in Physics,PHYS
+PHYS,720,PHYS720,Contemporary Issues in Physics,PHYS
+PHYS,730,PHYS730,Seminar in Physics,PHYS
+PHYS,740,PHYS740,Applied Physics,PHYS
+PHYS,780,PHYS780,Physics Capstone,PHYS
+PHYS,781,PHYS781,Physics Internship,PHYS
+PHYS,790,PHYS790,Topics in Physics,PHYS
+PHYS,791,PHYS791,Advanced Physics,PHYS
+PHYS,795,PHYS795,Leadership in Physics,PHYS
+PHYS,799,PHYS799,Global Perspectives in Physics,PHYS
+POLS,101,POLS101,Foundations of Political Science,POLS
+POLS,102,POLS102,Political Science in Practice,POLS
+POLS,110,POLS110,Research Methods in Political Science,POLS
+POLS,120,POLS120,Contemporary Issues in Political Science,POLS
+POLS,130,POLS130,Seminar in Political Science,POLS
+POLS,140,POLS140,Applied Political Science,POLS
+POLS,201,POLS201,Political Science Capstone,POLS
+POLS,202,POLS202,Political Science Internship,POLS
+POLS,210,POLS210,Topics in Political Science,POLS
+POLS,220,POLS220,Advanced Political Science,POLS
+POLS,230,POLS230,Leadership in Political Science,POLS
+POLS,240,POLS240,Global Perspectives in Political Science,POLS
+POLS,301,POLS301,Foundations of Political Science,POLS
+POLS,302,POLS302,Political Science in Practice,POLS
+POLS,310,POLS310,Research Methods in Political Science,POLS
+POLS,320,POLS320,Contemporary Issues in Political Science,POLS
+POLS,330,POLS330,Seminar in Political Science,POLS
+POLS,340,POLS340,Applied Political Science,POLS
+POLS,401,POLS401,Political Science Capstone,POLS
+POLS,402,POLS402,Political Science Internship,POLS
+POLS,410,POLS410,Topics in Political Science,POLS
+POLS,420,POLS420,Advanced Political Science,POLS
+POLS,430,POLS430,Leadership in Political Science,POLS
+POLS,440,POLS440,Global Perspectives in Political Science,POLS
+POLS,501,POLS501,Foundations of Political Science,POLS
+POLS,502,POLS502,Political Science in Practice,POLS
+POLS,510,POLS510,Research Methods in Political Science,POLS
+POLS,520,POLS520,Contemporary Issues in Political Science,POLS
+POLS,530,POLS530,Seminar in Political Science,POLS
+POLS,540,POLS540,Applied Political Science,POLS
+POLS,601,POLS601,Political Science Capstone,POLS
+POLS,602,POLS602,Political Science Internship,POLS
+POLS,610,POLS610,Topics in Political Science,POLS
+POLS,620,POLS620,Advanced Political Science,POLS
+POLS,630,POLS630,Leadership in Political Science,POLS
+POLS,640,POLS640,Global Perspectives in Political Science,POLS
+POLS,701,POLS701,Foundations of Political Science,POLS
+POLS,702,POLS702,Political Science in Practice,POLS
+POLS,710,POLS710,Research Methods in Political Science,POLS
+POLS,720,POLS720,Contemporary Issues in Political Science,POLS
+POLS,730,POLS730,Seminar in Political Science,POLS
+POLS,740,POLS740,Applied Political Science,POLS
+POLS,780,POLS780,Political Science Capstone,POLS
+POLS,781,POLS781,Political Science Internship,POLS
+POLS,790,POLS790,Topics in Political Science,POLS
+POLS,791,POLS791,Advanced Political Science,POLS
+POLS,795,POLS795,Leadership in Political Science,POLS
+POLS,799,POLS799,Global Perspectives in Political Science,POLS
+PSYC,101,PSYC101,Foundations of Psychology,PSYC
+PSYC,102,PSYC102,Psychology in Practice,PSYC
+PSYC,110,PSYC110,Research Methods in Psychology,PSYC
+PSYC,120,PSYC120,Contemporary Issues in Psychology,PSYC
+PSYC,130,PSYC130,Seminar in Psychology,PSYC
+PSYC,140,PSYC140,Applied Psychology,PSYC
+PSYC,201,PSYC201,Psychology Capstone,PSYC
+PSYC,202,PSYC202,Psychology Internship,PSYC
+PSYC,210,PSYC210,Topics in Psychology,PSYC
+PSYC,220,PSYC220,Advanced Psychology,PSYC
+PSYC,230,PSYC230,Leadership in Psychology,PSYC
+PSYC,240,PSYC240,Global Perspectives in Psychology,PSYC
+PSYC,301,PSYC301,Foundations of Psychology,PSYC
+PSYC,302,PSYC302,Psychology in Practice,PSYC
+PSYC,310,PSYC310,Research Methods in Psychology,PSYC
+PSYC,320,PSYC320,Contemporary Issues in Psychology,PSYC
+PSYC,330,PSYC330,Seminar in Psychology,PSYC
+PSYC,340,PSYC340,Applied Psychology,PSYC
+PSYC,401,PSYC401,Psychology Capstone,PSYC
+PSYC,402,PSYC402,Psychology Internship,PSYC
+PSYC,410,PSYC410,Topics in Psychology,PSYC
+PSYC,420,PSYC420,Advanced Psychology,PSYC
+PSYC,430,PSYC430,Leadership in Psychology,PSYC
+PSYC,440,PSYC440,Global Perspectives in Psychology,PSYC
+PSYC,501,PSYC501,Foundations of Psychology,PSYC
+PSYC,502,PSYC502,Psychology in Practice,PSYC
+PSYC,510,PSYC510,Research Methods in Psychology,PSYC
+PSYC,520,PSYC520,Contemporary Issues in Psychology,PSYC
+PSYC,530,PSYC530,Seminar in Psychology,PSYC
+PSYC,540,PSYC540,Applied Psychology,PSYC
+PSYC,601,PSYC601,Psychology Capstone,PSYC
+PSYC,602,PSYC602,Psychology Internship,PSYC
+PSYC,610,PSYC610,Topics in Psychology,PSYC
+PSYC,620,PSYC620,Advanced Psychology,PSYC
+PSYC,630,PSYC630,Leadership in Psychology,PSYC
+PSYC,640,PSYC640,Global Perspectives in Psychology,PSYC
+PSYC,701,PSYC701,Foundations of Psychology,PSYC
+PSYC,702,PSYC702,Psychology in Practice,PSYC
+PSYC,710,PSYC710,Research Methods in Psychology,PSYC
+PSYC,720,PSYC720,Contemporary Issues in Psychology,PSYC
+PSYC,730,PSYC730,Seminar in Psychology,PSYC
+PSYC,740,PSYC740,Applied Psychology,PSYC
+PSYC,780,PSYC780,Psychology Capstone,PSYC
+PSYC,781,PSYC781,Psychology Internship,PSYC
+PSYC,790,PSYC790,Topics in Psychology,PSYC
+PSYC,791,PSYC791,Advanced Psychology,PSYC
+PSYC,795,PSYC795,Leadership in Psychology,PSYC
+PSYC,799,PSYC799,Global Perspectives in Psychology,PSYC
+PUBH,101,PUBH101,Foundations of Public Health,PUBH
+PUBH,102,PUBH102,Public Health in Practice,PUBH
+PUBH,110,PUBH110,Research Methods in Public Health,PUBH
+PUBH,120,PUBH120,Contemporary Issues in Public Health,PUBH
+PUBH,130,PUBH130,Seminar in Public Health,PUBH
+PUBH,140,PUBH140,Applied Public Health,PUBH
+PUBH,201,PUBH201,Public Health Capstone,PUBH
+PUBH,202,PUBH202,Public Health Internship,PUBH
+PUBH,210,PUBH210,Topics in Public Health,PUBH
+PUBH,220,PUBH220,Advanced Public Health,PUBH
+PUBH,230,PUBH230,Leadership in Public Health,PUBH
+PUBH,240,PUBH240,Global Perspectives in Public Health,PUBH
+PUBH,301,PUBH301,Foundations of Public Health,PUBH
+PUBH,302,PUBH302,Public Health in Practice,PUBH
+PUBH,310,PUBH310,Research Methods in Public Health,PUBH
+PUBH,320,PUBH320,Contemporary Issues in Public Health,PUBH
+PUBH,330,PUBH330,Seminar in Public Health,PUBH
+PUBH,340,PUBH340,Applied Public Health,PUBH
+PUBH,401,PUBH401,Public Health Capstone,PUBH
+PUBH,402,PUBH402,Public Health Internship,PUBH
+PUBH,410,PUBH410,Topics in Public Health,PUBH
+PUBH,420,PUBH420,Advanced Public Health,PUBH
+PUBH,430,PUBH430,Leadership in Public Health,PUBH
+PUBH,440,PUBH440,Global Perspectives in Public Health,PUBH
+PUBH,501,PUBH501,Foundations of Public Health,PUBH
+PUBH,502,PUBH502,Public Health in Practice,PUBH
+PUBH,510,PUBH510,Research Methods in Public Health,PUBH
+PUBH,520,PUBH520,Contemporary Issues in Public Health,PUBH
+PUBH,530,PUBH530,Seminar in Public Health,PUBH
+PUBH,540,PUBH540,Applied Public Health,PUBH
+PUBH,601,PUBH601,Public Health Capstone,PUBH
+PUBH,602,PUBH602,Public Health Internship,PUBH
+PUBH,610,PUBH610,Topics in Public Health,PUBH
+PUBH,620,PUBH620,Advanced Public Health,PUBH
+PUBH,630,PUBH630,Leadership in Public Health,PUBH
+PUBH,640,PUBH640,Global Perspectives in Public Health,PUBH
+PUBH,701,PUBH701,Foundations of Public Health,PUBH
+PUBH,702,PUBH702,Public Health in Practice,PUBH
+PUBH,710,PUBH710,Research Methods in Public Health,PUBH
+PUBH,720,PUBH720,Contemporary Issues in Public Health,PUBH
+PUBH,730,PUBH730,Seminar in Public Health,PUBH
+PUBH,740,PUBH740,Applied Public Health,PUBH
+PUBH,780,PUBH780,Public Health Capstone,PUBH
+PUBH,781,PUBH781,Public Health Internship,PUBH
+PUBH,790,PUBH790,Topics in Public Health,PUBH
+PUBH,791,PUBH791,Advanced Public Health,PUBH
+PUBH,795,PUBH795,Leadership in Public Health,PUBH
+PUBH,799,PUBH799,Global Perspectives in Public Health,PUBH
+SOC,101,SOC101,Foundations of Sociology,SOC
+SOC,102,SOC102,Sociology in Practice,SOC
+SOC,110,SOC110,Research Methods in Sociology,SOC
+SOC,120,SOC120,Contemporary Issues in Sociology,SOC
+SOC,130,SOC130,Seminar in Sociology,SOC
+SOC,140,SOC140,Applied Sociology,SOC
+SOC,201,SOC201,Sociology Capstone,SOC
+SOC,202,SOC202,Sociology Internship,SOC
+SOC,210,SOC210,Topics in Sociology,SOC
+SOC,220,SOC220,Advanced Sociology,SOC
+SOC,230,SOC230,Leadership in Sociology,SOC
+SOC,240,SOC240,Global Perspectives in Sociology,SOC
+SOC,301,SOC301,Foundations of Sociology,SOC
+SOC,302,SOC302,Sociology in Practice,SOC
+SOC,310,SOC310,Research Methods in Sociology,SOC
+SOC,320,SOC320,Contemporary Issues in Sociology,SOC
+SOC,330,SOC330,Seminar in Sociology,SOC
+SOC,340,SOC340,Applied Sociology,SOC
+SOC,401,SOC401,Sociology Capstone,SOC
+SOC,402,SOC402,Sociology Internship,SOC
+SOC,410,SOC410,Topics in Sociology,SOC
+SOC,420,SOC420,Advanced Sociology,SOC
+SOC,430,SOC430,Leadership in Sociology,SOC
+SOC,440,SOC440,Global Perspectives in Sociology,SOC
+SOC,501,SOC501,Foundations of Sociology,SOC
+SOC,502,SOC502,Sociology in Practice,SOC
+SOC,510,SOC510,Research Methods in Sociology,SOC
+SOC,520,SOC520,Contemporary Issues in Sociology,SOC
+SOC,530,SOC530,Seminar in Sociology,SOC
+SOC,540,SOC540,Applied Sociology,SOC
+SOC,601,SOC601,Sociology Capstone,SOC
+SOC,602,SOC602,Sociology Internship,SOC
+SOC,610,SOC610,Topics in Sociology,SOC
+SOC,620,SOC620,Advanced Sociology,SOC
+SOC,630,SOC630,Leadership in Sociology,SOC
+SOC,640,SOC640,Global Perspectives in Sociology,SOC
+SOC,701,SOC701,Foundations of Sociology,SOC
+SOC,702,SOC702,Sociology in Practice,SOC
+SOC,710,SOC710,Research Methods in Sociology,SOC
+SOC,720,SOC720,Contemporary Issues in Sociology,SOC
+SOC,730,SOC730,Seminar in Sociology,SOC
+SOC,740,SOC740,Applied Sociology,SOC
+SOC,780,SOC780,Sociology Capstone,SOC
+SOC,781,SOC781,Sociology Internship,SOC
+SOC,790,SOC790,Topics in Sociology,SOC
+SOC,791,SOC791,Advanced Sociology,SOC
+SOC,795,SOC795,Leadership in Sociology,SOC
+SOC,799,SOC799,Global Perspectives in Sociology,SOC
+SPAN,101,SPAN101,Introducción al Español Académico,SPAN
+SPAN,102,SPAN102,Literatura Hispana Contemporánea,SPAN
+SPAN,110,SPAN110,Español para los Negocios,SPAN
+SPAN,120,SPAN120,Cultura y Sociedad Latinoamericana,SPAN
+SPAN,130,SPAN130,Traducción e Interpretación,SPAN
+SPAN,140,SPAN140,Escritura Avanzada en Español,SPAN
+SPAN,201,SPAN201,Introducción al Español Académico,SPAN
+SPAN,202,SPAN202,Literatura Hispana Contemporánea,SPAN
+SPAN,210,SPAN210,Español para los Negocios,SPAN
+SPAN,220,SPAN220,Cultura y Sociedad Latinoamericana,SPAN
+SPAN,230,SPAN230,Traducción e Interpretación,SPAN
+SPAN,240,SPAN240,Escritura Avanzada en Español,SPAN
+SPAN,301,SPAN301,Introducción al Español Académico,SPAN
+SPAN,302,SPAN302,Literatura Hispana Contemporánea,SPAN
+SPAN,310,SPAN310,Español para los Negocios,SPAN
+SPAN,320,SPAN320,Cultura y Sociedad Latinoamericana,SPAN
+SPAN,330,SPAN330,Traducción e Interpretación,SPAN
+SPAN,340,SPAN340,Escritura Avanzada en Español,SPAN
+SPAN,401,SPAN401,Introducción al Español Académico,SPAN
+SPAN,402,SPAN402,Literatura Hispana Contemporánea,SPAN
+SPAN,410,SPAN410,Español para los Negocios,SPAN
+SPAN,420,SPAN420,Cultura y Sociedad Latinoamericana,SPAN
+SPAN,430,SPAN430,Traducción e Interpretación,SPAN
+SPAN,440,SPAN440,Escritura Avanzada en Español,SPAN
+SPAN,501,SPAN501,Introducción al Español Académico,SPAN
+SPAN,502,SPAN502,Literatura Hispana Contemporánea,SPAN
+SPAN,510,SPAN510,Español para los Negocios,SPAN
+SPAN,520,SPAN520,Cultura y Sociedad Latinoamericana,SPAN
+SPAN,530,SPAN530,Traducción e Interpretación,SPAN
+SPAN,540,SPAN540,Escritura Avanzada en Español,SPAN
+SPAN,601,SPAN601,Introducción al Español Académico,SPAN
+SPAN,602,SPAN602,Literatura Hispana Contemporánea,SPAN
+SPAN,610,SPAN610,Español para los Negocios,SPAN
+SPAN,620,SPAN620,Cultura y Sociedad Latinoamericana,SPAN
+SPAN,630,SPAN630,Traducción e Interpretación,SPAN
+SPAN,640,SPAN640,Escritura Avanzada en Español,SPAN
+SPAN,701,SPAN701,Introducción al Español Académico,SPAN
+SPAN,702,SPAN702,Literatura Hispana Contemporánea,SPAN
+SPAN,710,SPAN710,Español para los Negocios,SPAN
+SPAN,720,SPAN720,Cultura y Sociedad Latinoamericana,SPAN
+SPAN,730,SPAN730,Traducción e Interpretación,SPAN
+SPAN,740,SPAN740,Escritura Avanzada en Español,SPAN
+SPAN,780,SPAN780,Introducción al Español Académico,SPAN
+SPAN,781,SPAN781,Literatura Hispana Contemporánea,SPAN
+SPAN,790,SPAN790,Español para los Negocios,SPAN
+SPAN,791,SPAN791,Cultura y Sociedad Latinoamericana,SPAN
+SPAN,795,SPAN795,Traducción e Interpretación,SPAN
+SPAN,799,SPAN799,Escritura Avanzada en Español,SPAN
+STAT,101,STAT101,Foundations of Statistics,STAT
+STAT,102,STAT102,Statistics in Practice,STAT
+STAT,110,STAT110,Research Methods in Statistics,STAT
+STAT,120,STAT120,Contemporary Issues in Statistics,STAT
+STAT,130,STAT130,Seminar in Statistics,STAT
+STAT,140,STAT140,Applied Statistics,STAT
+STAT,201,STAT201,Statistics Capstone,STAT
+STAT,202,STAT202,Statistics Internship,STAT
+STAT,210,STAT210,Topics in Statistics,STAT
+STAT,220,STAT220,Advanced Statistics,STAT
+STAT,230,STAT230,Leadership in Statistics,STAT
+STAT,240,STAT240,Global Perspectives in Statistics,STAT
+STAT,301,STAT301,Foundations of Statistics,STAT
+STAT,302,STAT302,Statistics in Practice,STAT
+STAT,310,STAT310,Research Methods in Statistics,STAT
+STAT,320,STAT320,Contemporary Issues in Statistics,STAT
+STAT,330,STAT330,Seminar in Statistics,STAT
+STAT,340,STAT340,Applied Statistics,STAT
+STAT,401,STAT401,Statistics Capstone,STAT
+STAT,402,STAT402,Statistics Internship,STAT
+STAT,410,STAT410,Topics in Statistics,STAT
+STAT,420,STAT420,Advanced Statistics,STAT
+STAT,430,STAT430,Leadership in Statistics,STAT
+STAT,440,STAT440,Global Perspectives in Statistics,STAT
+STAT,501,STAT501,Foundations of Statistics,STAT
+STAT,502,STAT502,Statistics in Practice,STAT
+STAT,510,STAT510,Research Methods in Statistics,STAT
+STAT,520,STAT520,Contemporary Issues in Statistics,STAT
+STAT,530,STAT530,Seminar in Statistics,STAT
+STAT,540,STAT540,Applied Statistics,STAT
+STAT,601,STAT601,Statistics Capstone,STAT
+STAT,602,STAT602,Statistics Internship,STAT
+STAT,610,STAT610,Topics in Statistics,STAT
+STAT,620,STAT620,Advanced Statistics,STAT
+STAT,630,STAT630,Leadership in Statistics,STAT
+STAT,640,STAT640,Global Perspectives in Statistics,STAT
+STAT,701,STAT701,Foundations of Statistics,STAT
+STAT,702,STAT702,Statistics in Practice,STAT
+STAT,710,STAT710,Research Methods in Statistics,STAT
+STAT,720,STAT720,Contemporary Issues in Statistics,STAT
+STAT,730,STAT730,Seminar in Statistics,STAT
+STAT,740,STAT740,Applied Statistics,STAT
+STAT,780,STAT780,Statistics Capstone,STAT
+STAT,781,STAT781,Statistics Internship,STAT
+STAT,790,STAT790,Topics in Statistics,STAT
+STAT,791,STAT791,Advanced Statistics,STAT
+STAT,795,STAT795,Leadership in Statistics,STAT
+STAT,799,STAT799,Global Perspectives in Statistics,STAT
+THEA,101,THEA101,Foundations of Theatre,THEA
+THEA,102,THEA102,Theatre in Practice,THEA
+THEA,110,THEA110,Research Methods in Theatre,THEA
+THEA,120,THEA120,Contemporary Issues in Theatre,THEA
+THEA,130,THEA130,Seminar in Theatre,THEA
+THEA,140,THEA140,Applied Theatre,THEA
+THEA,201,THEA201,Theatre Capstone,THEA
+THEA,202,THEA202,Theatre Internship,THEA
+THEA,210,THEA210,Topics in Theatre,THEA
+THEA,220,THEA220,Advanced Theatre,THEA
+THEA,230,THEA230,Leadership in Theatre,THEA
+THEA,240,THEA240,Global Perspectives in Theatre,THEA
+THEA,301,THEA301,Foundations of Theatre,THEA
+THEA,302,THEA302,Theatre in Practice,THEA
+THEA,310,THEA310,Research Methods in Theatre,THEA
+THEA,320,THEA320,Contemporary Issues in Theatre,THEA
+THEA,330,THEA330,Seminar in Theatre,THEA
+THEA,340,THEA340,Applied Theatre,THEA
+THEA,401,THEA401,Theatre Capstone,THEA
+THEA,402,THEA402,Theatre Internship,THEA
+THEA,410,THEA410,Topics in Theatre,THEA
+THEA,420,THEA420,Advanced Theatre,THEA
+THEA,430,THEA430,Leadership in Theatre,THEA
+THEA,440,THEA440,Global Perspectives in Theatre,THEA
+THEA,501,THEA501,Foundations of Theatre,THEA
+THEA,502,THEA502,Theatre in Practice,THEA
+THEA,510,THEA510,Research Methods in Theatre,THEA
+THEA,520,THEA520,Contemporary Issues in Theatre,THEA
+THEA,530,THEA530,Seminar in Theatre,THEA
+THEA,540,THEA540,Applied Theatre,THEA
+THEA,601,THEA601,Theatre Capstone,THEA
+THEA,602,THEA602,Theatre Internship,THEA
+THEA,610,THEA610,Topics in Theatre,THEA
+THEA,620,THEA620,Advanced Theatre,THEA
+THEA,630,THEA630,Leadership in Theatre,THEA
+THEA,640,THEA640,Global Perspectives in Theatre,THEA
+THEA,701,THEA701,Foundations of Theatre,THEA
+THEA,702,THEA702,Theatre in Practice,THEA
+THEA,710,THEA710,Research Methods in Theatre,THEA
+THEA,720,THEA720,Contemporary Issues in Theatre,THEA
+THEA,730,THEA730,Seminar in Theatre,THEA
+THEA,740,THEA740,Applied Theatre,THEA
+THEA,780,THEA780,Theatre Capstone,THEA
+THEA,781,THEA781,Theatre Internship,THEA
+THEA,790,THEA790,Topics in Theatre,THEA
+THEA,791,THEA791,Advanced Theatre,THEA
+THEA,795,THEA795,Leadership in Theatre,THEA
+THEA,799,THEA799,Global Perspectives in Theatre,THEA
+URBD,101,URBD101,Foundations of Urban Design,URBD
+URBD,102,URBD102,Urban Design in Practice,URBD
+URBD,110,URBD110,Research Methods in Urban Design,URBD
+URBD,120,URBD120,Contemporary Issues in Urban Design,URBD
+URBD,130,URBD130,Seminar in Urban Design,URBD
+URBD,140,URBD140,Applied Urban Design,URBD
+URBD,201,URBD201,Urban Design Capstone,URBD
+URBD,202,URBD202,Urban Design Internship,URBD
+URBD,210,URBD210,Topics in Urban Design,URBD
+URBD,220,URBD220,Advanced Urban Design,URBD
+URBD,230,URBD230,Leadership in Urban Design,URBD
+URBD,240,URBD240,Global Perspectives in Urban Design,URBD
+URBD,301,URBD301,Foundations of Urban Design,URBD
+URBD,302,URBD302,Urban Design in Practice,URBD
+URBD,310,URBD310,Research Methods in Urban Design,URBD
+URBD,320,URBD320,Contemporary Issues in Urban Design,URBD
+URBD,330,URBD330,Seminar in Urban Design,URBD
+URBD,340,URBD340,Applied Urban Design,URBD
+URBD,401,URBD401,Urban Design Capstone,URBD
+URBD,402,URBD402,Urban Design Internship,URBD
+URBD,410,URBD410,Topics in Urban Design,URBD
+URBD,420,URBD420,Advanced Urban Design,URBD
+URBD,430,URBD430,Leadership in Urban Design,URBD
+URBD,440,URBD440,Global Perspectives in Urban Design,URBD
+URBD,501,URBD501,Foundations of Urban Design,URBD
+URBD,502,URBD502,Urban Design in Practice,URBD
+URBD,510,URBD510,Research Methods in Urban Design,URBD
+URBD,520,URBD520,Contemporary Issues in Urban Design,URBD
+URBD,530,URBD530,Seminar in Urban Design,URBD
+URBD,540,URBD540,Applied Urban Design,URBD
+URBD,601,URBD601,Urban Design Capstone,URBD
+URBD,602,URBD602,Urban Design Internship,URBD
+URBD,610,URBD610,Topics in Urban Design,URBD
+URBD,620,URBD620,Advanced Urban Design,URBD
+URBD,630,URBD630,Leadership in Urban Design,URBD
+URBD,640,URBD640,Global Perspectives in Urban Design,URBD
+URBD,701,URBD701,Foundations of Urban Design,URBD
+URBD,702,URBD702,Urban Design in Practice,URBD
+URBD,710,URBD710,Research Methods in Urban Design,URBD
+URBD,720,URBD720,Contemporary Issues in Urban Design,URBD
+URBD,730,URBD730,Seminar in Urban Design,URBD
+URBD,740,URBD740,Applied Urban Design,URBD
+URBD,780,URBD780,Urban Design Capstone,URBD
+URBD,781,URBD781,Urban Design Internship,URBD
+URBD,790,URBD790,Topics in Urban Design,URBD
+URBD,791,URBD791,Advanced Urban Design,URBD
+URBD,795,URBD795,Leadership in Urban Design,URBD
+URBD,799,URBD799,Global Perspectives in Urban Design,URBD

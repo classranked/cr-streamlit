@@ -1,0 +1,21 @@
+first_name,last_name,label
+José,García,accented-spanish
+María,Fernández,accented-spanish
+Ana Sofía,Ruiz-Ortega,compound-given-hyphenated-surname
+Renée,O'Connor,apostrophe-accent
+Björn,Åkesson,nordic
+Chloë,D'Amico,diaeresis-apostrophe
+François,L'Écuyer,french-apostrophe
+Jiří,Novák,central-european
+Zoë,Smith-Jones,hyphenated
+Lucía,de la Cruz,multipart-surname
+Saoirse,Ní Bhraonáin,irish
+Mónica,Peña,tilde
+Noël,Bélanger,french
+Amina,El-Hadid,arabic-hyphenated
+İrem,Yılmaz,turkish
+Łukasz,Kowalski,polish
+Sébastien,Dubois,acute
+Inés,Martín del Campo,multipart
+Maëlle,Brunet,ligature
+Yara,Al-Sayed,hyphenated-middle-east
