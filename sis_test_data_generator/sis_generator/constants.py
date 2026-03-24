@@ -6,7 +6,14 @@ DATA_DIR = ROOT_DIR / "data"
 
 CSV_HEADERS = {
     "terms": ["Title", "Start Date", "End Date"],
-    "courses": ["Title", "Abbreviation", "Subject Code", "Course Number"],
+    "courses": [
+        "Title",
+        "Abbreviation",
+        "Parent Academic Unit",
+        "Academic Unit Type",
+        "Subject Code",
+        "Course Number",
+    ],
     "hierarchy": [
         "Title",
         "Abbreviation",
@@ -57,6 +64,15 @@ CSV_HEADERS = {
     "student_enrollments": ["Academic Unit", "Email", "Role", "Term"],
     "instructor_assignments": ["Academic Unit", "Email", "Role", "Term"],
 }
+
+COURSE_REQUIRED_COLUMNS = [
+    "Title",
+    "Abbreviation",
+    "Parent Academic Unit",
+    "Academic Unit Type",
+]
+
+COURSE_OPTIONAL_COLUMNS = ["Subject Code", "Course Number"]
 
 LEGACY_CSV_HEADERS = {
     "courses": ["Title", "Abbreviation", "Academic Unit Type", "Parent Academic Unit"],
@@ -118,13 +134,7 @@ UPLOAD_NAME_MAP = {
     "instructor_assignments": "instructor_assignments",
 }
 
-COURSE_CATALOG_COLUMNS = [
-    "subject_code",
-    "course_number",
-    "course_id",
-    "title",
-    "default_department_abbreviation",
-]
+COURSE_CATALOG_COLUMNS = COURSE_REQUIRED_COLUMNS + COURSE_OPTIONAL_COLUMNS
 
 ATTRIBUTE_CATALOG_COLUMNS = [
     "attribute_name",
