@@ -11,6 +11,7 @@ from .constants import (
     ATTRIBUTE_CATALOG_COLUMNS,
     CATALOG_FILES,
     COURSE_CATALOG_COLUMNS,
+    COURSE_REQUIRED_COLUMNS,
     HIERARCHY_LEVEL_COLUMNS,
     SECTION_ATTRIBUTE_COLUMNS,
 )
@@ -86,17 +87,51 @@ def _clean(df: pd.DataFrame, columns: list[str]) -> pd.DataFrame:
     return cleaned[columns].fillna("")
 
 
+def _normalize_course_catalog(df: pd.DataFrame) -> pd.DataFrame:
+    course_df = df.copy()
+    if set(COURSE_REQUIRED_COLUMNS).issubset(course_df.columns):
+        normalized = course_df.copy()
+    elif {"subject_code", "course_number", "course_id", "title", "default_department_abbreviation"}.issubset(course_df.columns):
+        normalized = course_df.rename(
+            columns={
+                "title": "Title",
+                "course_id": "Abbreviation",
+                "default_department_abbreviation": "Parent Academic Unit",
+            }
+        )
+        normalized["Academic Unit Type"] = normalized.get("Academic Unit Type", "Course")
+        normalized["Subject Code"] = normalized.get("Subject Code", normalized["subject_code"])
+        normalized["Course Number"] = normalized.get("Course Number", normalized["course_number"])
+    else:
+        normalized = course_df.copy()
+
+    if "Subject Code" not in normalized.columns:
+        normalized["Subject Code"] = normalized["Abbreviation"].astype(str).str.extract(r"^([A-Za-z]+)", expand=False).fillna("")
+    if "Course Number" not in normalized.columns:
+        normalized["Course Number"] = normalized["Abbreviation"].astype(str).str.extract(r"(\d+)$", expand=False).fillna("")
+    if "Academic Unit Type" not in normalized.columns:
+        normalized["Academic Unit Type"] = "Course"
+    return _clean(normalized, COURSE_CATALOG_COLUMNS)
+
+
 def _build_course_catalog(legacy_df: pd.DataFrame) -> pd.DataFrame:
     course_df = legacy_df[
-        ["subject_code", "course_number", "course_id", "title", "parent_academic_unit"]
+        ["title", "course_id", "parent_academic_unit", "subject_code", "course_number"]
     ].copy()
     course_df = course_df.rename(
-        columns={"parent_academic_unit": "default_department_abbreviation"}
+        columns={
+            "title": "Title",
+            "course_id": "Abbreviation",
+            "parent_academic_unit": "Parent Academic Unit",
+            "subject_code": "Subject Code",
+            "course_number": "Course Number",
+        }
     )
+    course_df["Academic Unit Type"] = "Course"
     course_df = course_df.drop_duplicates().sort_values(
-        ["subject_code", "course_number", "course_id"]
+        ["Subject Code", "Course Number", "Abbreviation"]
     )
-    return _clean(course_df, COURSE_CATALOG_COLUMNS)
+    return _normalize_course_catalog(course_df)
 
 
 def _build_attribute_catalog(legacy_df: pd.DataFrame) -> pd.DataFrame:
@@ -258,7 +293,11 @@ def load_catalog(path: Path, columns: list[str]) -> pd.DataFrame:
 
 
 def load_course_catalog(path: Path | None = None) -> pd.DataFrame:
-    return load_catalog(path or COURSE_CATALOG_PATH, COURSE_CATALOG_COLUMNS)
+    catalog_path = path or COURSE_CATALOG_PATH
+    if not catalog_path.exists():
+        ensure_catalogs_exist()
+    df = pd.read_csv(catalog_path, dtype=str).fillna("")
+    return _normalize_course_catalog(df)
 
 
 def load_attribute_catalog(path: Path | None = None) -> pd.DataFrame:
@@ -272,7 +311,7 @@ def load_academic_unit_catalog(path: Path | None = None) -> pd.DataFrame:
 
 
 def save_catalog(df: pd.DataFrame, path: Path, columns: list[str]) -> None:
-    cleaned = _clean(df, columns)
+    cleaned = _normalize_course_catalog(df) if columns == COURSE_CATALOG_COLUMNS else _clean(df, columns)
     if columns == ACADEMIC_UNIT_CATALOG_COLUMNS:
         cleaned = sort_hierarchy_top_down(cleaned)
     cleaned.to_csv(path, index=False)

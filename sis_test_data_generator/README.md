@@ -21,4 +21,4 @@ python sis_test_data_generator/scripts/bootstrap_sis_seed_data.py
 - `sis_generator/`: generator, catalog, and snapshot logic
 - `data/`: persistent catalog and name seed files
 - `scripts/`: seed-data bootstrap script
-
+- `FEATURE_SPECS.md`: agreed product behavior and dataset rules

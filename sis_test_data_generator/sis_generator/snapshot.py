@@ -6,19 +6,38 @@ from pathlib import Path
 
 import pandas as pd
 
-from .constants import CSV_HEADERS, FILE_STEMS, LEGACY_CSV_HEADERS, UPLOAD_NAME_MAP
+from .constants import (
+    COURSE_CATALOG_COLUMNS,
+    COURSE_REQUIRED_COLUMNS,
+    CSV_HEADERS,
+    FILE_STEMS,
+    LEGACY_CSV_HEADERS,
+    UPLOAD_NAME_MAP,
+)
 
 
 def _normalize_header(header: list[str]) -> tuple[str, ...]:
     return tuple(str(value).strip() for value in header)
 
 
+def _header_set(header: list[str]) -> frozenset[str]:
+    return frozenset(_normalize_header(header))
+
+
 EXPECTED_HEADERS = {
     key: {_normalize_header(value)}
     for key, value in CSV_HEADERS.items()
+    if key != "courses"
 }
+EXPECTED_HEADERS["courses"] = {_normalize_header(COURSE_REQUIRED_COLUMNS)}
 for key, value in LEGACY_CSV_HEADERS.items():
-    EXPECTED_HEADERS.setdefault(key, set()).add(_normalize_header(value))
+    if key != "courses":
+        EXPECTED_HEADERS.setdefault(key, set()).add(_normalize_header(value))
+
+EXPECTED_HEADER_SETS = {
+    key: {_header_set(list(values)) for values in variants}
+    for key, variants in EXPECTED_HEADERS.items()
+}
 
 
 @dataclass
@@ -95,18 +114,40 @@ def _detect_category(file_name: str, header: list[str]) -> str | None:
     stem = Path(file_name).stem.strip().lower().replace(" ", "-")
     if stem in UPLOAD_NAME_MAP:
         return UPLOAD_NAME_MAP[stem]
-    normalized = _normalize_header(header)
-    for category, expected_variants in EXPECTED_HEADERS.items():
-        if normalized in expected_variants:
-            return category
+    normalized_set = _header_set(header)
+    matches = [
+        category
+        for category, expected_variants in EXPECTED_HEADER_SETS.items()
+        if any(expected.issubset(normalized_set) for expected in expected_variants)
+    ]
+    if len(matches) == 1:
+        return matches[0]
     return None
 
 
 def _normalize_uploaded_table(category: str, df: pd.DataFrame) -> pd.DataFrame:
     df = df.copy()
-    if category == "courses" and "Subject Code" not in df.columns:
-        df["Subject Code"] = df["Abbreviation"].astype(str).str.extract(r"^([A-Za-z]+)", expand=False).fillna("")
-        df["Course Number"] = df["Abbreviation"].astype(str).str.extract(r"(\d+)$", expand=False).fillna("")
+    if category == "courses":
+        if set(COURSE_REQUIRED_COLUMNS).issubset(df.columns):
+            pass
+        elif {"subject_code", "course_number", "course_id", "title", "default_department_abbreviation"}.issubset(df.columns):
+            df = df.rename(
+                columns={
+                    "title": "Title",
+                    "course_id": "Abbreviation",
+                    "default_department_abbreviation": "Parent Academic Unit",
+                    "subject_code": "Subject Code",
+                    "course_number": "Course Number",
+                }
+            )
+            df["Academic Unit Type"] = df.get("Academic Unit Type", "Course")
+        if "Subject Code" not in df.columns:
+            df["Subject Code"] = df["Abbreviation"].astype(str).str.extract(r"^([A-Za-z]+)", expand=False).fillna("")
+        if "Course Number" not in df.columns:
+            df["Course Number"] = df["Abbreviation"].astype(str).str.extract(r"(\d+)$", expand=False).fillna("")
+        if "Academic Unit Type" not in df.columns:
+            df["Academic Unit Type"] = "Course"
+        return df[COURSE_CATALOG_COLUMNS].copy()
     if category == "course_sections" and "Course Attributes" not in df.columns:
         df["Course Attributes"] = ""
     return df[CSV_HEADERS[category]].copy()
@@ -122,12 +163,17 @@ def load_snapshot_files(files: list) -> SnapshotContext:
         if category is None:
             context.errors.append(f"Could not classify upload: {uploaded_file.name}")
             continue
-        normalized = _normalize_header(list(df.columns))
-        if normalized not in EXPECTED_HEADERS[category]:
-            expected = [list(values) for values in EXPECTED_HEADERS[category]]
+        normalized_set = _header_set(list(df.columns))
+        matching_variants = [
+            expected for expected in EXPECTED_HEADER_SETS[category]
+            if expected.issubset(normalized_set)
+        ]
+        if not matching_variants:
+            expected = [sorted(values) for values in EXPECTED_HEADER_SETS[category]]
+            missing = sorted(set().union(*EXPECTED_HEADER_SETS[category]) - normalized_set)
             context.errors.append(
-                f"{uploaded_file.name} has unexpected columns for {category}: "
-                f"expected one of {expected}, got {list(df.columns)}"
+                f"{uploaded_file.name} is missing required columns for {category}: "
+                f"missing {missing or 'unknown'}, expected one of {expected}, got {list(df.columns)}"
             )
             continue
         context.tables[category] = _normalize_uploaded_table(category, df)

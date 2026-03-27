@@ -10,6 +10,7 @@ from datetime import datetime, timedelta
 import pandas as pd
 
 from .constants import (
+    COURSE_REQUIRED_COLUMNS,
     CSV_HEADERS,
     FILE_STEMS,
     HIERARCHY_LEVEL_COLUMNS,
@@ -46,6 +47,7 @@ GENERIC_ATTRIBUTE_COLUMNS = [
     "Course Type",
     "Delivery Method",
 ]
+FLAT_HIERARCHY_SLOT_ORDER = ["University", "College", "Division", "Department"]
 
 
 @dataclass
@@ -74,6 +76,7 @@ class GenerationConfig:
     institution_abbreviation: str
     flat_variance_rate: float = 0.15
     hierarchy_source: str = "fallback"
+    include_section_attributes: bool = True
 
 
 @dataclass
@@ -92,6 +95,25 @@ class HierarchyContext:
     children: dict[str, list[str]]
     roots: list[str]
     department_abbreviations: list[str]
+
+
+@dataclass(frozen=True)
+class GenerationPlan:
+    authoritative: frozenset[str]
+    generated: frozenset[str]
+    skipped: frozenset[str]
+    resolved_sources: dict[str, str]
+    section_driver: str | None
+    flat_hierarchy_source: str | None
+
+    def is_authoritative(self, dataset: str) -> bool:
+        return dataset in self.authoritative
+
+    def should_generate(self, dataset: str) -> bool:
+        return dataset in self.generated
+
+    def source_for(self, dataset: str) -> str | None:
+        return self.resolved_sources.get(dataset)
 
 
 def validate_hierarchy(df: pd.DataFrame) -> pd.DataFrame:
@@ -149,6 +171,149 @@ def validate_hierarchy(df: pd.DataFrame) -> pd.DataFrame:
     for abbreviation in nodes:
         walk(abbreviation)
     return sort_hierarchy_top_down(hierarchy)
+
+
+def plan_generation(structure_mode: str, snapshot: SnapshotContext) -> GenerationPlan:
+    datasets = set(FILE_STEMS)
+    authoritative = set(snapshot.tables)
+    generated: set[str] = set()
+    resolved_sources: dict[str, str] = {}
+
+    for dataset in authoritative:
+        resolved_sources[dataset] = f"uploaded:{dataset}"
+
+    if "course_sections" in authoritative:
+        resolved_sources["course_sections"] = "uploaded:course_sections"
+        resolved_sources.setdefault(
+            "terms",
+            "uploaded:terms" if "terms" in authoritative else "derived:course_sections",
+        )
+        section_driver = "course_sections"
+    else:
+        section_driver = "courses" if "courses" in authoritative else "catalog"
+        generated.add("course_sections")
+        resolved_sources["course_sections"] = f"generated:{section_driver}"
+
+        if "terms" in authoritative:
+            resolved_sources["terms"] = "uploaded:terms"
+        else:
+            generated.add("terms")
+            resolved_sources["terms"] = "generated:terms"
+
+        if structure_mode == "hierarchy":
+            if "courses" in authoritative:
+                resolved_sources["courses"] = "uploaded:courses"
+            else:
+                generated.add("courses")
+                resolved_sources["courses"] = (
+                    "generated:hierarchy"
+                    if "hierarchy" in authoritative
+                    else "generated:fallback_hierarchy"
+                )
+
+            if "hierarchy" in authoritative:
+                resolved_sources["hierarchy"] = "uploaded:hierarchy"
+            else:
+                generated.add("hierarchy")
+                resolved_sources["hierarchy"] = "generated:fallback_hierarchy"
+        else:
+            if "courses" in authoritative:
+                resolved_sources["courses"] = "uploaded:courses"
+            if "hierarchy" in authoritative:
+                resolved_sources["hierarchy"] = "uploaded:hierarchy"
+
+    if "students" in authoritative:
+        resolved_sources["students"] = "uploaded:students"
+    else:
+        generated.add("students")
+        resolved_sources["students"] = "generated:students"
+
+    if "instructors" in authoritative:
+        resolved_sources["instructors"] = "uploaded:instructors"
+    else:
+        generated.add("instructors")
+        resolved_sources["instructors"] = "generated:instructors"
+
+    if "student_enrollments" in authoritative:
+        resolved_sources["student_enrollments"] = "uploaded:student_enrollments"
+    else:
+        generated.add("student_enrollments")
+        resolved_sources["student_enrollments"] = f"generated:{section_driver or 'course_sections'}+students"
+
+    if "instructor_assignments" in authoritative:
+        resolved_sources["instructor_assignments"] = "uploaded:instructor_assignments"
+    else:
+        generated.add("instructor_assignments")
+        resolved_sources["instructor_assignments"] = f"generated:{section_driver or 'course_sections'}+instructors"
+
+    skipped = datasets - authoritative - generated
+    return GenerationPlan(
+        authoritative=frozenset(sorted(authoritative)),
+        generated=frozenset(sorted(generated)),
+        skipped=frozenset(sorted(skipped)),
+        resolved_sources=resolved_sources,
+        section_driver=section_driver,
+        flat_hierarchy_source=(
+            "hierarchy" if structure_mode == "flat" and "hierarchy" in authoritative else None
+        ),
+    )
+
+
+def validate_course_catalog(df: pd.DataFrame, hierarchy_df: pd.DataFrame) -> pd.DataFrame:
+    courses = df.copy().fillna("")
+    if {"subject_code", "course_number", "course_id", "title", "default_department_abbreviation"}.issubset(courses.columns):
+        courses = courses.rename(
+            columns={
+                "title": "Title",
+                "course_id": "Abbreviation",
+                "default_department_abbreviation": "Parent Academic Unit",
+            }
+        )
+        courses["Academic Unit Type"] = courses.get("Academic Unit Type", "Course")
+        courses["Subject Code"] = courses.get("Subject Code", courses["subject_code"])
+        courses["Course Number"] = courses.get("Course Number", courses["course_number"])
+
+    missing = [column for column in COURSE_REQUIRED_COLUMNS if column not in courses.columns]
+    if missing:
+        raise ValueError(f"Courses are missing columns: {', '.join(missing)}")
+
+    required_view = courses[COURSE_REQUIRED_COLUMNS]
+    if required_view.empty:
+        return courses
+
+    if required_view["Title"].eq("").any():
+        raise ValueError("Courses contain a row with an empty Title.")
+    if required_view["Abbreviation"].eq("").any():
+        raise ValueError("Courses contain a row with an empty Abbreviation.")
+    if required_view["Parent Academic Unit"].eq("").any():
+        raise ValueError("Courses contain a row with an empty Parent Academic Unit.")
+    if required_view["Academic Unit Type"].eq("").any():
+        raise ValueError("Courses contain a row with an empty Academic Unit Type.")
+
+    parents = set(validate_hierarchy(hierarchy_df)["Abbreviation"].astype(str))
+    invalid_parents = sorted(
+        {
+            parent
+            for parent in required_view["Parent Academic Unit"].astype(str)
+            if parent and parent not in parents
+        }
+    )
+    if invalid_parents:
+        raise ValueError(
+            "Courses reference missing parent academic units: "
+            + ", ".join(invalid_parents)
+            + "."
+        )
+
+    course_types = required_view["Academic Unit Type"].astype(str).str.strip()
+    invalid_types = sorted({value for value in course_types if value and value.lower() != "course"})
+    if invalid_types:
+        raise ValueError(
+            "Courses must use `Academic Unit Type` of `Course`; found "
+            + ", ".join(invalid_types)
+            + "."
+        )
+    return courses
 
 
 def _build_hierarchy_context(df: pd.DataFrame) -> HierarchyContext:
@@ -452,13 +617,22 @@ def _resolve_course_home_unit(
     return hierarchy.roots[0]
 
 
-def _chain_titles_for_unit(unit_abbreviation: str, hierarchy: HierarchyContext) -> dict[str, str]:
-    title_by_type = {column: "" for column in HIERARCHY_LEVEL_COLUMNS}
+def _hierarchy_chain(unit_abbreviation: str, hierarchy: HierarchyContext) -> list[dict[str, str]]:
+    chain: list[dict[str, str]] = []
     current = unit_abbreviation
     while current:
         row = hierarchy.nodes.get(current)
         if row is None:
             break
+        chain.append(row)
+        current = row["Parent Academic Unit"]
+    chain.reverse()
+    return chain
+
+
+def _chain_titles_for_unit(unit_abbreviation: str, hierarchy: HierarchyContext) -> dict[str, str]:
+    title_by_type = {column: "" for column in HIERARCHY_LEVEL_COLUMNS}
+    for row in _hierarchy_chain(unit_abbreviation, hierarchy):
         unit_type = str(row["Academic Unit Type"]).strip().lower()
         if unit_type == "department":
             title_by_type["Department"] = row["Title"]
@@ -468,7 +642,6 @@ def _chain_titles_for_unit(unit_abbreviation: str, hierarchy: HierarchyContext) 
             title_by_type["College"] = row["Title"]
         elif unit_type == "university":
             title_by_type["University"] = row["Title"]
-        current = row["Parent Academic Unit"]
     return title_by_type
 
 
@@ -490,6 +663,36 @@ def _chain_titles_for_root(hierarchy: HierarchyContext) -> dict[str, str]:
     elif root_type == "university":
         title_by_type["University"] = root["Title"]
     return title_by_type
+
+
+def _sequential_chain_titles_for_unit(unit_abbreviation: str, hierarchy: HierarchyContext) -> dict[str, str]:
+    title_by_slot = {column: "" for column in HIERARCHY_LEVEL_COLUMNS}
+    chain_titles = [str(row["Title"]) for row in _hierarchy_chain(unit_abbreviation, hierarchy) if str(row["Title"]).strip()]
+    if not chain_titles:
+        return title_by_slot
+
+    visible_titles = chain_titles[-len(FLAT_HIERARCHY_SLOT_ORDER):]
+    start = len(FLAT_HIERARCHY_SLOT_ORDER) - len(visible_titles)
+    for offset, title in enumerate(visible_titles):
+        title_by_slot[FLAT_HIERARCHY_SLOT_ORDER[start + offset]] = title
+    return title_by_slot
+
+
+def _section_hierarchy_titles_for_unit(
+    unit_abbreviation: str,
+    hierarchy: HierarchyContext,
+    structure_mode: str,
+) -> dict[str, str]:
+    chain = _hierarchy_chain(unit_abbreviation, hierarchy)
+    unit_types = {
+        str(row["Academic Unit Type"]).strip().lower()
+        for row in chain
+        if str(row["Academic Unit Type"]).strip()
+    }
+    standard_types = {"university", "college", "division", "department"}
+    if structure_mode == "hierarchy" and unit_types.issubset(standard_types):
+        return _chain_titles_for_unit(unit_abbreviation, hierarchy)
+    return _sequential_chain_titles_for_unit(unit_abbreviation, hierarchy)
 
 
 def _sample_attribute(
@@ -535,18 +738,6 @@ def _apply_flat_variance(
     if not hierarchy.department_abbreviations:
         return section_row
 
-    mutations = ["skip_division", "skip_to_college"]
-    if current_department_title:
-        mutations.append("swap_department")
-    mutation = rng.choice(mutations)
-    if mutation == "skip_division":
-        section_row["Division"] = ""
-        return section_row
-    if mutation == "skip_to_college":
-        section_row["Department"] = ""
-        section_row["Division"] = ""
-        return section_row
-
     candidates = [
         abbreviation
         for abbreviation in hierarchy.department_abbreviations
@@ -555,26 +746,24 @@ def _apply_flat_variance(
     if not candidates:
         return section_row
     replacement = rng.choice(candidates)
-    section_row.update(_chain_titles_for_unit(replacement, hierarchy))
+    section_row.update(_sequential_chain_titles_for_unit(replacement, hierarchy))
     return section_row
 
 
 def _build_courses(
-    config: GenerationConfig,
     course_catalog: pd.DataFrame,
 ) -> pd.DataFrame:
-    if config.courses_count <= 0 or course_catalog.empty:
+    if course_catalog.empty:
         return pd.DataFrame(columns=CSV_HEADERS["courses"])
-    sample_size = min(config.courses_count, len(course_catalog))
-    course_templates = course_catalog.sample(
-        n=sample_size,
-        random_state=config.seed,
-        replace=False,
-    ).sort_values(["subject_code", "course_number", "course_id"])
+    course_templates = _normalize_course_templates(course_catalog).sort_values(
+        ["subject_code", "course_number", "course_id"]
+    )
     rows = [
         {
             "Title": row["title"],
             "Abbreviation": row["course_id"],
+            "Parent Academic Unit": row["default_department_abbreviation"],
+            "Academic Unit Type": "Course",
             "Subject Code": row["subject_code"],
             "Course Number": row["course_number"],
         }
@@ -583,49 +772,125 @@ def _build_courses(
     return pd.DataFrame(rows, columns=CSV_HEADERS["courses"])
 
 
+def _normalize_course_templates(source_df: pd.DataFrame) -> pd.DataFrame:
+    if source_df.empty:
+        return pd.DataFrame(
+            columns=[
+                "subject_code",
+                "course_number",
+                "course_id",
+                "title",
+                "default_department_abbreviation",
+            ]
+        )
+
+    if {"subject_code", "course_number", "course_id", "title"}.issubset(source_df.columns):
+        normalized = source_df.copy()
+        if "default_department_abbreviation" not in normalized.columns:
+            normalized["default_department_abbreviation"] = ""
+        return normalized[
+            [
+                "subject_code",
+                "course_number",
+                "course_id",
+                "title",
+                "default_department_abbreviation",
+            ]
+        ].fillna("")
+
+    normalized = source_df.rename(
+        columns={
+            "Title": "title",
+            "Abbreviation": "course_id",
+            "Subject Code": "subject_code",
+            "Course Number": "course_number",
+            "Parent Academic Unit": "default_department_abbreviation",
+        }
+    ).copy()
+    if "subject_code" not in normalized.columns:
+        normalized["subject_code"] = normalized["course_id"].astype(str).str.extract(r"^([A-Za-z]+)", expand=False).fillna("")
+    if "course_number" not in normalized.columns:
+        normalized["course_number"] = normalized["course_id"].astype(str).str.extract(r"(\d+)$", expand=False).fillna("")
+    if "default_department_abbreviation" not in normalized.columns:
+        normalized["default_department_abbreviation"] = ""
+    normalized["default_department_abbreviation"] = normalized.get(
+        "default_department_abbreviation",
+        "",
+    )
+    return normalized[
+        [
+            "subject_code",
+            "course_number",
+            "course_id",
+            "title",
+            "default_department_abbreviation",
+        ]
+    ].fillna("")
+
+
+def _resolve_course_templates(
+    config: GenerationConfig,
+    course_catalog: pd.DataFrame,
+    apply_course_limit: bool = True,
+) -> pd.DataFrame:
+    normalized_catalog = _normalize_course_templates(course_catalog)
+    if normalized_catalog.empty:
+        return normalized_catalog.iloc[0:0]
+    if not apply_course_limit:
+        return normalized_catalog
+    normalized_catalog = normalized_catalog.sort_values(["subject_code", "course_number", "course_id"])
+    if config.courses_count <= 0:
+        return normalized_catalog.iloc[0:0]
+    return normalized_catalog.head(config.courses_count)
+
+
 def _build_sections(
     rng: random.Random,
     config: GenerationConfig,
-    course_catalog: pd.DataFrame,
+    course_source: pd.DataFrame,
     attribute_catalog: pd.DataFrame,
-    hierarchy_df: pd.DataFrame,
+    hierarchy_df: pd.DataFrame | None,
     terms_df: pd.DataFrame,
     snapshot: SnapshotContext,
     collisions: list[dict[str, str]],
+    apply_course_limit: bool = True,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
-    if config.courses_count <= 0 or course_catalog.empty:
+    course_templates = _resolve_course_templates(config, course_source, apply_course_limit=apply_course_limit)
+    if course_templates.empty:
         return (
             pd.DataFrame(columns=CSV_HEADERS["courses"]),
             pd.DataFrame(columns=CSV_HEADERS["course_sections"]),
         )
 
-    hierarchy_context = _build_hierarchy_context(validate_hierarchy(hierarchy_df))
+    hierarchy_context = None
+    if hierarchy_df is not None and not hierarchy_df.empty:
+        hierarchy_context = _build_hierarchy_context(validate_hierarchy(hierarchy_df))
     attribute_options = _attribute_options(attribute_catalog)
-    sample_size = min(config.courses_count, len(course_catalog))
-    course_templates = course_catalog.sample(
-        n=sample_size,
-        random_state=config.seed,
-        replace=False,
-    ).sort_values(["subject_code", "course_number", "course_id"])
 
     course_rows = []
     section_rows = []
     existing_section_ids = set(snapshot.existing_section_ids)
-
+    flat_course_id = config.institution_abbreviation
     for _, course in course_templates.iterrows():
+        home_unit = (
+            _resolve_course_home_unit(course, hierarchy_context, rng)
+            if hierarchy_context is not None
+            else ""
+        )
+        section_chain = (
+            _section_hierarchy_titles_for_unit(home_unit, hierarchy_context, config.structure_mode)
+            if hierarchy_context is not None and home_unit
+            else {column: "" for column in HIERARCHY_LEVEL_COLUMNS}
+        )
         course_rows.append(
             {
                 "Title": course["title"],
                 "Abbreviation": course["course_id"],
+                "Parent Academic Unit": home_unit,
+                "Academic Unit Type": "Course",
                 "Subject Code": course["subject_code"],
                 "Course Number": course["course_number"],
             }
-        )
-        home_unit = _resolve_course_home_unit(course, hierarchy_context, rng)
-        base_chain = (
-            _chain_titles_for_root(hierarchy_context)
-            if config.structure_mode == "flat"
-            else _chain_titles_for_unit(home_unit, hierarchy_context)
         )
 
         for _, term in terms_df.iterrows():
@@ -636,28 +901,28 @@ def _build_sections(
                 config.sections_per_course_max,
             )
             for _ in range(section_count):
-                section_id = f"{course['course_id']}-{section_number:03d}"
+                section_id = f"{course['course_id']}-{section_number:02d}"
                 while section_id in existing_section_ids:
                     collisions.append(
                         {"type": "section_id", "value": section_id, "resolution": "incremented"}
                     )
                     section_number += 1
-                    section_id = f"{course['course_id']}-{section_number:03d}"
+                    section_id = f"{course['course_id']}-{section_number:02d}"
                 existing_section_ids.add(section_id)
 
                 overflow: dict[str, list[str]] = {}
                 section_row = {
                     "Title": course["title"],
                     "Section ID": section_id,
-                    "Course ID": course["course_id"],
+                    "Course ID": flat_course_id if config.structure_mode == "flat" else course["course_id"],
                     "Term": term["Title"],
                     "Start Date": term["Start Date"],
                     "End Date": term["End Date"],
                     "Course": course["course_id"],
-                    "Department": base_chain["Department"],
-                    "Division": base_chain["Division"],
-                    "College": base_chain["College"],
-                    "University": base_chain["University"] or config.institution_name,
+                    "Department": section_chain["Department"],
+                    "Division": section_chain["Division"],
+                    "College": section_chain["College"],
+                    "University": section_chain["University"],
                     "Program": "",
                     "Campus": "",
                     "Session": "",
@@ -668,22 +933,32 @@ def _build_sections(
                 }
 
                 if config.structure_mode == "flat" and rng.random() < config.flat_variance_rate:
-                    section_row = _apply_flat_variance(
-                        rng,
-                        section_row,
-                        hierarchy_context,
-                        base_chain["Department"],
-                    )
+                    if hierarchy_context is not None:
+                        section_row = _apply_flat_variance(
+                            rng,
+                            section_row,
+                            hierarchy_context,
+                            section_chain["Department"],
+                        )
 
-                for column in GENERIC_ATTRIBUTE_COLUMNS:
-                    fallback = section_row.get(column, "")
-                    primary, extras = _sample_attribute(rng, attribute_options, column, fallback)
-                    section_row[column] = primary or fallback
-                    if extras:
-                        overflow[column] = extras
+                if config.include_section_attributes:
+                    for column in GENERIC_ATTRIBUTE_COLUMNS:
+                        fallback = section_row.get(column, "")
+                        primary, extras = _sample_attribute(rng, attribute_options, column, fallback)
+                        section_row[column] = primary or fallback
+                        if extras:
+                            overflow[column] = extras
+                else:
+                    for column in GENERIC_ATTRIBUTE_COLUMNS:
+                        section_row[column] = ""
 
-                section_row["University"] = section_row["University"] or config.institution_name
-                section_row["Course Attributes"] = _serialize_overflow(overflow)
+                if config.structure_mode == "hierarchy":
+                    section_row["University"] = section_row["University"] or config.institution_name
+                section_row["Course Attributes"] = (
+                    _serialize_overflow(overflow)
+                    if config.include_section_attributes
+                    else ""
+                )
                 section_rows.append(section_row)
                 section_number += 1
 
@@ -755,7 +1030,6 @@ def _build_assignments_and_enrollments(
     students_df: pd.DataFrame,
     instructors_df: pd.DataFrame,
     config: GenerationConfig,
-    snapshot: SnapshotContext,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
     enrollment_rows = []
     assignment_rows = []
@@ -767,11 +1041,6 @@ def _build_assignments_and_enrollments(
 
     student_emails = students_df["Email"].tolist()
     instructor_emails = instructors_df["Email"].tolist()
-    if config.mode == "delta":
-        if "students" in snapshot.tables and "Email" in snapshot.tables["students"].columns:
-            student_emails.extend(snapshot.tables["students"]["Email"].dropna().astype(str).tolist())
-        if "instructors" in snapshot.tables and "Email" in snapshot.tables["instructors"].columns:
-            instructor_emails.extend(snapshot.tables["instructors"]["Email"].dropna().astype(str).tolist())
 
     student_emails = list(dict.fromkeys(email for email in student_emails if email))
     instructor_emails = list(dict.fromkeys(email for email in instructor_emails if email))
@@ -866,70 +1135,144 @@ def generate_package(
     snapshot: SnapshotContext | None = None,
 ) -> GenerationResult:
     snapshot = snapshot or SnapshotContext()
+    plan = plan_generation(config.structure_mode, snapshot)
     rng = random.Random(config.seed)
     collisions: list[dict[str, str]] = []
 
-    terms_df = _build_terms(config, snapshot)
-    config.hierarchy_source = "uploaded" if "hierarchy" in snapshot.tables and config.structure_mode == "hierarchy" else "fallback"
-    active_hierarchy = (
-        snapshot.tables["hierarchy"].copy()
-        if config.structure_mode == "hierarchy" and "hierarchy" in snapshot.tables
-        else academic_unit_catalog.copy()
-    )
-    active_hierarchy = _apply_default_university_to_hierarchy(active_hierarchy, config)
-    validated_hierarchy = validate_hierarchy(active_hierarchy)
+    if plan.is_authoritative("terms"):
+        terms_df = snapshot.tables["terms"].copy()
+    elif plan.should_generate("terms"):
+        terms_df = _build_terms(config, snapshot)
+    else:
+        terms_df = pd.DataFrame(columns=CSV_HEADERS["terms"])
 
-    courses_df, sections_df = _build_sections(
-        rng,
-        config,
-        course_catalog,
-        attribute_catalog,
-        validated_hierarchy,
-        terms_df,
-        snapshot,
-        collisions,
+    validated_hierarchy = pd.DataFrame(columns=CSV_HEADERS["hierarchy"])
+    hierarchy_for_sections: pd.DataFrame | None = None
+    if plan.is_authoritative("hierarchy"):
+        config.hierarchy_source = "uploaded"
+        validated_hierarchy = validate_hierarchy(snapshot.tables["hierarchy"].copy())
+    elif plan.should_generate("hierarchy") or (
+        config.structure_mode == "hierarchy"
+        and not plan.is_authoritative("course_sections")
+    ):
+        config.hierarchy_source = "fallback"
+        fallback_hierarchy = _apply_default_university_to_hierarchy(
+            academic_unit_catalog.copy(),
+            config,
+        )
+        validated_hierarchy = validate_hierarchy(fallback_hierarchy)
+
+    if config.structure_mode == "hierarchy":
+        hierarchy_for_sections = validated_hierarchy if not validated_hierarchy.empty else None
+    elif plan.flat_hierarchy_source == "hierarchy":
+        hierarchy_for_sections = validated_hierarchy if not validated_hierarchy.empty else None
+
+    course_source = (
+        snapshot.tables["courses"].copy()
+        if plan.is_authoritative("courses")
+        else course_catalog.copy()
     )
-    students_df = _generate_people(
-        rng,
-        config,
-        config.student_count,
-        "student",
-        attribute_catalog,
-        set(snapshot.existing_emails),
-        set(snapshot.existing_school_ids),
-        collisions,
+    if plan.is_authoritative("courses") and not validated_hierarchy.empty:
+        validate_course_catalog(course_source, validated_hierarchy)
+
+    courses_df = (
+        snapshot.tables["courses"].copy()
+        if plan.is_authoritative("courses")
+        else pd.DataFrame(columns=CSV_HEADERS["courses"])
     )
-    instructors_df = _generate_people(
-        rng,
-        config,
-        config.instructor_count,
-        "instructor",
-        attribute_catalog,
-        set(snapshot.existing_emails).union(set(students_df["Email"].str.lower())),
-        set(snapshot.existing_school_ids).union(set(students_df["School Id"])),
-        collisions,
+    sections_df = (
+        snapshot.tables["course_sections"].copy()
+        if plan.is_authoritative("course_sections")
+        else pd.DataFrame(columns=CSV_HEADERS["course_sections"])
     )
-    enrollments_df, assignments_df = _build_assignments_and_enrollments(
-        rng,
-        sections_df,
-        students_df,
-        instructors_df,
-        config,
-        snapshot,
+    if plan.should_generate("course_sections"):
+        generated_courses_df, generated_sections_df = _build_sections(
+            rng,
+            config,
+            course_source,
+            attribute_catalog,
+            hierarchy_for_sections,
+            terms_df,
+            snapshot,
+            collisions,
+            apply_course_limit=not plan.is_authoritative("courses"),
+        )
+        sections_df = generated_sections_df
+        if plan.should_generate("courses"):
+            courses_df = generated_courses_df
+
+    students_df = (
+        snapshot.tables["students"].copy()
+        if plan.is_authoritative("students")
+        else _generate_people(
+            rng,
+            config,
+            config.student_count,
+            "student",
+            attribute_catalog,
+            set(snapshot.existing_emails),
+            set(snapshot.existing_school_ids),
+            collisions,
+        )
+    )
+    instructors_df = (
+        snapshot.tables["instructors"].copy()
+        if plan.is_authoritative("instructors")
+        else _generate_people(
+            rng,
+            config,
+            config.instructor_count,
+            "instructor",
+            attribute_catalog,
+            set(snapshot.existing_emails).union(set(students_df["Email"].str.lower())),
+            set(snapshot.existing_school_ids).union(set(students_df["School Id"])),
+            collisions,
+        )
     )
 
-    files: dict[str, pd.DataFrame] = {
-        "terms": terms_df,
-        "course_sections": sections_df,
-        "students": students_df,
-        "instructors": instructors_df,
-        "student_enrollments": enrollments_df,
-        "instructor_assignments": assignments_df,
-    }
-    if config.structure_mode == "hierarchy":
-        files["courses"] = courses_df
-    if config.structure_mode == "hierarchy":
-        files["hierarchy"] = validated_hierarchy
+    enrollments_df = (
+        snapshot.tables["student_enrollments"].copy()
+        if plan.is_authoritative("student_enrollments")
+        else pd.DataFrame(columns=CSV_HEADERS["student_enrollments"])
+    )
+    assignments_df = (
+        snapshot.tables["instructor_assignments"].copy()
+        if plan.is_authoritative("instructor_assignments")
+        else pd.DataFrame(columns=CSV_HEADERS["instructor_assignments"])
+    )
+    if plan.should_generate("student_enrollments") or plan.should_generate("instructor_assignments"):
+        generated_enrollments_df, generated_assignments_df = _build_assignments_and_enrollments(
+            rng,
+            sections_df,
+            students_df,
+            instructors_df,
+            config,
+        )
+        if plan.should_generate("student_enrollments"):
+            enrollments_df = generated_enrollments_df
+        if plan.should_generate("instructor_assignments"):
+            assignments_df = generated_assignments_df
+
+    files: dict[str, pd.DataFrame] = {}
+    for key in FILE_STEMS:
+        if plan.is_authoritative(key):
+            files[key] = snapshot.tables[key].copy()
+        elif key == "terms" and plan.should_generate(key):
+            files[key] = terms_df
+        elif key == "courses" and (plan.should_generate(key) or plan.is_authoritative(key)):
+            files[key] = courses_df
+        elif key == "hierarchy" and (plan.should_generate(key) or plan.is_authoritative(key)):
+            files[key] = validated_hierarchy
+        elif key == "course_sections" and plan.should_generate(key):
+            files[key] = sections_df
+        elif key == "students" and plan.should_generate(key):
+            files[key] = students_df
+        elif key == "instructors" and plan.should_generate(key):
+            files[key] = instructors_df
+        elif key == "student_enrollments" and plan.should_generate(key):
+            files[key] = enrollments_df
+        elif key == "instructor_assignments" and plan.should_generate(key):
+            files[key] = assignments_df
 
     duplicate_report = pd.DataFrame(columns=["dataset", "row_index"])
     if config.duplicate_mode:

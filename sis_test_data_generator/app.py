@@ -25,7 +25,12 @@ from sis_generator.constants import (
     FILE_STEMS,
 )
 from sis_generator.data_loader import load_metadata
-from sis_generator.generator import GenerationConfig, TERM_SYSTEM_PATTERNS, generate_package
+from sis_generator.generator import (
+    GenerationConfig,
+    TERM_SYSTEM_PATTERNS,
+    generate_package,
+    plan_generation,
+)
 from sis_generator.snapshot import SnapshotContext, load_snapshot_files
 
 
@@ -44,9 +49,31 @@ st.caption(
 
 def _load_snapshot_from_state() -> SnapshotContext:
     uploaded = st.session_state.get("snapshot_uploads") or []
+    signature = _snapshot_signature(uploaded)
+    cached = st.session_state.get("snapshot_context")
+    cached_signature = st.session_state.get("snapshot_signature")
+    if isinstance(cached, SnapshotContext) and cached_signature == signature:
+        return cached
     if not uploaded:
-        return SnapshotContext()
-    return load_snapshot_files(uploaded)
+        context = SnapshotContext()
+    else:
+        context = load_snapshot_files(uploaded)
+    st.session_state.snapshot_context = context
+    st.session_state.snapshot_signature = signature
+    return context
+
+
+def _snapshot_signature(uploaded_files: list | None) -> tuple[tuple[str, int], ...]:
+    if not uploaded_files:
+        return ()
+    signature = []
+    for uploaded_file in uploaded_files:
+        try:
+            size = len(uploaded_file.getvalue())
+        except Exception:
+            size = 0
+        signature.append((uploaded_file.name, size))
+    return tuple(sorted(signature))
 
 
 def _catalog_editor(
@@ -83,6 +110,8 @@ def _catalog_editor(
             st.session_state[state_key] = (
                 load_academic_unit_catalog(path)
                 if columns == ACADEMIC_UNIT_CATALOG_COLUMNS
+                else load_course_catalog(path)
+                if columns == COURSE_CATALOG_COLUMNS
                 else pd.read_csv(path, dtype=str).fillna("")[columns]
             )
             st.success(f"{title} saved.")
@@ -91,6 +120,8 @@ def _catalog_editor(
             st.session_state[state_key] = (
                 load_academic_unit_catalog(path)
                 if columns == ACADEMIC_UNIT_CATALOG_COLUMNS
+                else load_course_catalog(path)
+                if columns == COURSE_CATALOG_COLUMNS
                 else pd.read_csv(path, dtype=str).fillna("")[columns]
             )
             st.success(f"{title} reloaded.")
@@ -102,6 +133,65 @@ def _catalog_editor(
             mime="text/csv",
             use_container_width=True,
         )
+
+
+def _snapshot_status_summary(snapshot: SnapshotContext, structure_mode: str) -> str:
+    plan = plan_generation(structure_mode, snapshot)
+    labels = {key: f"`{value}`" for key, value in FILE_STEMS.items()}
+    lines: list[str] = []
+    for key in FILE_STEMS:
+        if plan.is_authoritative(key):
+            lines.append(f"Using uploaded {labels[key]} as authoritative input")
+
+    source_messages = {
+        "generated:catalog": "the fallback course catalog",
+        "generated:courses": "generated courses",
+        "generated:course_sections": "generated course sections",
+        "generated:fallback_hierarchy": "the fallback hierarchy",
+        "generated:hierarchy": "the active hierarchy",
+        "generated:terms": "newly generated terms",
+        "generated:students": "generated students",
+        "generated:instructors": "generated instructors",
+        "generated:catalog+students": "fallback sections and generated students",
+        "generated:catalog+instructors": "fallback sections and generated instructors",
+        "generated:courses+students": "course-derived sections and generated students",
+        "generated:courses+instructors": "course-derived sections and generated instructors",
+        "generated:course_sections+students": "generated sections and generated students",
+        "generated:course_sections+instructors": "generated sections and generated instructors",
+        "uploaded:terms": "uploaded `terms.csv`",
+        "uploaded:courses": "uploaded `courses.csv`",
+        "uploaded:course_sections": "uploaded `course-sections.csv`",
+        "uploaded:hierarchy": "uploaded `hierarchy.csv`",
+    }
+    for key in FILE_STEMS:
+        if not plan.should_generate(key):
+            continue
+        source = plan.source_for(key)
+        if source:
+            lines.append(
+                f"Generating {labels[key]} from {source_messages.get(source, source.replace('_', ' '))}"
+            )
+
+    if structure_mode == "hierarchy":
+        if "course_sections" in snapshot.tables:
+            lines.append("Uploaded `course-sections.csv` already defines the structural context for this run")
+        elif "hierarchy" in snapshot.tables:
+            lines.append("Uploaded `hierarchy.csv` will be reused as the authoritative hierarchy")
+        else:
+            lines.append("No hierarchy upload detected; the app-managed academic unit catalog will be used as fallback")
+    elif "hierarchy" in snapshot.tables:
+        lines.append("Flat mode will derive hierarchy-related section fields from uploaded `hierarchy.csv`")
+    else:
+        lines.append("Flat mode will leave hierarchy-related section fields blank unless `hierarchy.csv` is uploaded")
+
+    if "courses" in snapshot.tables:
+        sample_course_ids = ", ".join(snapshot.tables["courses"]["Abbreviation"].astype(str).head(5).tolist())
+        course_text = f"Uploaded `courses.csv` detected with {len(snapshot.tables['courses'])} course definitions"
+        if sample_course_ids:
+            course_text += f" (sample IDs: {sample_course_ids})"
+        lines.append(course_text)
+
+    return "Snapshot plan: " + "; ".join(lines) + "."
 
 
 ensure_catalogs_exist()
@@ -120,6 +210,8 @@ if "generation_notice" not in st.session_state:
     st.session_state.generation_notice = None
 if "generation_error" not in st.session_state:
     st.session_state.generation_error = None
+if "last_generation_config" not in st.session_state:
+    st.session_state.last_generation_config = None
 
 metadata = load_metadata()
 tab_generate, tab_snapshot, tab_units, tab_courses, tab_attributes, tab_review = st.tabs(
@@ -143,7 +235,18 @@ with tab_generate:
     st.subheader("Run Configuration")
     snapshot_file_list = ", ".join(FILE_STEMS.values())
     current_year = datetime.now().year
+    st.markdown("#### Snapshot Context")
+    st.write(
+        "Upload any combination of existing SIS CSVs here. Uploaded datasets stay attached to this run configuration and are treated as authoritative references."
+    )
+    st.file_uploader(
+        "Upload existing SIS files",
+        type=["csv"],
+        accept_multiple_files=True,
+        key="snapshot_uploads",
+    )
     snapshot = _load_snapshot_from_state()
+    generation_plan = plan_generation("hierarchy", snapshot)
 
     if st.session_state.generation_notice:
         st.success(st.session_state.generation_notice)
@@ -151,6 +254,9 @@ with tab_generate:
     if st.session_state.generation_error:
         st.error(st.session_state.generation_error)
         st.session_state.generation_error = None
+    if snapshot.errors:
+        for error in snapshot.errors:
+            st.error(error)
 
     st.markdown("#### General")
     general_col1, general_col2, general_col3 = st.columns(3)
@@ -173,6 +279,7 @@ with tab_generate:
                 "Flat mode omits `hierarchy.csv` and `courses.csv`, and collapses section reporting to the highest academic level."
             ),
         )
+        generation_plan = plan_generation(structure_mode, snapshot)
         flat_variance_rate = st.slider(
             "Flat-mode variance rate",
             min_value=0.0,
@@ -207,19 +314,39 @@ with tab_generate:
             "Delta from Snapshot requires your existing SIS files in the "
             f"**Snapshot Context** tab before generation: {snapshot_file_list}."
         )
-    if structure_mode == "hierarchy":
-        if "hierarchy" in snapshot.tables:
-            st.info("Uploaded `hierarchy.csv` will override the fallback academic unit catalog for this run.")
-        else:
-            st.info("No hierarchy upload detected. The app-managed academic unit catalog will be used as the fallback hierarchy.")
-    else:
-        st.info("Flat mode omits `hierarchy.csv` and `courses.csv`, and maps section reporting to the highest academic level.")
+    st.info(_snapshot_status_summary(snapshot, structure_mode))
 
     st.markdown("#### Terms")
     term_col1, term_col2, term_col3, term_col4 = st.columns(4)
     with term_col1:
-        term_count = st.number_input("Terms to generate", min_value=0, value=3, step=1)
-    if mode == "full_package":
+        term_count = st.number_input(
+            "Terms to generate",
+            min_value=0,
+            value=3,
+            step=1,
+            disabled=not generation_plan.should_generate("terms"),
+        )
+    if generation_plan.is_authoritative("terms"):
+        term_system = "semester"
+        start_term_label = "Spring"
+        start_term_year = current_year
+        with term_col2:
+            st.text_input("Academic calendar", value="Uploaded terms.csv", disabled=True)
+        with term_col3:
+            st.text_input("Starting term", value="From uploaded terms", disabled=True)
+        with term_col4:
+            st.text_input("Starting year", value="From uploaded terms", disabled=True)
+    elif not generation_plan.should_generate("terms"):
+        term_system = "semester"
+        start_term_label = "Spring"
+        start_term_year = current_year
+        with term_col2:
+            st.text_input("Academic calendar", value="Derived from uploaded course sections", disabled=True)
+        with term_col3:
+            st.text_input("Starting term", value="Not generating terms", disabled=True)
+        with term_col4:
+            st.text_input("Starting year", value="Not generating terms", disabled=True)
+    elif mode == "full_package":
         with term_col2:
             term_system = st.selectbox(
                 "Academic calendar",
@@ -252,17 +379,57 @@ with tab_generate:
     st.markdown("#### Population")
     population_col1, population_col2, population_col3 = st.columns(3)
     with population_col1:
-        courses_count = st.number_input(
-            "Courses to generate",
-            min_value=0,
-            value=120,
-            step=10,
-            help="Controls how many unique courses are created, not how many course sections. Total course sections are determined by this value together with the section settings below.",
-        )
+        if "course_sections" in snapshot.tables:
+            course_source_count = len(snapshot.tables["course_sections"])
+            course_source_label = "uploaded course-sections.csv"
+            st.text_input(
+                "Course source",
+                value=f"{course_source_count} section rows from {course_source_label}",
+                disabled=True,
+                help="Uploaded course sections are authoritative for this run, so course generation is skipped.",
+            )
+            courses_count = 0
+        elif "courses" in snapshot.tables:
+            course_source_count = (
+                len(snapshot.tables["courses"])
+            )
+            course_source_label = "uploaded courses.csv"
+            st.text_input(
+                "Course source",
+                value=f"{course_source_count} courses from {course_source_label}",
+                disabled=True,
+                help="Uploaded courses are authoritative for this run and will drive section generation directly.",
+            )
+            courses_count = course_source_count
+        else:
+            catalog_course_count = len(st.session_state.course_catalog_df)
+            default_course_count = min(120, catalog_course_count)
+            courses_count = st.number_input(
+                "Courses to generate",
+                min_value=0,
+                max_value=int(catalog_course_count),
+                value=int(default_course_count),
+                step=10,
+                disabled=not generation_plan.should_generate("course_sections"),
+                help="Controls how many courses are selected from the managed course catalog for each generated term. Total sections across the package scale with the number of generated terms.",
+            )
+            course_source_count = int(courses_count)
     with population_col2:
-        instructor_count = st.number_input("Instructors to generate", min_value=0, value=80, step=5)
+        instructor_count = st.number_input(
+            "Instructors to generate",
+            min_value=0,
+            value=80,
+            step=5,
+            disabled=not generation_plan.should_generate("instructors"),
+        )
     with population_col3:
-        student_count = st.number_input("Students to generate", min_value=0, value=500, step=25)
+        student_count = st.number_input(
+            "Students to generate",
+            min_value=0,
+            value=500,
+            step=25,
+            disabled=not generation_plan.should_generate("students"),
+        )
 
     st.markdown("#### Section Load")
     range_col1, range_col2, range_col3 = st.columns(3)
@@ -273,7 +440,20 @@ with tab_generate:
             max_value=10,
             value=(1, 3),
             step=1,
+            disabled=not generation_plan.should_generate("course_sections"),
         )
+        if generation_plan.should_generate("course_sections") and "course_sections" not in snapshot.tables:
+            min_sections_per_term = int(course_source_count) * int(sections_per_course_range[0])
+            max_sections_per_term = int(course_source_count) * int(sections_per_course_range[1])
+            if generation_plan.should_generate("terms"):
+                st.caption(
+                    f"Estimated generated sections: {min_sections_per_term}-{max_sections_per_term} per term, "
+                    f"{min_sections_per_term * int(term_count)}-{max_sections_per_term * int(term_count)} total across {int(term_count)} term(s)."
+                )
+            else:
+                st.caption(
+                    f"Estimated generated sections: {min_sections_per_term}-{max_sections_per_term} per term."
+                )
     with range_col2:
         enrollments_per_section_range = st.slider(
             "Enrollments per section",
@@ -296,6 +476,11 @@ with tab_generate:
     with quality_col1:
         edge_case_rate = st.slider("Edge-case name rate", min_value=0.0, max_value=0.25, value=0.07, step=0.01)
     with quality_col2:
+        include_section_attributes = st.toggle(
+            "Include section attributes",
+            value=True,
+            help="When off, generated course sections keep hierarchy fields but leave Program, Campus, Session, Course Level, Course Type, Delivery Method, and Course Attributes blank.",
+        )
         duplicate_mode = st.toggle("Inject intentional duplicates", value=False)
         duplicate_count = st.number_input(
             "Duplicate rows",
@@ -316,14 +501,12 @@ with tab_generate:
         st.rerun()
 
     if st.session_state.is_generating_package:
+        if snapshot.errors:
+            st.session_state.generation_error = "Resolve snapshot upload errors before generating. The app will not fall back to the managed course catalog while uploads are invalid."
+            st.session_state.is_generating_package = False
+            st.rerun()
         snapshot_context = (
             snapshot
-            if mode == "delta"
-            else SnapshotContext(
-                tables={"hierarchy": snapshot.tables["hierarchy"]}
-                if "hierarchy" in snapshot.tables
-                else {}
-            )
         )
         config = GenerationConfig(
             mode=mode,
@@ -333,7 +516,7 @@ with tab_generate:
             term_system=term_system,
             start_term_label=start_term_label,
             start_term_year=int(start_term_year),
-            courses_count=int(courses_count),
+            courses_count=course_source_count,
             sections_per_course_min=int(sections_per_course_range[0]),
             sections_per_course_max=int(sections_per_course_range[1]),
             student_count=int(student_count),
@@ -349,6 +532,7 @@ with tab_generate:
             institution_name=institution_name.strip(),
             institution_abbreviation=institution_abbreviation.strip().upper(),
             flat_variance_rate=float(flat_variance_rate),
+            include_section_attributes=bool(include_section_attributes),
         )
         try:
             with st.spinner("Generating SIS Package..."):
@@ -359,6 +543,14 @@ with tab_generate:
                     academic_unit_catalog=st.session_state.academic_unit_catalog_df,
                     snapshot=snapshot_context,
                 )
+                st.session_state.last_generation_config = {
+                    "mode": mode,
+                    "structure_mode": structure_mode,
+                    "courses_count": int(course_source_count),
+                    "term_count": int(term_count),
+                    "sections_per_course_min": int(sections_per_course_range[0]),
+                    "sections_per_course_max": int(sections_per_course_range[1]),
+                }
             st.session_state.generation_notice = "Generated package is ready for review and download."
         except ValueError as exc:
             st.session_state.generation_error = str(exc)
@@ -370,14 +562,7 @@ with tab_generate:
 with tab_snapshot:
     st.subheader("Snapshot Context")
     st.write(
-        "Upload any combination of the existing SIS CSVs to constrain delta generation. "
-        "If `hierarchy.csv` is provided, hierarchy mode will use it instead of the fallback academic unit catalog."
-    )
-    snapshot_uploads = st.file_uploader(
-        "Upload existing SIS files",
-        type=["csv"],
-        accept_multiple_files=True,
-        key="snapshot_uploads",
+        "Snapshot uploads now live on the Generate tab so the upload state and run configuration stay together. This tab is a read-only view of the currently loaded snapshot context."
     )
     snapshot = _load_snapshot_from_state()
     if snapshot.errors:
@@ -404,12 +589,12 @@ with tab_units:
 with tab_courses:
     _catalog_editor(
         CATALOG_DISPLAY_NAMES["course_catalog"],
-        "Reusable course definitions that drive section generation and, in hierarchy mode, exported `courses.csv`.",
+        "Canonical course catalog. Required columns are Title, Abbreviation, Parent Academic Unit, and Academic Unit Type. Subject Code and Course Number are optional supplemental columns.",
         st.session_state.course_catalog_df.copy(),
         "course_catalog_df",
         COURSE_CATALOG_PATH,
         COURSE_CATALOG_COLUMNS,
-        ["subject_code", "course_number", "course_id"],
+        ["Subject Code", "Course Number", "Abbreviation"],
     )
 
 
@@ -428,9 +613,18 @@ with tab_attributes:
 with tab_review:
     st.subheader("Review & Export")
     result = st.session_state.result
+    last_generation_config = st.session_state.last_generation_config
     if result is None:
         st.info("Generate a package to review files, collisions, and downloads.")
     else:
+        if last_generation_config:
+            st.caption(
+                "Last generated package used "
+                f"{last_generation_config['courses_count']} course(s), "
+                f"{last_generation_config['term_count']} term(s), and "
+                f"{last_generation_config['sections_per_course_min']}-{last_generation_config['sections_per_course_max']} section(s) per course per term "
+                f"in {last_generation_config['structure_mode']} mode."
+            )
         sum_col, collision_col, dup_col = st.columns(3)
         with sum_col:
             st.metric("Datasets", len(result.files))
